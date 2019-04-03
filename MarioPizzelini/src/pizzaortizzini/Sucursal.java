@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Sucursal {
     private String id;
-    private String direccion;
+    private String direccison;
     private ArrayList<Empleado> empleados;
     private Arraylist<Pedido> pedidos;
     private Bodega inventario;

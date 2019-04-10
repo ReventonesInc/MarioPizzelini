@@ -1,4 +1,4 @@
-package Clases;
+package clases;
 import java.util.*;
 
 /* Clase que permite el manejo de la colección de empleado registrados en la

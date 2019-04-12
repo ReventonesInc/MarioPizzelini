@@ -8,12 +8,8 @@ import java.util.*;
 
 /**
  *
- * @author Luis Maturana
+ * @author ceap2
  */
-public class Main {
-    
-    public static void main(String[] args) {
-    // TODO code application logic here
-    }
+public class Ingredientes {
     
 }

@@ -4,11 +4,20 @@
  * and open the template in the editor.
  */
 package clases;
-
+import java.util.*;
 /**
  *
  * @author XavierKrostya
  */
 public class ListaPromocion {
+    private ArrayList<Promocion> promociones;
     
+    public ListaPromocion(){
+        this.promociones = new ArrayList<>();
+    }
+    
+    public ArrayList<Promocion> getPromociones(){
+        ArrayList<Promocion> copia = promociones;
+        return copia;
+    }
 }

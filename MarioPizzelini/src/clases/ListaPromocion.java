@@ -20,4 +20,17 @@ public class ListaPromocion {
         ArrayList<Promocion> copia = promociones;
         return copia;
     }
+    
+    public boolean agregarPromocion(Promocion nueva){
+        if(promociones.contains(nueva)){
+            return false;
+        }
+        else{
+            return promociones.add(nueva);
+        }
+    }
+    
+    public boolean elimarPromocion(Promocion eliminar){
+        return promociones.remove(eliminar);
+    }
 }

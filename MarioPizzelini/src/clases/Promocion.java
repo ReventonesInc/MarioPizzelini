@@ -9,6 +9,6 @@ package clases;
  *
  * @author XavierKrostya
  */
-public class ListaPedidos {
+public class Promocion {
     
 }

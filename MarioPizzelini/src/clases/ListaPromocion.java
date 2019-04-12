@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package clases;
+
 /**
  *
  * @author XavierKrostya
  */
-public class Pizza {
+public class ListaPromocion {
     
 }

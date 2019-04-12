@@ -12,8 +12,8 @@ import java.util.*;
 public class ListaPromocion {
     private ArrayList<Promocion> promociones;
     
-    public ListaPromocion(){
-        this.promociones = new ArrayList();
+    public ListaPromocion(ArrayList<Promocion> que){
+        this.promociones = que;
     }
     
     public ArrayList<Promocion> getPromociones(){

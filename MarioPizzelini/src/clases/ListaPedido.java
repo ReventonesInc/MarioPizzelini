@@ -10,8 +10,8 @@ public class ListaPedido {
     
     //A continuación se el constructor de ListaPedido
     
-    public ListaPedido() {
-        this.pedidos = new ArrayList();
+    public ListaPedido(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
     
     //Getter y setters correspondientes

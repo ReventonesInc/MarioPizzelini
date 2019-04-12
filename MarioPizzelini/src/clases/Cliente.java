@@ -16,6 +16,14 @@ public class Cliente {
     private String telefono;
     private String direccion;
 
+    public Cliente(String rut, String nombre, String apellido, String telefono) {
+        this.rut = rut;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.direccion = null;
+    }
+    
     public Cliente(String rut, String nombre, String apellido, String telefono, String direccion) {
         this.rut = rut;
         this.nombre = nombre;
@@ -63,6 +71,5 @@ public class Cliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
     
 }

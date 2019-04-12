@@ -13,12 +13,26 @@ import java.util.*;
 public class ListaCliente {
     private ArrayList<Cliente> clientes;
 
-    public ListaCliente(ArrayList<Cliente> clientes) {
-        this.clientes = clientes;
+    public ListaCliente() {
+        this.clientes = new ArrayList<>();
     }
 
     public ArrayList<Cliente> getClientes() {
         return clientes;
+    }
+    /**
+    * Retorna un valor booleano. True si lo agrega, false si no lo agrega.
+    * <p>
+    * El argumento nuevoCliente debe ser tipo clase Cliente.
+    * @param  nuevo Cliente a agregar en el ArrayList
+    * @return      Valor booleano
+    */
+    public boolean agregarCliente(Cliente nuevo) {
+        if(clientes.contains(nuevo) == true) {
+            return false;
+        }        
+        clientes.add(nuevo);
+        return true;
     }
     
 }

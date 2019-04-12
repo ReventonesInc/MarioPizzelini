@@ -12,13 +12,8 @@ import java.util.*;
 public class ListaProducto {
     private ArrayList<Producto> productos;
 
-    public ListaProducto(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public ListaProducto() {
+        this.productos = new ArrayList<>();
     }
-
-    public ArrayList<Producto> getProductos() {
-        return productos;
-    }
-    
     
 }

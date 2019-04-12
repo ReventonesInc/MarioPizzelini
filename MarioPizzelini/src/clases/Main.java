@@ -7,8 +7,12 @@ package clases;
 
 /**
  *
- * @author XavierKrostya
+ * @author Luis Maturana
  */
-public class ListaRefrescos {
+public class Main {
+    
+    public static void main(String[] args) {
+    // TODO code application logic here
+    }
     
 }

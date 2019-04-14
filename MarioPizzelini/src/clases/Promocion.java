@@ -17,6 +17,41 @@ public class Promocion {
     
     public Promocion(String nombrePromocion, String nombrePromo, Pizza[] pizzas, Producto[] productos){
         this.nombrePromocion = nombrePromocion;
+        this.descripcionPromo = nombrePromo;
+        this.pizzas = pizzas;
+        this.productosExtra = productos;
+    }
+    public Promocion(String nombrePromocion, String nombrePromo, Pizza[] pizzas){
+        this.nombrePromocion = nombrePromocion;
+        this.descripcionPromo = nombrePromo;
+        this.pizzas = pizzas;
+        this.productosExtra = null;
+    }
+
+    public String getNombrePromocion() {
+        return nombrePromocion;
+    }
+
+    public void setNombrePromocion(String nombrePromocion) {
+        this.nombrePromocion = nombrePromocion;
+    }
+
+    public String getDescripcionPromo() {
+        return descripcionPromo;
+    }
+
+    public void setDescripcionPromo(String descripcionPromo) {
+        this.descripcionPromo = descripcionPromo;
+    }
+
+    public Pizza[] getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(Pizza[] pizzas) {
+        this.pizzas = pizzas;
+    }
+
     public Producto[] getProductosExtra() {
         return productosExtra;
     }

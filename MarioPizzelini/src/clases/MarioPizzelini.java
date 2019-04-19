@@ -11,19 +11,11 @@ import java.util.*;
  * @author ceap2
  */
 public class MarioPizzelini {
-    private String[] ingredientes;
     private ListaCliente clientes;
-    private ListaProducto productos;
-    private ListaPromocion promociones;
-    private ListaPizza pizzas;
     private ListaPedido pedidos;
 
-    public MarioPizzelini(int cantIngredientes) {
-        ingredientes = new String[cantIngredientes];
+    public MarioPizzelini() {
         this.clientes = new ListaCliente();
-        this.productos = new ListaProducto();
-        this.promociones = new ListaPromocion();
-        this.pizzas = new ListaPizza();
         this.pedidos = new ListaPedido();
     }
     

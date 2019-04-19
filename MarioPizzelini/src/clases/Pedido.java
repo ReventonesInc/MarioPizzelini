@@ -8,11 +8,10 @@ public class Pedido {
     private String id;                          //id del pedido
     private Cliente clienteReferenciado;        //cliente que ordenó el pedido
     private Pizza pizzaReferenciada;            //Pizza que puede escoger el cliente
-    private Promocion promoReferenciada;        //Promoción que puede escoger el cliente
     private Producto productoReferenciado;      //Producto que puede escoger el cliente
     
     //A continuación constructores de pedido
-    
+    /*
     //Cuando el cliente pide: Promo, Producto, Pizza
     public Pedido(String id, Cliente clienteReferenciado, Pizza pizzaReferenciada, Promocion promoReferenciada, Producto productoReferenciado){
         this.id = id;
@@ -59,7 +58,7 @@ public class Pedido {
         this.promoReferenciada = promoReferenciada;
         this.pizzaReferenciada = pizzaReferenciada;
     }
-    
+    */
     //Getters y setters correspondientes
     
     public String getId() {
@@ -84,14 +83,6 @@ public class Pedido {
 
     public void setPizzaReferenciada(Pizza pizzaReferenciada) {
         this.pizzaReferenciada = pizzaReferenciada;
-    }
-
-    public Promocion getPromoReferenciada() {
-        return promoReferenciada;
-    }
-
-    public void setPromoReferenciada(Promocion promoReferenciada) {
-        this.promoReferenciada = promoReferenciada;
     }
 
     public Producto getProductoReferenciado() {

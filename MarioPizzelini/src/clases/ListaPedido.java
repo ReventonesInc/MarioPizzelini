@@ -46,12 +46,10 @@ public class ListaPedido {
      * @return Boolean
      */
     public Boolean agregarPedido(Pedido nuevo){
-        if(pedidos.isEmpty()){
-            return pedidos.add(nuevo);
+        if(pedidos.contains(nuevo)){
+            return false;
         }
-        else{
-            return pedidos.add(nuevo);
-        }
+        return pedidos.add(nuevo);
     }
     
     /**

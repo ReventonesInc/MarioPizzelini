@@ -8,7 +8,7 @@ import java.util.*;
 
 /**
  *
- * @author ceap2
+ * @author lusho
  */
 public class ListaCliente {
     private ArrayList<Cliente> clientes;
@@ -28,11 +28,20 @@ public class ListaCliente {
     * @return      Valor booleano
     */
     public boolean agregarCliente(Cliente nuevo) {
-        if(clientes.contains(nuevo) == true) {
+        if(clientes.contains(nuevo)) {
             return false;
         }        
-        clientes.add(nuevo);
-        return true;
+        return clientes.add(nuevo);
     }
     
+    public boolean eliminarCliente(Cliente nuevo) {
+        if(clientes.contains(nuevo)) {
+            return clientes.remove(nuevo);            
+        }
+        return false;
+    }
+
+    public void modificarCliente(Cliente modificar, Cliente modificado) {
+        clientes.set(clientes.indexOf(modificar), modificado);
+    }
 }

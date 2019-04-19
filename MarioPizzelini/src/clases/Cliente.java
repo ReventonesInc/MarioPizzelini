@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package clases;
-
+import java.util.*;
 /**
  *
  * @author ceap2
@@ -14,23 +14,23 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String telefono;
-    private String direccion;
+    //private String direccion;
 
     public Cliente(String rut, String nombre, String apellido, String telefono) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.direccion = null;
+        //this.direccion = null;
     }
     
-    public Cliente(String rut, String nombre, String apellido, String telefono, String direccion) {
+    /*public Cliente(String rut, String nombre, String apellido, String telefono, String direccion) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
-    }
+    }*/
 
     public String getRut() {
         return rut;
@@ -64,12 +64,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
+    /*public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
+    }*/
     
 }

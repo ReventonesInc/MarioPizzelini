@@ -34,7 +34,29 @@ public class Sucursal {
 
     public Inventario getBodega() {
         return bodega;
-    }    
+    }
     
+    public Boolean agregarIngrediente(Ingrediente nuevo){
+        return bodega.agregarIngrediente(nuevo);
+    }
     
+    public Boolean eliminarIngrediente(Ingrediente eliminar){
+        return bodega.eliminarIngrediente(eliminar);
+    }
+    
+    public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
+        bodega.modificarIngrediente(modificar, modificado);
+    }
+    
+    public Boolean agregarBebestible(Bebestible nuevo){
+        return bodega.agregarBebestible(nuevo);
+    }
+    
+    public Boolean eliminarBebestible(Bebestible eliminar){
+        return bodega.eliminarBebestible(eliminar);
+    }
+    
+    public void modificarBebestible(Bebestible modificar, Bebestible modificado){
+        bodega.modificarBebestible(modificar, modificado);
+    }
 }

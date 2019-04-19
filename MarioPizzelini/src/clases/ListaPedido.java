@@ -22,6 +22,7 @@ public class ListaPedido {
     
     //Métodos de ListaPedido
     
+    
     /**
      * Retorna un pedido si encuentra la identificación registrada en el
      * ArrayList de pedidos, si no retornará null.
@@ -29,6 +30,8 @@ public class ListaPedido {
      * @param idPedido identificación del pedido
      * @return class Pedido o null
      */
+    
+    /*
     public Pedido buscarPedido(String idPedido){
         for(int i = 0; pedidos != null && i < pedidos.size(); i++){
             if((pedidos.get(i)).getId().equals(idPedido)){
@@ -37,6 +40,7 @@ public class ListaPedido {
         }
         return null;
     }
+    */
     
     /**
      * Retorna true si el pedido ingresado es agregado existosamente del ArrayList,
@@ -56,21 +60,14 @@ public class ListaPedido {
      * Retorna true si se elimina exitosamente del ArrayList, en el caso contrario
      * retornará false.
      * <p>
-     * @param idPedido identificación del pedido
+     * @param eliminar identificación del pedido
      * @return Boolean
      */
-    public Boolean eliminarPedido(String idPedido){
-        if(pedidos.isEmpty()){
-            return false;
+    public boolean eliminarPedido(Pedido eliminar) {
+        if(pedidos.contains(eliminar)) {
+            return pedidos.remove(eliminar);            
         }
-        else{
-            Pedido pedidoBuscado = buscarPedido(idPedido);
-            if(pedidoBuscado != null){
-                return pedidos.remove(pedidoBuscado);
-            }
-            else{
-                return false;
-            }
-        }
+        return false;
     }
+    
 }

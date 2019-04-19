@@ -34,9 +34,9 @@ public class ListaCliente {
         return clientes.add(nuevo);
     }
     
-    public boolean eliminarCliente(Cliente nuevo) {
-        if(clientes.contains(nuevo)) {
-            return clientes.remove(nuevo);            
+    public boolean eliminarCliente(Cliente eliminar) {
+        if(clientes.contains(eliminar)) {
+            return clientes.remove(eliminar);            
         }
         return false;
     }

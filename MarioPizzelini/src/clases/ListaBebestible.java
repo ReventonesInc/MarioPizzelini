@@ -2,8 +2,7 @@
  * Esta clase contiene una lista de bebestibles, en el cual se manejarán
  * sus métodos correspondientes.
  */
-package Listas;
-import clases.Bebestible;
+package clases;
 import java.util.ArrayList;
 
 public class ListaBebestible {

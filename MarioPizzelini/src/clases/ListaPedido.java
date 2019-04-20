@@ -2,8 +2,7 @@
  * Clase ListaPedido, el cual manejará un ArrayList de tipo Pedido.
  * En general se guardarán los pedidos de la pizzería.
  */
-package Listas;
-import clases.Pedido;
+package clases;
 import java.util.ArrayList;
 
 public class ListaPedido {

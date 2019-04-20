@@ -5,6 +5,9 @@
  */
 package clases;
 
+import listas.ListaBebestible;
+import listas.ListaIngrediente;
+
 public class Inventario {
     private ListaIngrediente ingredientes;  //Lista de ingredientes
     private ListaBebestible bebestibles;  //Lista de bebestibles

@@ -5,6 +5,9 @@
  */
 package clases;
 
+import listas.ListaPedido;
+import listas.ListaCliente;
+
 /**
  *
  * @author XavierKrostya

@@ -5,8 +5,8 @@
  */
 package clases;
 
-import Listas.ListaCliente;
-import Listas.ListaPedido;
+import listas.ListaPedido;
+import listas.ListaCliente;
 
 /**
  *

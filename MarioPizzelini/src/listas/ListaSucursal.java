@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Listas;
+package listas;
 import clases.Sucursal;
 import java.util.ArrayList;
 

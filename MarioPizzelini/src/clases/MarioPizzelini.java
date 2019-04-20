@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package clases;
-import Listas.ListaPedido;
-import Listas.ListaCliente;
+import listas.ListaPedido;
+import listas.ListaCliente;
 import java.util.*;
 
 /**

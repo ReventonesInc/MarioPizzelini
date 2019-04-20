@@ -9,14 +9,18 @@ import java.util.ArrayList;
 
 public class ListaSucursal {
     private ArrayList<Sucursal> sucursales;
-
+    
+    //Constructor
     public ListaSucursal() {
         sucursales = new ArrayList<>();
     }
-
+    
+    /*Getters y setters correspondientes*/
     public ArrayList<Sucursal> getSucursales() {
         return sucursales;
     }
+    
+    /*------ Método básico de ListaSucursal ------*/
     
     public Boolean agregarSucursal(Sucursal nuevo){
         if(sucursales.contains(nuevo)){

@@ -8,23 +8,37 @@ package clases;
 import listas.ListaPedido;
 import listas.ListaCliente;
 
-/**
- *
- * @author XavierKrostya
- */
 public class Sucursal {
-    private String id;
+    private String rut;
     private String direccion;
     private ListaPedido pedidos;
     private ListaCliente clientes;
     private Inventario bodega;
-
-    public Sucursal(String id, String direccion, ListaPedido pedidos, ListaCliente clientes, Inventario bodega) {
-        this.id = id;
+    
+    //Constructor
+    public Sucursal(String rut, String direccion, ListaPedido pedidos, ListaCliente clientes, Inventario bodega) {
+        this.rut = rut;
         this.direccion = direccion;
         this.pedidos = pedidos;
         this.clientes = clientes;
         this.bodega = bodega;
+    }
+    
+    /*Getters y setters correspondientes*/
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
     
     public ListaPedido getPedidos() {
@@ -38,6 +52,8 @@ public class Sucursal {
     public Inventario getBodega() {
         return bodega;
     }
+    
+    /*----- Métodos básicos de Sucursal ------*/
     
     public Boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);

@@ -6,18 +6,20 @@
 package clases;
 
 public class Inventario {
-    private ListaIngrediente ingredientes;
-    private ListaBebestible bebestibles;
-
+    private ListaIngrediente ingredientes;  //Lista de ingredientes
+    private ListaBebestible bebestibles;  //Lista de bebestibles
+    
+    //Constructor
     public Inventario(ListaIngrediente ingredientes, ListaBebestible bebestibles) {
         this.ingredientes = ingredientes;
         this.bebestibles = bebestibles;
     }
-
+    
+    /*Getters y setters correspondientes*/
     public ListaIngrediente getIngredientes() {
         return ingredientes;
     }
-
+    
     public void setIngredientes(ListaIngrediente ingredientes) {
         this.ingredientes = ingredientes;
     }
@@ -30,6 +32,18 @@ public class Inventario {
         this.bebestibles = bebestibles;
     }
     
+    /*------ Métodos básicos de inventario ------*/
+    
+    /*--- Métodos para Ingrediente ---*/
+    
+    /**
+     * Retorna un true, si el ingrediente ingresado por el parámetro
+     * es agregado a la lista exitosamente, en cambio, retornará false si
+     * no se agrega. Además se ocupa el método agregarIngredientes()
+     * <p>
+     * @param nuevo Clase Ingrediente.
+     * @return Booleano.
+     */
     public Boolean agregarIngrediente(Ingrediente nuevo){
         return ingredientes.agregarIngrediente(nuevo);
     }

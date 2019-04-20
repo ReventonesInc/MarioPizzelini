@@ -21,6 +21,11 @@ public class ListaCliente {
     public ArrayList<Cliente> getClientes() {
         return clientes;
     }
+    
+    public Boolean estaVacio(){
+        return clientes.isEmpty();
+    }
+    
     /**
     * Retorna un valor booleano. True si lo agrega, false si no lo agrega.
     * <p>

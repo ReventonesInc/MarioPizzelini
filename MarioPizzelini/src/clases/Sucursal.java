@@ -12,15 +12,13 @@ public class Sucursal {
     private String rut;
     private String direccion;
     private ListaPedido pedidos;
-    private ListaCliente clientes;
     private Inventario bodega;
     
     //Constructor
-    public Sucursal(String rut, String direccion, ListaPedido pedidos, ListaCliente clientes, Inventario bodega) {
+    public Sucursal(String rut, String direccion, ListaPedido pedidos, Inventario bodega) {
         this.rut = rut;
         this.direccion = direccion;
         this.pedidos = pedidos;
-        this.clientes = clientes;
         this.bodega = bodega;
     }
     
@@ -45,15 +43,13 @@ public class Sucursal {
         return pedidos;
     }
 
-    public ListaCliente getClientes() {
-        return clientes;
-    }
-
     public Inventario getBodega() {
         return bodega;
     }
     
     /*----- Métodos básicos de Sucursal ------*/
+    
+    /*--- Métodos para Ingredientes ---*/
     
     public Boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);
@@ -67,6 +63,8 @@ public class Sucursal {
         bodega.modificarIngrediente(modificar, modificado);
     }
     
+    /*--- Métodos para Bebestibles ---*/
+    
     public Boolean agregarBebestible(Bebestible nuevo){
         return bodega.agregarBebestible(nuevo);
     }
@@ -77,5 +75,15 @@ public class Sucursal {
     
     public void modificarBebestible(Bebestible modificar, Bebestible modificado){
         bodega.modificarBebestible(modificar, modificado);
+    }
+    
+    /*--- Métodos para pedidos ---*/
+    
+    public Boolean agregarPedido(Pedido nuevo){
+        return pedidos.agregarPedido(nuevo);
+    }
+    
+    public Boolean eliminarPedido(Pedido eliminar){
+        return pedidos.eliminarPedido(eliminar);
     }
 }

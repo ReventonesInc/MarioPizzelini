@@ -6,6 +6,7 @@
 package listas;
 import clases.Bebestible;
 import clases.Ingrediente;
+import clases.Pedido;
 import clases.Sucursal;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class ListaSucursal {
         return sucursales;
     }
     
-    /*------ Método básico de ListaSucursal ------*/
+    /*------ Métodos básicos de ListaSucursal ------*/
     
     public Boolean agregarSucursal(Sucursal nuevo){
         if(sucursales.contains(nuevo)){
@@ -37,6 +38,8 @@ public class ListaSucursal {
         }
         return false;
     }
+    
+    /*------ Métodos básicos para ingredientes ------*/
     
     public Boolean agregarIngrediente(String rut, Ingrediente nuevo){
         if(!sucursales.isEmpty()){
@@ -71,7 +74,9 @@ public class ListaSucursal {
         }
         return false;
     }
-    
+
+    /*------ Métodos básicos para bebestibles ------*/
+
     public Boolean agregarBebestible(String rut, Bebestible nuevo){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){
@@ -100,6 +105,30 @@ public class ListaSucursal {
                 if((sucursales.get(i)).getRut().equals(rut)){
                     sucursales.get(i).modificarBebestible(modificar, modificado);
                     return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    /*------ Métodos básicos para pedidos ------*/
+    
+    public Boolean agregarPedido(String rut, Pedido nuevo){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).agregarPedido(nuevo);
+                }
+            }
+        }
+        return false;
+    }
+    
+    public Boolean eliminarPedido(String rut, Pedido eliminar){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).eliminarPedido(eliminar);
                 }
             }
         }

@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package clases;
-import java.util.*;
-import listas.ListaSucursal;
-import listas.ListaCliente;
+import listas.*;
 
 
 
@@ -23,7 +21,21 @@ public class MarioPizzelini {
         this.clientes = new ListaCliente();
     }
     
+    public Boolean agregarCliente(Cliente nuevoCliente){
+        return clientes.agregarCliente(nuevoCliente);
+    }
     
+    public Boolean eliminarCliente(Cliente eliminar){
+        return clientes.eliminarCliente(eliminar);
+    }
+    
+    public Boolean agregarSucursal(Sucursal nuevaSucursal){
+        return sucursales.agregarSucursal(nuevaSucursal);
+    }
+    
+    public Boolean eliminarSucursal(Sucursal eliminar){
+        return sucursales.eliminarSucursal(eliminar);
+    }
     
     
 }

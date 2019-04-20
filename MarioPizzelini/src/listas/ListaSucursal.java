@@ -113,24 +113,44 @@ public class ListaSucursal {
     
     /*------ Métodos básicos para pedidos ------*/
     
-    public Boolean agregarPedido(String rut, Pedido nuevo){
+    /*
+    public Boolean agregarPedido(Sucursal sucursalN, Pedido nuevo){
+        if(sucursales.contains(sucursalN)){
+            return sucursalN.agregarPedido(nuevo);
+        }
+        return false;
+    }
+    */
+    
+    public Sucursal buscarSucursalRut(String rut){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){
                 if((sucursales.get(i)).getRut().equals(rut)){
-                    return sucursales.get(i).agregarPedido(nuevo);
+                    return sucursales.get(i);
                 }
             }
+        }
+        return null;
+    }
+    
+    public Boolean agregarPedido(String rut, Pedido nuevo){
+        if(!sucursales.isEmpty()){
+            Sucursal sucursalPedido = buscarSucursalRut(rut);
+            if(sucursalPedido != null){
+                return sucursalPedido.agregarPedido(nuevo);
+            }
+            return false;
         }
         return false;
     }
     
     public Boolean eliminarPedido(String rut, Pedido eliminar){
         if(!sucursales.isEmpty()){
-            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
-                if((sucursales.get(i)).getRut().equals(rut)){
-                    return sucursales.get(i).eliminarPedido(eliminar);
-                }
+            Sucursal sucursalPedido = buscarSucursalRut(rut);
+            if(sucursalPedido != null){
+                return sucursalPedido.agregarPedido(eliminar);
             }
+            return false;
         }
         return false;
     }

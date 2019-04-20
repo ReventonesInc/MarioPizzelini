@@ -2,7 +2,8 @@
  * Esta clase contiene una lista de ingredientes, en el cual se manejarán
  * sus métodos correspondientes.
  */
-package clases;
+package Listas;
+import clases.Ingrediente;
 import java.util.ArrayList;
 
 public class ListaIngrediente {

@@ -20,7 +20,7 @@ public class Pedido {
     }
     
     //Cuando el cliente pide: Bebestible, Pizza
-    public Pedido(String id, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
+    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];

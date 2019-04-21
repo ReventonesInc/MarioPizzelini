@@ -34,6 +34,8 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jTextRut = new javax.swing.JTextField();
         jLabelText2 = new javax.swing.JLabel();
         jLabelText = new javax.swing.JLabel();
+        jbAceptar1 = new javax.swing.JButton();
+        jbAceptar2 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,23 +60,35 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
         jbAceptar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAceptar.setText("Aceptar");
-        getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 100, -1));
+        jbAceptar.setText("Agregar");
+        getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, -1));
 
         jTextRut.setBackground(new java.awt.Color(51, 51, 51));
         jTextRut.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 190, -1));
+        getContentPane().add(jTextRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 190, -1));
 
         jLabelText2.setBackground(new java.awt.Color(51, 51, 51));
         jLabelText2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabelText2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelText2.setText("RUT:");
-        getContentPane().add(jLabelText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        getContentPane().add(jLabelText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         jLabelText.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabelText.setForeground(new java.awt.Color(255, 255, 255));
         jLabelText.setText("Ingrese el RUT de alguna sucursal:");
-        getContentPane().add(jLabelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+        getContentPane().add(jLabelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+
+        jbAceptar1.setBackground(new java.awt.Color(101, 48, 0));
+        jbAceptar1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jbAceptar1.setForeground(new java.awt.Color(255, 255, 255));
+        jbAceptar1.setText("Aceptar");
+        getContentPane().add(jbAceptar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 100, -1));
+
+        jbAceptar2.setBackground(new java.awt.Color(101, 48, 0));
+        jbAceptar2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jbAceptar2.setForeground(new java.awt.Color(255, 255, 255));
+        jbAceptar2.setText("Eliminar");
+        getContentPane().add(jbAceptar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 100, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -128,6 +142,8 @@ public class SeleccionSucursal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelcon;
     private javax.swing.JTextField jTextRut;
     private javax.swing.JButton jbAceptar;
+    private javax.swing.JButton jbAceptar1;
+    private javax.swing.JButton jbAceptar2;
     private javax.swing.JButton jbSalir;
     // End of variables declaration//GEN-END:variables
 }

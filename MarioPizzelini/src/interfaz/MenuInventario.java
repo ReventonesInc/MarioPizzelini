@@ -31,6 +31,7 @@ public class MenuInventario extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jbVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jbAgregar1 = new javax.swing.JButton();
         jbAgregar = new javax.swing.JButton();
         Bebestibles = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
@@ -59,11 +60,17 @@ public class MenuInventario extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/inventario-icon_opt.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
+        jbAgregar1.setBackground(new java.awt.Color(101, 48, 0));
+        jbAgregar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbAgregar1.setForeground(new java.awt.Color(255, 255, 255));
+        jbAgregar1.setText("Gasto Inventario");
+        getContentPane().add(jbAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
+
         jbAgregar.setBackground(new java.awt.Color(101, 48, 0));
         jbAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jbAgregar.setText("Ingredientes");
-        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
+        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 260, -1));
 
         Bebestibles.setBackground(new java.awt.Color(101, 48, 0));
         Bebestibles.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -74,7 +81,7 @@ public class MenuInventario extends javax.swing.JFrame {
                 BebestiblesActionPerformed(evt);
             }
         });
-        getContentPane().add(Bebestibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 260, -1));
+        getContentPane().add(Bebestibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 260, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -132,6 +139,7 @@ public class MenuInventario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JButton jbAgregar;
+    private javax.swing.JButton jbAgregar1;
     private javax.swing.JButton jbVolver;
     // End of variables declaration//GEN-END:variables
 }

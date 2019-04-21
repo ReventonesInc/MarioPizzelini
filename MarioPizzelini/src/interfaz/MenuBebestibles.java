@@ -9,14 +9,13 @@ package interfaz;
  *
  * @author XavierKrostya
  */
-public class MenuIngredientes extends javax.swing.JFrame {
+public class MenuBebestibles extends javax.swing.JFrame {
 
     /**
-     * Creates new form MenuIngredientes
+     * Creates new form NewJFrame
      */
-    public MenuIngredientes() {
+    public MenuBebestibles() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,34 +27,24 @@ public class MenuIngredientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbVolver = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jbAgregar = new javax.swing.JButton();
         jbAgregar1 = new javax.swing.JButton();
         jbAgregar2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jbVolver = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jbVolver.setBackground(new java.awt.Color(101, 48, 0));
-        jbVolver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jbVolver.setForeground(new java.awt.Color(255, 255, 255));
-        jbVolver.setText("Volver");
-        jbVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbVolverActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 80, 30));
 
         jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("INVENTARIO INGREDIENTES");
+        jLabelTitulo.setText("INVENTARIO BEBESTIBLES");
         getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/ico-trago_opt.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         jbAgregar.setBackground(new java.awt.Color(101, 48, 0));
         jbAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -75,8 +64,17 @@ public class MenuIngredientes extends javax.swing.JFrame {
         jbAgregar2.setText("Mostrar Ingredientes");
         getContentPane().add(jbAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 260, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/icon_ingredients_opt.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        jbVolver.setBackground(new java.awt.Color(101, 48, 0));
+        jbVolver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbVolver.setForeground(new java.awt.Color(255, 255, 255));
+        jbVolver.setText("Volver");
+        jbVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 80, 30));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -105,20 +103,21 @@ public class MenuIngredientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuIngredientes().setVisible(true);
+                new MenuBebestibles().setVisible(true);
             }
         });
     }

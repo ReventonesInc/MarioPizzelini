@@ -8,20 +8,21 @@ package clases;
  *
  * @author XavierKrostya
  */
-public class Pizza{
-    private String[] ingredientes;
-    private String[] extras;
+public class Pizza extends Producto{
+    private Ingrediente[] ingredientes;
+    private Ingrediente[] extras;
     
-    public Pizza(){
-        this.ingredientes = null;
-        this.extras = null;
+    public Pizza(int cantIngredientes, int cantExtras, String nombre, int precio, String descripcion){
+        super(nombre, precio, descripcion);
+        this.ingredientes = new Ingrediente[cantIngredientes];
+        this.extras = new Ingrediente[cantExtras];
     }
     
-    public String[] getIngredientes(){
+    public Ingrediente[] getIngredientes(){
         return ingredientes;
     }
     
-    public String[] getExtras(){
+    public Ingrediente[] getExtras(){
         return extras;
     }
 }

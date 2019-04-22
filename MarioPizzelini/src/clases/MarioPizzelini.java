@@ -47,6 +47,10 @@ public class MarioPizzelini {
         return sucursales.eliminarSucursal(eliminar);
     }
     
+    public void mostrarSucursales(){
+        sucursales.mostrarSucursales();
+    }
+    
     public Boolean agregarPedido(String rutSucursal, Pedido pedidoNuevo){
         return sucursales.agregarPedido(rutSucursal,pedidoNuevo);
     }

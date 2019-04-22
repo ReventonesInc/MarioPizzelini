@@ -44,6 +44,12 @@ public class ListaSucursal {
         return false;
     }
     
+    public void mostrarSucursales(){
+        for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+            System.out.println("RUT: "+sucursales.get(i).getRut()+" Dirección: "+sucursales.get(i).getDireccion()+".");
+        }
+    }
+    
     /*------ Métodos básicos para ingredientes ------*/
     
     public Boolean agregarIngrediente(String rut, Ingrediente nuevo){

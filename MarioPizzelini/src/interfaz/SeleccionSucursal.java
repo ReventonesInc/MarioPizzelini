@@ -7,6 +7,7 @@ package interfaz;
 import clases.Cliente;
 import clases.MarioPizzelini;
 import clases.Sucursal;
+import javax.swing.JOptionPane;
 
 public class SeleccionSucursal extends javax.swing.JFrame {
     private MarioPizzelini empresa;
@@ -239,12 +240,19 @@ public class SeleccionSucursal extends javax.swing.JFrame {
     
     //Al clickear el botón para eliminar una sucursal
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        //eliminar
+        EliminarSucursal frame = new EliminarSucursal(empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbEliminarActionPerformed
     
     //Al clickear el botón para mostrar por consola todas las sucursales
     private void jbMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarActionPerformed
-        // TODO add your handling code here:
+        if(empresa.estaVacioSucursales()){
+            JOptionPane.showMessageDialog(null, "¡No hay sucursales por mostrar!");
+        }
+        else{
+            empresa.mostrarSucursales();
+        }
     }//GEN-LAST:event_jbMostrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

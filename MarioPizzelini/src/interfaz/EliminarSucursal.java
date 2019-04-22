@@ -4,20 +4,15 @@
  * and open the template in the editor.
  */
 package interfaz;
-
 import clases.MarioPizzelini;
 import clases.Sucursal;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author XavierKrostya
- */
-public class AgregarSucursal extends javax.swing.JFrame {
+public class EliminarSucursal extends javax.swing.JFrame {
     private MarioPizzelini empresa;
     
     //Constructor
-    public AgregarSucursal(MarioPizzelini empresa) {
+    public EliminarSucursal(MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -35,14 +30,14 @@ public class AgregarSucursal extends javax.swing.JFrame {
 
         jbSalir = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
-        jLabelDireccion = new javax.swing.JLabel();
         jLabelTexto1 = new javax.swing.JLabel();
         jLabelTexto2 = new javax.swing.JLabel();
         jLabelRut = new javax.swing.JLabel();
         jTextRut = new javax.swing.JTextField();
+        jLabelDireccion = new javax.swing.JLabel();
         jTextDireccion = new javax.swing.JTextField();
-        jbAceptar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
+        jbAceptar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,14 +58,8 @@ public class AgregarSucursal extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("AGREGAR SUCURSAL");
+        jLabelTitulo.setText("ELIMINAR SUCURSAL");
         getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabelDireccion.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelDireccion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDireccion.setText("DIRECCIÓN:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabelTexto1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabelTexto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,21 +86,15 @@ public class AgregarSucursal extends javax.swing.JFrame {
         });
         getContentPane().add(jTextRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 240, -1));
 
+        jLabelDireccion.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelDireccion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("DIRECCIÓN:");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
         jTextDireccion.setBackground(new java.awt.Color(51, 51, 51));
         jTextDireccion.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, -1));
-
-        jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
-        jbAceptar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAceptar.setText("Agregar");
-        jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAceptarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
         jbCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -124,6 +107,18 @@ public class AgregarSucursal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
+        jbAceptar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        jbAceptar.setText("Eliminar");
+        jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAceptarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -138,34 +133,32 @@ public class AgregarSucursal extends javax.swing.JFrame {
     private void jTextRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextRutActionPerformed
-    
-    //Al clickear el botón de aceptar para agregar una sucursal
-    private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
-        String rutEmpresa = jTextRut.getText();
-        String direccion = jTextDireccion.getText();
-        
-        if(!(rutEmpresa.equals("") || direccion.equals(""))){
-            if(empresa.agregarSucursal(new Sucursal(rutEmpresa,direccion))){
-                JOptionPane.showMessageDialog(null,"¡La sucursal fue registrada con exito!");
-                MenuSucursal frame = new MenuSucursal(rutEmpresa, empresa);
-                frame.setVisible(true);
-                this.dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"¡La sucursal no fue registrada!");
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
-        }
-    }//GEN-LAST:event_jbAceptarActionPerformed
-    
-    //Al clickear el botón cancelar
+
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
         SeleccionSucursal frame = new SeleccionSucursal(empresa);
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
+        String rutEmpresa = jTextRut.getText();
+        String direccion = jTextDireccion.getText();
+
+        if(!(rutEmpresa.equals("") || direccion.equals(""))){
+            if(empresa.eliminarSucursal(new Sucursal(rutEmpresa,direccion))){
+                JOptionPane.showMessageDialog(null,"¡La sucursal fue eliminada con exito!");
+                SeleccionSucursal frame = new SeleccionSucursal(empresa);
+                frame.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"¡La sucursal no fue eliminada!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡No existe la sucursal!");
+        }
+    }//GEN-LAST:event_jbAceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelDireccion;

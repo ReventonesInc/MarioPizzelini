@@ -175,7 +175,7 @@ public class ModificarIngredientes extends javax.swing.JFrame {
                 jbModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
         jbCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -200,7 +200,6 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         Ingrediente buscado = empresa.buscarIngredienteID(rutEmpresa, id); //Arreglado gracias al debugger : by C bastian
         int monto = 0;
         
-        System.out.println(buscado+" "+id+" "+rutEmpresa);
         if(buscado != null){
             jTextID.setText(id);
             jTextNombre.setText(buscado.getNombre());
@@ -235,7 +234,6 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                System.out.println(monto);
                 if(empresa.modificarIngrediente(rutEmpresa, jTextIDBuscar.getText(), new Ingrediente(id,nombre,monto))){
                     JOptionPane.showMessageDialog(null,"¡El ingrediente fue modificado con exito!");
                     MenuIngredientes frame = new MenuIngredientes(rutEmpresa, empresa);

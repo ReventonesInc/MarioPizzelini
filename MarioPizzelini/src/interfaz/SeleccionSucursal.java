@@ -4,10 +4,16 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.Cliente;
 import clases.MarioPizzelini;
+import clases.Sucursal;
 
 public class SeleccionSucursal extends javax.swing.JFrame {
     private MarioPizzelini empresa;
+    private int montoTotal;
+    private int montoTotalSucursal;
+    private Sucursal sucursalMasRecaudada;
+    private Cliente clienteConMasPedidos;
     
     //Constructor
     public SeleccionSucursal(MarioPizzelini empresa) {
@@ -15,6 +21,9 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.empresa = empresa;
+        ingresarMontoGeneral();
+        ingresarSucursal();
+        ingresarCliente();
     }
 
     /**
@@ -181,6 +190,38 @@ public class SeleccionSucursal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void ingresarMontoGeneral(){
+        montoTotal = empresa.recaudacionTotal();
+        jLabelMONTOEMPRESA.setText(Integer.toString(montoTotal));
+    }
+    
+    private void ingresarSucursal(){
+        sucursalMasRecaudada = empresa.sucursalConMayorRecaudacion();
+        montoTotalSucursal = sucursalMasRecaudada.valorTotalPedidosSucursal();
+        
+        if(sucursalMasRecaudada == null){
+            jLabelDIRECCION.setText("Ninguna");
+            jLabelMONTOSUCURSAL.setText("0");
+        }
+        else{
+            jLabelDIRECCION.setText(sucursalMasRecaudada.getDireccion());
+            jLabelMONTOSUCURSAL.setText(Integer.toString(montoTotalSucursal));
+        }
+    }
+    
+    private void ingresarCliente(){
+        clienteConMasPedidos = empresa.buscarClienteConMasPedidos();
+        
+        if(clienteConMasPedidos == null){
+            jLabelNOMBRECLIENTE.setText("Ninguno");
+            jLabelRUTCLIENTE.setText("");
+        }
+        else{
+            jLabelNOMBRECLIENTE.setText(clienteConMasPedidos.getNombre());
+            jLabelRUTCLIENTE.setText(clienteConMasPedidos.getRut());
+        }
+    }
     
     //Al clickear el botón volver
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed

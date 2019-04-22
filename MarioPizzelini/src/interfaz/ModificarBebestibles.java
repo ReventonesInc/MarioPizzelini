@@ -243,7 +243,7 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         String descripcion = jTextArea.getText();
         int monto = 0;
         
-        if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
+        if(!(id.equals("") || precio.equals("") || nombre.equals("") || descripcion.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
                 if(empresa.modificarBebestible(rutEmpresa, jTextIDBuscar.getText(), new Bebestible(id,nombre,monto,descripcion))){

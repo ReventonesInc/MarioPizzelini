@@ -88,6 +88,11 @@ public class MenuBebestibles extends javax.swing.JFrame {
         jbMostrar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbMostrar.setForeground(new java.awt.Color(255, 255, 255));
         jbMostrar.setText("Mostrar Bebestibles");
+        jbMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMostrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, -1));
 
         jbVolver.setBackground(new java.awt.Color(101, 48, 0));
@@ -141,6 +146,15 @@ public class MenuBebestibles extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay bebestibles por modificar");
         }
     }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jbMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarActionPerformed
+        if(!empresa.estaVacioBebestibles(rutEmpresa)){
+            empresa.mostrarBebestibles(rutEmpresa);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay bebestibles por mostrar");
+        }
+    }//GEN-LAST:event_jbMostrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

@@ -45,7 +45,7 @@ public class ListaIngrediente {
      * es eliminado de la lista exitosamente, en cambio, retornará false si
      * no se elimina.
      * <p>
-     * @param eliminar Clase Ingrediente.
+     * @param id
      * @return booleano.
      */
     public boolean eliminarIngrediente(String id){

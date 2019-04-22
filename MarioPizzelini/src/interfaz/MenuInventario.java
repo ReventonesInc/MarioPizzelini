@@ -95,7 +95,7 @@ public class MenuInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVolverActionPerformed
 
     private void jbBebestiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBebestiblesActionPerformed
-        MenuBebestibles frame = new MenuBebestibles();
+        MenuBebestibles frame = new MenuBebestibles(rutEmpresa,empresa);
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbBebestiblesActionPerformed

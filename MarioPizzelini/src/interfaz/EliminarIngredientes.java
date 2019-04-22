@@ -159,7 +159,7 @@ public class EliminarIngredientes extends javax.swing.JFrame {
         String precio = jTextPrecio.getText();
         String nombre = jTextNombre.getText();
         
-        if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
+        if(!(id.equals(""))){
             if(empresa.eliminarIngrediente(rutEmpresa, id)){
                 JOptionPane.showMessageDialog(null,"¡El ingrediente fue eliminado con exito!");
                 MenuIngredientes frame = new MenuIngredientes(rutEmpresa, empresa);

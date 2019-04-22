@@ -4,19 +4,21 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.Bebestible;
+import clases.MarioPizzelini;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author XavierKrostya
- */
 public class ModificarBebestibles extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ModificarBebestibles
-     */
-    public ModificarBebestibles() {
+    private MarioPizzelini empresa;
+    private String rutEmpresa;
+    
+    //Constructor
+    public ModificarBebestibles(String rutEmpresa, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        this.rutEmpresa = rutEmpresa;
     }
 
     /**
@@ -28,13 +30,13 @@ public class ModificarBebestibles extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbSalir1 = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
         jLabelTexto1 = new javax.swing.JLabel();
         jLabelTexto2 = new javax.swing.JLabel();
         jLabelD = new javax.swing.JLabel();
         jTextIDBuscar = new javax.swing.JTextField();
-        jbSalir = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelTexto3 = new javax.swing.JLabel();
         jLabelTexto4 = new javax.swing.JLabel();
@@ -55,17 +57,17 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbSalir1.setBackground(new java.awt.Color(101, 48, 0));
-        jbSalir1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jbSalir1.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir1.setText("Salir");
-        jbSalir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir1.addActionListener(new java.awt.event.ActionListener() {
+        jbSalir.setBackground(new java.awt.Color(101, 48, 0));
+        jbSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
+        jbSalir.setText("Salir");
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalir1ActionPerformed(evt);
+                jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 70, 30));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 70, 30));
 
         jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,17 +94,17 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         jTextIDBuscar.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextIDBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 130, -1));
 
-        jbSalir.setBackground(new java.awt.Color(101, 48, 0));
-        jbSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir.setText("Buscar");
-        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+        jbBuscar.setBackground(new java.awt.Color(101, 48, 0));
+        jbBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jbBuscar.setText("Buscar");
+        jbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+                jbBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, 30));
+        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, 30));
 
         jPanel1.setBackground(new java.awt.Color(101, 31, 12));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,6 +172,11 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jbCancelar.setText("Cancelar");
         jbCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
@@ -177,6 +184,11 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
         jbAceptar.setText("Modificar");
         jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
 
         jTextArea.setBackground(new java.awt.Color(51, 51, 51));
@@ -199,53 +211,75 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbSalir1ActionPerformed
-
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        String id = jTextIDBuscar.getText();
+        Bebestible buscado = empresa.buscarBebestibleID(rutEmpresa, id); //Arreglado gracias al debugger : by C bastian
+        int monto = 0;
+        
+        if(buscado != null){
+            jTextID.setText(id);
+            jTextNombre.setText(buscado.getNombre());
+            monto = buscado.getPrecio();
+            jTextPrecio.setText(String.valueOf(monto));
+            jTextArea.setText(buscado.getDescripcion());
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡La ID no existe!");
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNombreActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
+        String id = jTextID.getText();
+        String precio = jTextPrecio.getText();
+        String nombre = jTextNombre.getText();
+        String descripcion = jTextArea.getText();
+        int monto = 0;
+        
+        if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
+            if(validarNumero(precio)){
+                monto = Integer.parseInt(precio);
+                if(empresa.modificarBebestible(rutEmpresa, jTextIDBuscar.getText(), new Bebestible(id,nombre,monto,descripcion))){
+                    JOptionPane.showMessageDialog(null,"¡El bebestible fue modificado con exito!");
+                    MenuBebestibles frame = new MenuBebestibles(rutEmpresa, empresa);
+                    frame.setVisible(true);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"¡El bebestible no fue modificado!");
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificarBebestibles().setVisible(true);
+            else{
+                JOptionPane.showMessageDialog(null,"¡El precio ingresado no es valido!");
             }
-        });
-    }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
+    }//GEN-LAST:event_jbAceptarActionPerformed
 
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        MenuBebestibles frame = new MenuBebestibles(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
+    
+    public boolean validarNumero(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException excepcion) {
+            return false;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelD;
@@ -266,8 +300,8 @@ public class ModificarBebestibles extends javax.swing.JFrame {
     private javax.swing.JTextField jTextNombre;
     private javax.swing.JTextField jTextPrecio;
     private javax.swing.JButton jbAceptar;
+    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JButton jbSalir1;
     // End of variables declaration//GEN-END:variables
 }

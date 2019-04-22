@@ -47,6 +47,10 @@ public class Inventario {
         return ingredientes.buscarIngredienteID(idIngrediente);
     }
     
+    public Bebestible buscarBebestibleID(String idBebestible){
+        return bebestibles.buscarBebestibleID(idBebestible);
+    }
+    
     /**
      * Retorna un true, si el ingrediente ingresado por el parámetro
      * es agregado a la lista exitosamente, en cambio, retornará false si
@@ -73,8 +77,11 @@ public class Inventario {
     }
     
     /*--- Métodos para Bebestible ---*/
-
     
+    public boolean estaVacioBebestibles(){
+        return bebestibles.estaVacio();
+    }
+
     public boolean agregarBebestible(Bebestible nuevo){
         return bebestibles.agregarBebestible(nuevo);
     }

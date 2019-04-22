@@ -21,6 +21,10 @@ public class ListaBebestible {
     
     /*--- Métodos básicos para bebestibles---*/
     
+    public boolean estaVacio(){
+        return bebestibles.isEmpty();
+    }
+    
     /**
      * Retorna un true, si el bebestible ingresado por parámetro es
      * agregado exitosamente a la lista, en cambio, retornará false

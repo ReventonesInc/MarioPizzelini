@@ -58,6 +58,10 @@ public class Sucursal {
         return bodega.buscarIngredienteID(idIngrediente);
     }
     
+    public Bebestible buscarBebestibleID(String idBebestible){
+        return bodega.buscarBebestibleID(idBebestible);
+    }
+    
     public boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);
     }
@@ -75,6 +79,10 @@ public class Sucursal {
     }
     
     /*--- Métodos para Bebestibles ---*/
+    
+    public boolean estaVacioBebestibles(){
+        return bodega.estaVacioBebestibles();
+    }
     
     public boolean agregarBebestible(Bebestible nuevo){
         return bodega.agregarBebestible(nuevo);

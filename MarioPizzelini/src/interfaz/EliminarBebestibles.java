@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.MarioPizzelini;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author XavierKrostya
- */
 public class EliminarBebestibles extends javax.swing.JFrame {
+    private MarioPizzelini empresa;
+    private String rutEmpresa;
 
-    /**
-     * Creates new form EliminarBebestibles
-     */
-    public EliminarBebestibles() {
+    //Constructor
+    public EliminarBebestibles(String rutEmpresa, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        this.rutEmpresa = rutEmpresa;
     }
 
     /**
@@ -142,6 +143,11 @@ public class EliminarBebestibles extends javax.swing.JFrame {
         jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
         jbAceptar.setText("Eliminar");
         jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
@@ -159,43 +165,32 @@ public class EliminarBebestibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNombreActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-        // TODO add your handling code here:
+        MenuBebestibles frame = new MenuBebestibles(rutEmpresa, empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
+        String id = jTextID.getText();
+        String precio = jTextPrecio.getText();
+        String nombre = jTextNombre.getText();
+        String descripcion = jTextArea.getText();
+        
+        if(!(id.equals(""))){
+            if(empresa.eliminarBebestible(rutEmpresa, id)){
+                JOptionPane.showMessageDialog(null,"¡El bebestible fue eliminado con exito!");
+                MenuBebestibles frame = new MenuBebestibles(rutEmpresa, empresa);
+                frame.setVisible(true);
+                this.dispose();
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EliminarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EliminarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EliminarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EliminarBebestibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            else{
+                JOptionPane.showMessageDialog(null,"¡El bebestible no fue eliminado!");
+            }
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EliminarBebestibles().setVisible(true);
-            }
-        });
-    }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
+    }//GEN-LAST:event_jbAceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelD;

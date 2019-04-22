@@ -68,6 +68,17 @@ public class ListaSucursal {
         return null;
     }
     
+    public Bebestible buscarBebestibleID(String rut, String idBebestible){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).buscarBebestibleID(idBebestible);
+                }
+            }
+        }
+        return null;
+    }
+    
     public boolean estaVacioIngredientes(String rut){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){
@@ -122,6 +133,17 @@ public class ListaSucursal {
     }
 
     /*------ Métodos básicos para bebestibles ------*/
+    
+    public boolean estaVacioBebestibles(String rut){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).estaVacioBebestibles();
+                }
+            }
+        }
+        return true;
+    }
 
     public boolean agregarBebestible(String rutSucursal, Bebestible nuevo){
         if(!sucursales.isEmpty()){

@@ -57,6 +57,14 @@ public class MarioPizzelini {
         return sucursales.modificarIngrediente(rutSucursal, idIngrediente, modificado);
     }
     
+    public boolean estaVacioBebestibles(String rut){
+        return sucursales.estaVacioBebestibles(rut);
+    }
+    
+    public Bebestible buscarBebestibleID(String rut, String id){
+        return sucursales.buscarBebestibleID(rut, id);
+    }
+    
     public boolean agregarBebestible(String rutSucursal, Bebestible nuevoBebestible){
         return sucursales.agregarBebestible(rutSucursal, nuevoBebestible);
     }

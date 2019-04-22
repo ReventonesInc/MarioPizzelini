@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.MarioPizzelini;
 
-/**
- *
- * @author XavierKrostya
- */
 public class Inicio extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Inicio
-     */
-    public Inicio() {
+    
+    private MarioPizzelini empresa; //Clase principal del programa
+    
+    //Constructor frame
+    public Inicio(MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
     }
 
     /**
@@ -78,21 +77,33 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Al clickear sobre el botón salir
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
-
+    
+    //Al clickear sobre el botón aceptar
     private void jbIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarActionPerformed
-        SeleccionSucursal nuevo = new SeleccionSucursal();
-        nuevo.setVisible(true);
-        this.dispose();
+        if(empresa.estaVacioSucursales()){
+            InicioAgregarSucursal frame = new InicioAgregarSucursal(empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
+        else{
+            SeleccionSucursal nuevo = new SeleccionSucursal();
+            nuevo.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jbIniciarActionPerformed
-
+    
+    //Método main
     public static void main(String args[]) {
+        MarioPizzelini empresa = new MarioPizzelini();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                Inicio frame = new Inicio(empresa);
+		frame.setVisible(true);
             }
         });
     }

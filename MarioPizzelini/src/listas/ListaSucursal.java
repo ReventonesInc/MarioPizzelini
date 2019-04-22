@@ -25,6 +25,10 @@ public class ListaSucursal {
     
     /*------ Métodos básicos de ListaSucursal ------*/
     
+    public Boolean estaVacio(){
+        return sucursales.isEmpty();
+    }
+    
     public Boolean agregarSucursal(Sucursal nuevo){
         if(sucursales.contains(nuevo)){
             return false;

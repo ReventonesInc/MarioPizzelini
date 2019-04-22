@@ -6,19 +6,20 @@
 package clases;
 import listas.*;
 
-
-
-/**
- *
- * @author ceap2
- */
 public class MarioPizzelini {
-    private ListaSucursal sucursales;
-    private ListaCliente clientes;
+    private ListaSucursal sucursales;  //Lista de sucursales
+    private ListaCliente clientes;  //Lista de clientes
 
+    //Constructor
     public MarioPizzelini() {
         this.sucursales = new ListaSucursal();
         this.clientes = new ListaCliente();
+    }
+    
+    /*------ Método básicos de MarioPizzelini ------*/
+    
+    public Boolean estaVacioSucursales(){
+        return sucursales.estaVacio();
     }
     
     public Boolean agregarCliente(Cliente nuevoCliente){

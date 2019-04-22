@@ -22,35 +22,63 @@ public class MarioPizzelini {
         return sucursales.estaVacioIngredientes(rut);
     }
     
-    public Boolean estaVacioSucursales(){
+    public boolean estaVacioSucursales(){
         return sucursales.estaVacio();
     }
     
-    public Boolean agregarCliente(Cliente nuevoCliente){
+    public boolean agregarCliente(Cliente nuevoCliente){
         return clientes.agregarCliente(nuevoCliente);
     }
     
-    public Boolean eliminarCliente(Cliente eliminar){
-        return clientes.eliminarCliente(eliminar);
+    public boolean eliminarCliente(String rutCliente){
+        if(clientes.buscarClienteRut(rutCliente)){
+            sucursales.eliminarTodosPedidosCliente(clientes.retornarClienteRut(rutCliente));
+            return clientes.eliminarCliente(clientes.retornarClienteRut(rutCliente));
+        }
+        return false;
     }
     
-    public Boolean agregarIngrediente(String rutSucursal, Ingrediente nuevoIngrediente){
+    public boolean modificarCliente(String modificar, Cliente modificado){
+        if(clientes.buscarClienteRut(modificar)){
+            clientes.modificarCliente(clientes.retornarClienteRut(modificar), modificado);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean agregarIngrediente(String rutSucursal, Ingrediente nuevoIngrediente){
         return sucursales.agregarIngrediente(rutSucursal, nuevoIngrediente);
     }
-    
-    public Boolean eliminarIngrediente(String rutSucursal, String id){
+    public boolean eliminarIngrediente(String rutSucursal, String id){
         return sucursales.eliminarIngrediente(rutSucursal, id);
+    }
+    
+    public boolean modificarIngrediente(String rutSucursal, String idIngrediente, Ingrediente modificado){
+        return sucursales.modificarIngrediente(rutSucursal, idIngrediente, modificado);
+    }
+    
+    public boolean agregarBebestible(String rutSucursal, Bebestible nuevoBebestible){
+        return sucursales.agregarBebestible(rutSucursal, nuevoBebestible);
+    }
+    
+    
+    public boolean modificarBebestible(String rutSucursal, String idBebestible, Bebestible modificado){
+        return sucursales.modificarBebestible(rutSucursal, idBebestible, modificado);
+    }
+    
+    public void mostrarBebestibles(String rutSucursal){
+        sucursales.mostrarBebestibles(rutSucursal);
     }
     
     public Sucursal buscarSucursalPorRut(String rut){
         return sucursales.buscarSucursalRut(rut);
     }
     
-    public Boolean agregarSucursal(Sucursal nuevaSucursal){
+    public boolean agregarSucursal(Sucursal nuevaSucursal){
         return sucursales.agregarSucursal(nuevaSucursal);
     }
     
-    public Boolean eliminarSucursal(String rutEliminar){
+    public boolean eliminarSucursal(String rutEliminar){
         return sucursales.eliminarSucursal(rutEliminar);
     }
     
@@ -58,12 +86,12 @@ public class MarioPizzelini {
         sucursales.mostrarSucursales();
     }
     
-    public Boolean agregarPedido(String rutSucursal, Pedido pedidoNuevo){
+    public boolean agregarPedido(String rutSucursal, Pedido pedidoNuevo){
         return sucursales.agregarPedido(rutSucursal,pedidoNuevo);
     }
     
-    public Boolean eliminarPedido(String rutSucursal, Pedido eliminar){
-        return sucursales.eliminarPedido(rutSucursal, eliminar);
+    public boolean eliminarPedido(String rutSucursal, String idPedidoEliminar){
+        return sucursales.eliminarPedido(rutSucursal, idPedidoEliminar);
     }
     
     public Cliente buscarClienteConMasPedidos(){

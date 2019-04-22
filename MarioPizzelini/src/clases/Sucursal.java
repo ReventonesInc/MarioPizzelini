@@ -62,8 +62,12 @@ public class Sucursal {
         return bodega.eliminarIngrediente(id);
     }
     
-    public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
-        bodega.modificarIngrediente(modificar, modificado);
+    public void modificarIngrediente(String idIngrediente, Ingrediente modificado){
+        bodega.modificarIngrediente(idIngrediente, modificado);
+    }
+    
+    public void mostrarIngredientes(){
+        bodega.mostrarIngredientes();
     }
     
     /*--- Métodos para Bebestibles ---*/
@@ -72,12 +76,16 @@ public class Sucursal {
         return bodega.agregarBebestible(nuevo);
     }
     
-    public boolean eliminarBebestible(Bebestible eliminar){
-        return bodega.eliminarBebestible(eliminar);
+    public boolean eliminarBebestible(String idBebestible){
+        return bodega.eliminarBebestible(idBebestible);
     }
     
-    public void modificarBebestible(Bebestible modificar, Bebestible modificado){
-        bodega.modificarBebestible(modificar, modificado);
+    public void modificarBebestible(String idBebestible, Bebestible modificado){
+        bodega.modificarBebestible(idBebestible, modificado);
+    }
+    
+    public void mostrarBebestibles(){
+        bodega.mostrarBebestibles();
     }
     
     /*--- Métodos para Pedidos ---*/
@@ -86,8 +94,11 @@ public class Sucursal {
         return pedidos.agregarPedido(nuevo);
     }
     
-    public boolean eliminarPedido(Pedido eliminar){
-        return pedidos.eliminarPedido(eliminar);
+    public boolean eliminarPedido(String idPedido){
+        if(pedidos.buscarPedido(idPedido)!=null){
+            return pedidos.eliminarPedido(pedidos.buscarPedido(idPedido));
+        }
+        return false;
     }
     
     public int cantidadPedidosCliente(Cliente clienteBuscado){
@@ -97,4 +108,9 @@ public class Sucursal {
     public int valorTotalPedidosSucursal(){
         return pedidos.valorTotalPedidos();
     }
+    
+    public void eliminarTodosLosPedidosCliente(Cliente eliminar){
+        pedidos.eliminarPedidosCliente(eliminar);
+    }
+
 }

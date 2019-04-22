@@ -59,8 +59,13 @@ public class Inventario {
         return ingredientes.eliminarIngrediente(id);
     }
     
-    public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
+    public void modificarIngrediente(String idIngrediente, Ingrediente modificado){
+        Ingrediente modificar = ingredientes.buscarIngredienteID(idIngrediente);
         ingredientes.modificarIngrediente(modificar, modificado);
+    }
+    
+    public void mostrarIngredientes(){
+        ingredientes.mostrarIngredientes();
     }
     
     /*--- Métodos para Bebestible ---*/
@@ -70,11 +75,16 @@ public class Inventario {
         return bebestibles.agregarBebestible(nuevo);
     }
     
-    public boolean eliminarBebestible(Bebestible eliminar){
-        return bebestibles.eliminarBebestible(eliminar);
+    public boolean eliminarBebestible(String idBebestible){
+        return bebestibles.eliminarBebestible(idBebestible);
     }
     
-    public void modificarBebestible(Bebestible modificar, Bebestible modificado){
+    public void modificarBebestible(String idBebestible, Bebestible modificado){
+        Bebestible modificar = bebestibles.buscarBebestibleID(idBebestible);
         bebestibles.modificarBebestible(modificar, modificado);
+    }
+    
+    public void mostrarBebestibles(){
+        bebestibles.mostrarBebestibles();
     }
 }

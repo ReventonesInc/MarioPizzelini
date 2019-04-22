@@ -56,6 +56,14 @@ public class ListaIngrediente {
         }
         return false;
     }
+    public Ingrediente buscarIngredienteID(String idIngrediente){
+        for(Ingrediente actual : ingredientes){
+            if(actual.getIdIngrediente().equals(idIngrediente)){
+                return actual;
+            }
+        }
+        return null;
+    }
 
     /**
      * Permite modificar un ingrediente según las clases Ingrediente que
@@ -66,5 +74,14 @@ public class ListaIngrediente {
      */
     public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
         ingredientes.set(ingredientes.indexOf(modificar), modificado);
+    }
+    
+    public void mostrarIngredientes(){
+        if(!ingredientes.isEmpty()){
+            System.out.println("-----------------------------------------------");
+            for(Ingrediente actual : ingredientes){
+                System.out.println("ID: "+actual.getIdIngrediente()+" Nombre: "+actual.getNombre()+".");
+            }
+        }
     }
 }

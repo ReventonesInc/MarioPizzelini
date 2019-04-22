@@ -23,7 +23,7 @@ public class ListaCliente {
         return clientes;
     }
     
-    public Boolean estaVacio(){
+    public boolean estaVacio(){
         return clientes.isEmpty();
     }
     
@@ -62,5 +62,27 @@ public class ListaCliente {
             }
         }
         return mayorPedidos;
+    }
+    
+    public boolean buscarClienteRut(String rutCliente){
+        if(!clientes.isEmpty()){
+            for(Cliente actual : clientes){
+                if(actual.getRut().equals(rutCliente)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public Cliente retornarClienteRut(String rutCliente){
+        if(!clientes.isEmpty()){
+            for(Cliente actual : clientes){
+                if(actual.getRut().equals(rutCliente)){
+                    return actual;
+                }
+            }
+        }
+        return null;
     }
 }

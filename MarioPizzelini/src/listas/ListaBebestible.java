@@ -41,16 +41,26 @@ public class ListaBebestible {
      * eliminado exitosamente de la lista, en cambio, retornará false
      * si no es elimina.
      * <p>
-     * @param eliminar Clase Bebestible.
+     * @param idBebestible
      * @return booleano.
      */
-    public boolean eliminarBebestible(Bebestible eliminar){
-        if(bebestibles.contains(eliminar)){
-            return bebestibles.remove(eliminar);
+    public boolean eliminarBebestible(String idBebestible){
+        for(Bebestible actual : bebestibles){
+            if(actual.getIdBebestible().equals(idBebestible)){
+                return bebestibles.remove(actual);
+            }
         }
         return false;
     }
     
+    public Bebestible buscarBebestibleID(String idBebestible){
+        for(Bebestible actual : bebestibles){
+            if(actual.getIdBebestible().equals(idBebestible)){
+                return actual;
+            }
+        }
+        return null;
+    }
     /**
      * Permite modificar un Bebestible según las clases Bebestible que
      * se haya ingresado.
@@ -60,5 +70,14 @@ public class ListaBebestible {
      */
     public void modificarBebestible(Bebestible modificar, Bebestible modificado){
         bebestibles.set(bebestibles.indexOf(modificar), modificado);
+    }
+    
+    public void mostrarBebestibles(){
+        if(!bebestibles.isEmpty()){
+            System.out.println("-----------------------------------------------");
+            for(Bebestible actual : bebestibles){
+                System.out.println("ID: "+actual.getIdBebestible()+" Nombre: "+actual.getNombre()+".");
+            }
+        }
     }
 }

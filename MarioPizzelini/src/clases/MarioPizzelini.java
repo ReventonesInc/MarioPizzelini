@@ -61,6 +61,9 @@ public class MarioPizzelini {
         return sucursales.agregarBebestible(rutSucursal, nuevoBebestible);
     }
     
+    public boolean eliminarBebestible(String rutSucursal, String idBebestible){
+        return sucursales.eliminarBebestible(rutSucursal, idBebestible);
+    }
     
     public boolean modificarBebestible(String rutSucursal, String idBebestible, Bebestible modificado){
         return sucursales.modificarBebestible(rutSucursal, idBebestible, modificado);

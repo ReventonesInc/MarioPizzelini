@@ -47,8 +47,11 @@ public class ListaSucursal {
     }
     
     public void mostrarSucursales(){
-        for(int i = 0; sucursales != null && i < sucursales.size(); i++){
-            System.out.println("RUT: "+sucursales.get(i).getRut()+" Dirección: "+sucursales.get(i).getDireccion()+".");
+        if(!estaVacio()){
+            System.out.println("-----------------------------------------------");
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                System.out.println("RUT: "+sucursales.get(i).getRut()+" Dirección: "+sucursales.get(i).getDireccion()+".");
+            }
         }
     }
     

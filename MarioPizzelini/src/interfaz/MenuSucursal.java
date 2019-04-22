@@ -17,6 +17,7 @@ public class MenuSucursal extends javax.swing.JFrame {
         this.setResizable(false);
         this.empresa = empresa;
         jLabelRUT.setText(rutActual);
+        this.rutActual = rutActual;
     }
 
     /**

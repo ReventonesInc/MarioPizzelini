@@ -200,6 +200,7 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         Ingrediente buscado = empresa.buscarIngredienteID(id, rutEmpresa);
         int monto = 0;
         
+        System.out.println(buscado+" "+id+" "+rutEmpresa);
         if(buscado != null){
             jTextID.setText(id);
             jTextNombre.setText(buscado.getNombre());

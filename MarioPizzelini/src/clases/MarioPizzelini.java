@@ -53,5 +53,9 @@ public class MarioPizzelini {
     public int recaudacionTotal(){
         return sucursales.valorTotalPedidos();
     }
+    
+    public Sucursal sucursalConMayorRecaudacion(){
+        return sucursales.buscarSucursalMasIngresos();
+    }
      
  }

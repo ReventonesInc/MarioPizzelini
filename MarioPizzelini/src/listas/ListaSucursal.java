@@ -179,4 +179,20 @@ public class ListaSucursal {
         
         return contador;
     }
+    
+    public Sucursal buscarSucursalMasIngresos(){
+        Sucursal buscada = null;
+        
+        if(sucursales == null){
+            return null;
+        }
+        buscada = sucursales.get(0);
+        for(Sucursal actual : sucursales){
+            if(buscada.valorTotalPedidosSucursal() < actual.valorTotalPedidosSucursal()){
+                buscada = actual;
+            }
+        }
+        
+        return buscada;
+    }
 }

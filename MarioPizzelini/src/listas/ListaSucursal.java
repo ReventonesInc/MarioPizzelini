@@ -81,9 +81,9 @@ public class ListaSucursal {
     
     public boolean agregarIngrediente(String rut, Ingrediente nuevo){
         if(!sucursales.isEmpty()){
-            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
-                if((sucursales.get(i)).getRut().equals(rut)){
-                    return sucursales.get(i).agregarIngrediente(nuevo);
+            for(Sucursal actual : sucursales) {// int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if( (actual.getRut()).equals(rut) ) {//sucursales.get(i)).getRut().equals(rut)){
+                    return actual.agregarIngrediente(nuevo);//sucursales.get(i).agregarIngrediente(nuevo);
                 }
             }
         }

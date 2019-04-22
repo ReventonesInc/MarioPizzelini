@@ -86,6 +86,11 @@ public class MenuSucursal extends javax.swing.JFrame {
         jbInventario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbInventario.setForeground(new java.awt.Color(255, 255, 255));
         jbInventario.setText("Inventario");
+        jbInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInventarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 130, -1));
 
         jbCerrarSesion.setBackground(new java.awt.Color(101, 48, 0));
@@ -130,6 +135,12 @@ public class MenuSucursal extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbCerrarSesionActionPerformed
+
+    private void jbInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInventarioActionPerformed
+        MenuInventario frame = new MenuInventario(rutActual,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbInventarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondo;

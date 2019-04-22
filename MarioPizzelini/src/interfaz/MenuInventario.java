@@ -4,21 +4,22 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.MarioPizzelini;
 
-/**
- *
- * @author XavierKrostya
- */
 public class MenuInventario extends javax.swing.JFrame {
+    private MarioPizzelini empresa;
+    private String rutEmpresa;
 
-    /**
-     * Creates new form Inventario
-     */
-    public MenuInventario() {
+    //Constructor
+    public MenuInventario(String rutEmpresa, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        this.rutEmpresa = rutEmpresa;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,9 +32,8 @@ public class MenuInventario extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jbVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jbAgregar1 = new javax.swing.JButton();
-        jbAgregar = new javax.swing.JButton();
-        Bebestibles = new javax.swing.JButton();
+        jbIngredientes = new javax.swing.JButton();
+        jbBebestibles = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,28 +60,27 @@ public class MenuInventario extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/inventario-icon_opt.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        jbAgregar1.setBackground(new java.awt.Color(101, 48, 0));
-        jbAgregar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbAgregar1.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregar1.setText("Gasto Inventario");
-        getContentPane().add(jbAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
-
-        jbAgregar.setBackground(new java.awt.Color(101, 48, 0));
-        jbAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregar.setText("Ingredientes");
-        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 260, -1));
-
-        Bebestibles.setBackground(new java.awt.Color(101, 48, 0));
-        Bebestibles.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        Bebestibles.setForeground(new java.awt.Color(255, 255, 255));
-        Bebestibles.setText("Bebestibles");
-        Bebestibles.addActionListener(new java.awt.event.ActionListener() {
+        jbIngredientes.setBackground(new java.awt.Color(101, 48, 0));
+        jbIngredientes.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbIngredientes.setForeground(new java.awt.Color(255, 255, 255));
+        jbIngredientes.setText("Ingredientes");
+        jbIngredientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BebestiblesActionPerformed(evt);
+                jbIngredientesActionPerformed(evt);
             }
         });
-        getContentPane().add(Bebestibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 260, -1));
+        getContentPane().add(jbIngredientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 260, -1));
+
+        jbBebestibles.setBackground(new java.awt.Color(101, 48, 0));
+        jbBebestibles.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbBebestibles.setForeground(new java.awt.Color(255, 255, 255));
+        jbBebestibles.setText("Bebestibles");
+        jbBebestibles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBebestiblesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbBebestibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -90,56 +89,29 @@ public class MenuInventario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
-        System.exit(0);
+        MenuSucursal frame = new MenuSucursal(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
 
-    private void BebestiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BebestiblesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BebestiblesActionPerformed
+    private void jbBebestiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBebestiblesActionPerformed
+        MenuIngredientes frame = new MenuIngredientes(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbBebestiblesActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuInventario().setVisible(true);
-            }
-        });
-    }
+    private void jbIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngredientesActionPerformed
+        MenuBebestibles frame = new MenuBebestibles();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbIngredientesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bebestibles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JButton jbAgregar;
-    private javax.swing.JButton jbAgregar1;
+    private javax.swing.JButton jbBebestibles;
+    private javax.swing.JButton jbIngredientes;
     private javax.swing.JButton jbVolver;
     // End of variables declaration//GEN-END:variables
 }

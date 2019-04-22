@@ -57,6 +57,17 @@ public class ListaSucursal {
     
     /*------ Métodos básicos para ingredientes ------*/
     
+    public boolean estaVacioIngredientes(String rut){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).estaVacioIngredientes();
+                }
+            }
+        }
+        return false;
+    }
+    
     public Boolean agregarIngrediente(String rut, Ingrediente nuevo){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){
@@ -68,11 +79,11 @@ public class ListaSucursal {
         return false;
     }
     
-    public Boolean eliminarIngrediente(String rut, Ingrediente eliminar){
+    public Boolean eliminarIngrediente(String rut, String id){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){
                 if((sucursales.get(i)).getRut().equals(rut)){
-                    return sucursales.get(i).eliminarIngrediente(eliminar);
+                    return sucursales.get(i).eliminarIngrediente(id);
                 }
             }
         }

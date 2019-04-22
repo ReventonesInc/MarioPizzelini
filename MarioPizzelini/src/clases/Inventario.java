@@ -39,6 +39,10 @@ public class Inventario {
     
     /*--- Métodos para Ingrediente ---*/
     
+    public boolean estaVacioIngredientes(){
+        return ingredientes.estaVacio();
+    }
+    
     /**
      * Retorna un true, si el ingrediente ingresado por el parámetro
      * es agregado a la lista exitosamente, en cambio, retornará false si
@@ -51,8 +55,8 @@ public class Inventario {
         return ingredientes.agregarIngrediente(nuevo);
     }
     
-    public boolean eliminarIngrediente(Ingrediente eliminar){
-        return ingredientes.eliminarIngrediente(eliminar);
+    public boolean eliminarIngrediente(String id){
+        return ingredientes.eliminarIngrediente(id);
     }
     
     public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){

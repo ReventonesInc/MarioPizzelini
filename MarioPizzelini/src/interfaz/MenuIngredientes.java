@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.MarioPizzelini;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author XavierKrostya
- */
 public class MenuIngredientes extends javax.swing.JFrame {
+    private MarioPizzelini empresa;
+    private String rutEmpresa;
 
-    /**
-     * Creates new form MenuIngredientes
-     */
-    public MenuIngredientes() {
+    //Constructor
+    public MenuIngredientes(String rutEmpresa, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        this.rutEmpresa = rutEmpresa;
     }
 
     /**
@@ -30,9 +31,10 @@ public class MenuIngredientes extends javax.swing.JFrame {
 
         jbVolver = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
+        jbModificar = new javax.swing.JButton();
         jbAgregar = new javax.swing.JButton();
-        jbAgregar1 = new javax.swing.JButton();
-        jbAgregar2 = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbMostrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
@@ -57,26 +59,42 @@ public class MenuIngredientes extends javax.swing.JFrame {
         jLabelTitulo.setText("INVENTARIO INGREDIENTES");
         getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jbModificar.setBackground(new java.awt.Color(101, 48, 0));
+        jbModificar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbModificar.setForeground(new java.awt.Color(255, 255, 255));
+        jbModificar.setText("Modificar");
+        getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 260, -1));
+
         jbAgregar.setBackground(new java.awt.Color(101, 48, 0));
         jbAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jbAgregar.setText("Agregar");
-        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
+        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 260, -1));
 
-        jbAgregar1.setBackground(new java.awt.Color(101, 48, 0));
-        jbAgregar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbAgregar1.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregar1.setText("Eliminar");
-        getContentPane().add(jbAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 260, -1));
+        jbEliminar.setBackground(new java.awt.Color(101, 48, 0));
+        jbEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, -1));
 
-        jbAgregar2.setBackground(new java.awt.Color(101, 48, 0));
-        jbAgregar2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbAgregar2.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregar2.setText("Mostrar Ingredientes");
-        getContentPane().add(jbAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 260, -1));
+        jbMostrar.setBackground(new java.awt.Color(101, 48, 0));
+        jbMostrar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        jbMostrar.setText("Mostrar Ingredientes");
+        getContentPane().add(jbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/icon_ingredients_opt.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -85,51 +103,36 @@ public class MenuIngredientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
-        System.exit(0);
+        MenuInventario frame = new MenuInventario(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+        AgregarIngredientes frame = new AgregarIngredientes(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbAgregarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuIngredientes().setVisible(true);
-            }
-        });
-    }
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        if(!empresa.estaVacioIngredientes(rutEmpresa)){
+            EliminarIngredientes frame = new EliminarIngredientes(rutEmpresa,empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay ingredientes por eliminar");
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JButton jbAgregar;
-    private javax.swing.JButton jbAgregar1;
-    private javax.swing.JButton jbAgregar2;
+    private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbModificar;
+    private javax.swing.JButton jbMostrar;
     private javax.swing.JButton jbVolver;
     // End of variables declaration//GEN-END:variables
 }

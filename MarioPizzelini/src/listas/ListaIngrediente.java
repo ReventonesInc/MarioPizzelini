@@ -21,6 +21,10 @@ public class ListaIngrediente {
     
     /*--- Métodos básicos para ingredientes ---*/
     
+    public boolean estaVacio(){
+        return ingredientes.isEmpty();
+    }
+    
     /**
      * Retorna un true, si el ingrediente ingresado por el parámetro
      * es agregado a la lista exitosamente, en cambio, retornará false si
@@ -44,9 +48,11 @@ public class ListaIngrediente {
      * @param eliminar Clase Ingrediente.
      * @return booleano.
      */
-    public boolean eliminarIngrediente(Ingrediente eliminar){
-        if(ingredientes.contains(eliminar)){
-            return ingredientes.remove(eliminar);
+    public boolean eliminarIngrediente(String id){
+        for(int i = 0; ingredientes != null && i < ingredientes.size(); i++){
+            if((ingredientes.get(i)).getIdIngrediente().equals(id)){
+                return ingredientes.remove(ingredientes.get(i));
+            }
         }
         return false;
     }

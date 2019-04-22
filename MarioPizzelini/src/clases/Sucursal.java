@@ -50,12 +50,16 @@ public class Sucursal {
     
     /*--- Métodos para Ingredientes ---*/
     
+    public boolean estaVacioIngredientes(){
+        return bodega.estaVacioIngredientes();
+    }
+    
     public boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);
     }
     
-    public boolean eliminarIngrediente(Ingrediente eliminar){
-        return bodega.eliminarIngrediente(eliminar);
+    public boolean eliminarIngrediente(String id){
+        return bodega.eliminarIngrediente(id);
     }
     
     public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){

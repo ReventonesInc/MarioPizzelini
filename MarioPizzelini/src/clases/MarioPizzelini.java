@@ -18,6 +18,10 @@ public class MarioPizzelini {
     
     /*------ Método básicos de MarioPizzelini ------*/
     
+    public boolean estaVacioIngredientes(String rut){
+        return sucursales.estaVacioIngredientes(rut);
+    }
+    
     public Boolean estaVacioSucursales(){
         return sucursales.estaVacio();
     }
@@ -34,8 +38,8 @@ public class MarioPizzelini {
         return sucursales.agregarIngrediente(rutSucursal, nuevoIngrediente);
     }
     
-    public Boolean eliminarIngrediente(String rutSucursal, Ingrediente ingredienteEliminar){
-        return sucursales.eliminarIngrediente(rutSucursal, ingredienteEliminar);
+    public Boolean eliminarIngrediente(String rutSucursal, String id){
+        return sucursales.eliminarIngrediente(rutSucursal, id);
     }
     
     public Sucursal buscarSucursalPorRut(String rut){

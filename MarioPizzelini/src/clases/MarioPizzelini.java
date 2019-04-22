@@ -49,5 +49,9 @@ public class MarioPizzelini {
     public Cliente buscarClienteConMasPedidos(){
         return clientes.clienteMasPedidos(sucursales);
     }
+    
+    public int recaudacionTotal(){
+        return sucursales.valorTotalPedidos();
+    }
      
  }

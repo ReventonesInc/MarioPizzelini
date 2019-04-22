@@ -169,4 +169,14 @@ public class ListaSucursal {
         
         return contador;
     }
+    
+    public int valorTotalPedidos(){
+        int contador = 0;
+        
+        for(Sucursal actual :  sucursales){
+            contador += actual.valorTotalPedidosSucursal();
+        }
+        
+        return contador;
+    }
 }

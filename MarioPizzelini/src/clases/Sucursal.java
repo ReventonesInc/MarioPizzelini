@@ -89,4 +89,8 @@ public class Sucursal {
     public int cantidadPedidosCliente(Cliente clienteBuscado){
         return pedidos.cantidadPedidosCliente(clienteBuscado);
     }
+    
+    public int valorTotalPedidosSucursal(){
+        return pedidos.valorTotalPedidos();
+    }
 }

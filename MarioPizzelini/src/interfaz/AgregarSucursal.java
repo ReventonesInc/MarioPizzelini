@@ -5,18 +5,23 @@
  */
 package interfaz;
 
+import clases.MarioPizzelini;
+import clases.Sucursal;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author XavierKrostya
  */
 public class AgregarSucursal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form InicioSucursal
-     */
-    public AgregarSucursal() {
+    private MarioPizzelini empresa;
+    
+    //Constructor
+    public AgregarSucursal(MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
     }
 
     /**
@@ -101,6 +106,11 @@ public class AgregarSucursal extends javax.swing.JFrame {
         jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
         jbAceptar.setText("Agregar");
         jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
@@ -108,6 +118,11 @@ public class AgregarSucursal extends javax.swing.JFrame {
         jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jbCancelar.setText("Cancelar");
         jbCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
@@ -123,42 +138,34 @@ public class AgregarSucursal extends javax.swing.JFrame {
     private void jTextRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextRutActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    
+    //Al clickear el botón de aceptar para agregar una sucursal
+    private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
+        String rutEmpresa = jTextRut.getText();
+        String direccion = jTextDireccion.getText();
+        
+        if(!(rutEmpresa.equals("") || direccion.equals(""))){
+            if(empresa.agregarSucursal(new Sucursal(rutEmpresa,direccion))){
+                JOptionPane.showMessageDialog(null,"¡La sucursal fue registrada con exito!");
+                MenuSucursal frame = new MenuSucursal(rutEmpresa, empresa);
+                frame.setVisible(true);
+                this.dispose();
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            else{
+                JOptionPane.showMessageDialog(null,"¡La sucursal no fue registrada!");
+            }
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgregarSucursal().setVisible(true);
-            }
-        });
-    }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
+    }//GEN-LAST:event_jbAceptarActionPerformed
+    
+    //Al clickear el botón cancelar
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        Inicio frame = new Inicio(empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelDireccion;

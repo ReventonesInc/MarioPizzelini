@@ -131,11 +131,12 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Al clickear se saldrá del programa
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
-
+    
     private void jTextRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRutActionPerformed
 
     }//GEN-LAST:event_jTextRutActionPerformed
@@ -146,19 +147,28 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
-
+    
+    //Al clickear se agregará una sucursal y se ingresará a su menú
     private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
-        if(empresa.agregarSucursal(new Sucursal(jTextRut.getText(),jTextDireccion.getText()))){
-            JOptionPane.showMessageDialog(null,"¡La sucursal fue registrada con exito!");
-            MenuSucursal frame = new MenuSucursal();
-            frame.setVisible(true);
-            this.dispose();
+        String rutEmpresa = jTextRut.getText();
+        String direccion = jTextDireccion.getText();
+        
+        if(!(rutEmpresa.equals("") || direccion.equals(""))){
+            if(empresa.agregarSucursal(new Sucursal(rutEmpresa,direccion))){
+                JOptionPane.showMessageDialog(null,"¡La sucursal fue registrada con exito!");
+                MenuSucursal frame = new MenuSucursal(rutEmpresa, empresa);
+                frame.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"¡La sucursal no fue registrada!");
+            }
         }
         else{
-            JOptionPane.showMessageDialog(null,"¡La sucursal no fue registrada!");
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
         }
     }//GEN-LAST:event_jbAceptarActionPerformed
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelFondo;

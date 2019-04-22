@@ -91,7 +91,7 @@ public class Inicio extends javax.swing.JFrame {
             this.dispose();
         }
         else{
-            SeleccionSucursal nuevo = new SeleccionSucursal();
+            SeleccionSucursal nuevo = new SeleccionSucursal(empresa);
             nuevo.setVisible(true);
             this.dispose();
         }

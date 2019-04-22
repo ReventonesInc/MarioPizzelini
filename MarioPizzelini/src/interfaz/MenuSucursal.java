@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 package interfaz;
+import clases.MarioPizzelini;
 
-/**
- *
- * @author XavierKrostya
- */
 public class MenuSucursal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MenuSucursal
-     */
-    public MenuSucursal() {
+    private MarioPizzelini empresa;
+    private String rutActual;
+    
+    //Constructor
+    public MenuSucursal(String rutActual, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        jLabelRUT.setText(rutActual);
     }
 
     /**
@@ -32,11 +32,14 @@ public class MenuSucursal extends javax.swing.JFrame {
         jbSalir = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
         jLabelRUT = new javax.swing.JLabel();
-        jLabelText1 = new javax.swing.JLabel();
+        jLabelMONTO = new javax.swing.JLabel();
         jLabelcon = new javax.swing.JLabel();
         jbPedidos = new javax.swing.JButton();
         jbInventario = new javax.swing.JButton();
         jbCerrarSesion = new javax.swing.JButton();
+        jLabelText2 = new javax.swing.JLabel();
+        jLabelText3 = new javax.swing.JLabel();
+        jLabelText4 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,10 +68,10 @@ public class MenuSucursal extends javax.swing.JFrame {
         jLabelRUT.setText("12.345.678-9");
         getContentPane().add(jLabelRUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        jLabelText1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabelText1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelText1.setText("RUT de la sucursal:");
-        getContentPane().add(jLabelText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jLabelMONTO.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabelMONTO.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMONTO.setText("12345");
+        getContentPane().add(jLabelMONTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, -1));
 
         jLabelcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/coloreslmini_opt.png"))); // NOI18N
         getContentPane().add(jLabelcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
@@ -77,19 +80,39 @@ public class MenuSucursal extends javax.swing.JFrame {
         jbPedidos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbPedidos.setForeground(new java.awt.Color(255, 255, 255));
         jbPedidos.setText("Pedidos");
-        getContentPane().add(jbPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 260, -1));
+        getContentPane().add(jbPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 130, -1));
 
         jbInventario.setBackground(new java.awt.Color(101, 48, 0));
         jbInventario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbInventario.setForeground(new java.awt.Color(255, 255, 255));
         jbInventario.setText("Inventario");
-        getContentPane().add(jbInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, -1));
+        getContentPane().add(jbInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 130, -1));
 
         jbCerrarSesion.setBackground(new java.awt.Color(101, 48, 0));
         jbCerrarSesion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbCerrarSesion.setText("Cerrar sesión");
-        getContentPane().add(jbCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, -1));
+        jbCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 130, -1));
+
+        jLabelText2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabelText2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelText2.setText("RUT de la sucursal:");
+        getContentPane().add(jLabelText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabelText3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabelText3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelText3.setText("Recaudación total:");
+        getContentPane().add(jLabelText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        jLabelText4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabelText4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelText4.setText("$");
+        getContentPane().add(jLabelText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 10, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -97,49 +120,24 @@ public class MenuSucursal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Al clickear se saldrá del programa
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuSucursal().setVisible(true);
-            }
-        });
-    }
+    private void jbCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarSesionActionPerformed
+        SeleccionSucursal frame = new SeleccionSucursal(empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbCerrarSesionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelMONTO;
     private javax.swing.JLabel jLabelRUT;
-    private javax.swing.JLabel jLabelText1;
+    private javax.swing.JLabel jLabelText2;
+    private javax.swing.JLabel jLabelText3;
+    private javax.swing.JLabel jLabelText4;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelcon;
     private javax.swing.JScrollBar jScrollBar1;

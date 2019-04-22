@@ -37,9 +37,11 @@ public class ListaSucursal {
         return sucursales.add(nuevo);
     }
     
-    public Boolean eliminarSucursal(Sucursal eliminar){
-        if(sucursales.contains(eliminar)){
-            return sucursales.remove(eliminar);
+    public Boolean eliminarSucursal(String rutEliminar){
+        for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+            if((sucursales.get(i)).getRut().equals(rutEliminar)){
+                return sucursales.remove(sucursales.get(i));
+            }
         }
         return false;
     }

@@ -157,6 +157,11 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jbIngresar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbIngresar.setForeground(new java.awt.Color(255, 255, 255));
         jbIngresar.setText("Ingresar");
+        jbIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbIngresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 160, -1));
 
         jbMostrar.setBackground(new java.awt.Color(101, 48, 0));
@@ -240,9 +245,14 @@ public class SeleccionSucursal extends javax.swing.JFrame {
     
     //Al clickear el botón para eliminar una sucursal
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        EliminarSucursal frame = new EliminarSucursal(empresa);
-        frame.setVisible(true);
-        this.dispose();
+        if(empresa.estaVacioSucursales()){
+            JOptionPane.showMessageDialog(null, "¡No hay sucursales por eliminar!");
+        }
+        else{
+            EliminarSucursal frame = new EliminarSucursal(empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
     
     //Al clickear el botón para mostrar por consola todas las sucursales
@@ -254,6 +264,25 @@ public class SeleccionSucursal extends javax.swing.JFrame {
             empresa.mostrarSucursales();
         }
     }//GEN-LAST:event_jbMostrarActionPerformed
+
+    //Al clickear el botón, ingresarás al frame del menu sucursal
+    private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
+        String rut = jTextRut.getText();
+        
+        if(!rut.equals("")){
+            if(empresa.buscarSucursalPorRut(rut) != null){
+                MenuSucursal frame = new MenuSucursal(rut,empresa);
+                frame.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "¡RUT no encontrado!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "¡RUT no valido!");
+        }
+    }//GEN-LAST:event_jbIngresarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelDIRECCION;

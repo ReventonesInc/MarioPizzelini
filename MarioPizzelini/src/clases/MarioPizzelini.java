@@ -38,13 +38,16 @@ public class MarioPizzelini {
         return sucursales.eliminarIngrediente(rutSucursal, ingredienteEliminar);
     }
     
+    public Sucursal buscarSucursalPorRut(String rut){
+        return sucursales.buscarSucursalRut(rut);
+    }
     
     public Boolean agregarSucursal(Sucursal nuevaSucursal){
         return sucursales.agregarSucursal(nuevaSucursal);
     }
     
-    public Boolean eliminarSucursal(Sucursal eliminar){
-        return sucursales.eliminarSucursal(eliminar);
+    public Boolean eliminarSucursal(String rutEliminar){
+        return sucursales.eliminarSucursal(rutEliminar);
     }
     
     public void mostrarSucursales(){

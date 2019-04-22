@@ -145,7 +145,7 @@ public class EliminarSucursal extends javax.swing.JFrame {
         String direccion = jTextDireccion.getText();
 
         if(!(rutEmpresa.equals("") || direccion.equals(""))){
-            if(empresa.eliminarSucursal(new Sucursal(rutEmpresa,direccion))){
+            if(empresa.eliminarSucursal(rutEmpresa)){
                 JOptionPane.showMessageDialog(null,"¡La sucursal fue eliminada con exito!");
                 SeleccionSucursal frame = new SeleccionSucursal(empresa);
                 frame.setVisible(true);

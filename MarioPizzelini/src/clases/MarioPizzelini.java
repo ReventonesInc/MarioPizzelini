@@ -73,6 +73,14 @@ public class MarioPizzelini {
         sucursales.mostrarBebestibles(rutSucursal);
     }
     
+    public void mostrarIngredientes(String rutSucursal){
+        sucursales.mostrarIngredientes(rutSucursal);
+    }
+    
+    public Ingrediente buscarIngredienteID(String rut, String id){
+        return sucursales.buscarIngredienteID(rut, id);
+    }
+    
     public Sucursal buscarSucursalPorRut(String rut){
         return sucursales.buscarSucursalRut(rut);
     }

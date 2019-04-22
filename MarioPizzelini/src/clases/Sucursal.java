@@ -54,6 +54,10 @@ public class Sucursal {
         return bodega.estaVacioIngredientes();
     }
     
+    public Ingrediente buscarIngredienteID(String idIngrediente){
+        return bodega.buscarIngredienteID(idIngrediente);
+    }
+    
     public boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);
     }

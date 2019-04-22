@@ -63,6 +63,11 @@ public class MenuIngredientes extends javax.swing.JFrame {
         jbModificar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(255, 255, 255));
         jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 260, -1));
 
         jbAgregar.setBackground(new java.awt.Color(101, 48, 0));
@@ -91,6 +96,11 @@ public class MenuIngredientes extends javax.swing.JFrame {
         jbMostrar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbMostrar.setForeground(new java.awt.Color(255, 255, 255));
         jbMostrar.setText("Mostrar Ingredientes");
+        jbMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMostrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/icon_ingredients_opt.png"))); // NOI18N
@@ -124,6 +134,26 @@ public class MenuIngredientes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay ingredientes por eliminar");
         }
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        if(!empresa.estaVacioIngredientes(rutEmpresa)){
+            ModificarIngredientes frame = new ModificarIngredientes(rutEmpresa,empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay ingredientes por modificar");
+        }
+    }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jbMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarActionPerformed
+        if(!empresa.estaVacioIngredientes(rutEmpresa)){
+            empresa.mostrarIngredientes(rutEmpresa);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay ingredientes por mostrar");
+        }
+    }//GEN-LAST:event_jbMostrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

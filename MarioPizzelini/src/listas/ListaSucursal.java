@@ -57,6 +57,17 @@ public class ListaSucursal {
     
     /*------ Métodos básicos para ingredientes ------*/
     
+    public Ingrediente buscarIngredienteID(String rut, String idIngrediente){
+        if(!sucursales.isEmpty()){
+            for(int i = 0; sucursales != null && i < sucursales.size(); i++){
+                if((sucursales.get(i)).getRut().equals(rut)){
+                    return sucursales.get(i).buscarIngredienteID(idIngrediente);
+                }
+            }
+        }
+        return null;
+    }
+    
     public boolean estaVacioIngredientes(String rut){
         if(!sucursales.isEmpty()){
             for(int i = 0; sucursales != null && i < sucursales.size(); i++){

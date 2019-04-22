@@ -5,7 +5,9 @@
  */
 package interfaz;
 
+import clases.Ingrediente;
 import clases.MarioPizzelini;
+import javax.swing.JOptionPane;
 
 public class ModificarIngredientes extends javax.swing.JFrame {
     private MarioPizzelini empresa;
@@ -168,6 +170,11 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         jbModificar.setForeground(new java.awt.Color(255, 255, 255));
         jbModificar.setText("Modificar");
         jbModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
 
         jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
@@ -189,7 +196,19 @@ public class ModificarIngredientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-
+        String id = jTextIDBuscar.getText();
+        Ingrediente buscado = empresa.buscarIngredienteID(id, rutEmpresa);
+        int monto = 0;
+        
+        if(buscado != null){
+            jTextID.setText(id);
+            jTextNombre.setText(buscado.getNombre());
+            monto = buscado.getPrecio();
+            jTextPrecio.setText(String.valueOf(monto));
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡La ID no existe!");
+        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -206,6 +225,43 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        String id = jTextID.getText();
+        String precio = jTextPrecio.getText();
+        String nombre = jTextNombre.getText();
+        int monto = 0;
+        
+        if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
+            if(validarNumero(precio)){
+                monto = Integer.parseInt(precio);
+                if(empresa.modificarIngrediente(rutEmpresa, jTextIDBuscar.getText(), new Ingrediente(id,nombre,monto))){
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente fue modificado con exito!");
+                    MenuIngredientes frame = new MenuIngredientes(rutEmpresa, empresa);
+                    frame.setVisible(true);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente no fue modificado!");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"¡El precio ingresado no es valido!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
+    }//GEN-LAST:event_jbModificarActionPerformed
+
+    public boolean validarNumero(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException excepcion) {
+            return false;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelD;

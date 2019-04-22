@@ -43,6 +43,10 @@ public class Inventario {
         return ingredientes.estaVacio();
     }
     
+    public Ingrediente buscarIngredienteID(String idIngrediente){
+        return ingredientes.buscarIngredienteID(idIngrediente);
+    }
+    
     /**
      * Retorna un true, si el ingrediente ingresado por el parámetro
      * es agregado a la lista exitosamente, en cambio, retornará false si

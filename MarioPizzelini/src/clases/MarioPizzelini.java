@@ -30,6 +30,15 @@ public class MarioPizzelini {
         return clientes.eliminarCliente(eliminar);
     }
     
+    public Boolean agregarIngrediente(String rutSucursal, Ingrediente nuevoIngrediente){
+        return sucursales.agregarIngrediente(rutSucursal, nuevoIngrediente);
+    }
+    
+    public Boolean eliminarIngrediente(String rutSucursal, Ingrediente ingredienteEliminar){
+        return sucursales.eliminarIngrediente(rutSucursal, ingredienteEliminar);
+    }
+    
+    
     public Boolean agregarSucursal(Sucursal nuevaSucursal){
         return sucursales.agregarSucursal(nuevaSucursal);
     }
@@ -48,7 +57,6 @@ public class MarioPizzelini {
     
     public Cliente buscarClienteConMasPedidos(){
         return clientes.clienteMasPedidos(sucursales);
-        
     }
     
     public int recaudacionTotal(){

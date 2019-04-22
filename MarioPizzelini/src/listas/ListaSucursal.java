@@ -76,7 +76,7 @@ public class ListaSucursal {
                 }
             }
         }
-        return false;
+        return true; //aqui habia un false
     }
     
     public boolean agregarIngrediente(String rut, Ingrediente nuevo){

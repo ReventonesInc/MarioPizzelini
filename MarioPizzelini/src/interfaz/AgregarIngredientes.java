@@ -163,7 +163,7 @@ public class AgregarIngredientes extends javax.swing.JFrame {
         if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                if(empresa.agregarIngrediente(rutEmpresa, new Ingrediente(id,nombre,monto))){
+                if(!empresa.agregarIngrediente(rutEmpresa, new Ingrediente(id,nombre,monto))){
                     JOptionPane.showMessageDialog(null,"¡El ingrediente fue registrado con exito!");
                     MenuIngredientes frame = new MenuIngredientes(rutEmpresa, empresa);
                     frame.setVisible(true);

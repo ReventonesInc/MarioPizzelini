@@ -38,6 +38,14 @@ public class MarioPizzelini {
         return sucursales.eliminarSucursal(eliminar);
     }
     
+    public Boolean agregarIngrediente(String rutSucursal, Ingrediente nuevoIngrediente){
+        return sucursales.agregarIngrediente(rutSucursal, nuevoIngrediente);
+    }
+    
+    public Boolean eliminarIngrediente(String rutSucursal, Ingrediente ingredienteEliminar){
+        return sucursales.eliminarIngrediente(rutSucursal, ingredienteEliminar);
+    }
+    
     public Boolean agregarPedido(String rutSucursal, Pedido pedidoNuevo){
         return sucursales.agregarPedido(rutSucursal,pedidoNuevo);
     }

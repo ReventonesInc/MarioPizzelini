@@ -13,9 +13,9 @@ public class Inventario {
     private ListaBebestible bebestibles;  //Lista de bebestibles
     
     //Constructor
-    public Inventario(ListaIngrediente ingredientes, ListaBebestible bebestibles) {
-        this.ingredientes = ingredientes;
-        this.bebestibles = bebestibles;
+    public Inventario() {
+        this.ingredientes = new ListaIngrediente();
+        this.bebestibles = new ListaBebestible();
     }
     
     /*Getters y setters correspondientes*/
@@ -23,17 +23,17 @@ public class Inventario {
         return ingredientes;
     }
     
-    public void setIngredientes(ListaIngrediente ingredientes) {
-        this.ingredientes = ingredientes;
-    }
+    //public void setIngredientes(ListaIngrediente ingredientes) {
+    //    this.ingredientes = ingredientes;
+    //}
 
     public ListaBebestible getBebestibles() {
         return bebestibles;
     }
 
-    public void setBebestibles(ListaBebestible bebestibles) {
-        this.bebestibles = bebestibles;
-    }
+    //public void setBebestibles(ListaBebestible bebestibles) {
+    //    this.bebestibles = bebestibles;
+    //}
     
     /*------ Métodos básicos de inventario ------*/
     
@@ -45,13 +45,13 @@ public class Inventario {
      * no se agrega. Además se ocupa el método agregarIngredientes()
      * <p>
      * @param nuevo Clase Ingrediente.
-     * @return Booleano.
+     * @return booleano.
      */
-    public Boolean agregarIngrediente(Ingrediente nuevo){
+    public boolean agregarIngrediente(Ingrediente nuevo){
         return ingredientes.agregarIngrediente(nuevo);
     }
     
-    public Boolean eliminarIngrediente(Ingrediente eliminar){
+    public boolean eliminarIngrediente(Ingrediente eliminar){
         return ingredientes.eliminarIngrediente(eliminar);
     }
     
@@ -59,11 +59,14 @@ public class Inventario {
         ingredientes.modificarIngrediente(modificar, modificado);
     }
     
-    public Boolean agregarBebestible(Bebestible nuevo){
+    /*--- Métodos para Bebestible ---*/
+
+    
+    public boolean agregarBebestible(Bebestible nuevo){
         return bebestibles.agregarBebestible(nuevo);
     }
     
-    public Boolean eliminarBebestible(Bebestible eliminar){
+    public boolean eliminarBebestible(Bebestible eliminar){
         return bebestibles.eliminarBebestible(eliminar);
     }
     

@@ -27,9 +27,9 @@ public class ListaBebestible {
      * si no se agrega.
      * <p>
      * @param nuevo Clase Bebestible.
-     * @return Booleano.
+     * @return booleano.
      */
-    public Boolean agregarBebestible(Bebestible nuevo){
+    public boolean agregarBebestible(Bebestible nuevo){
         if(bebestibles.contains(nuevo)){
             return false;
         }
@@ -42,9 +42,9 @@ public class ListaBebestible {
      * si no es elimina.
      * <p>
      * @param eliminar Clase Bebestible.
-     * @return Booleano.
+     * @return booleano.
      */
-    public Boolean eliminarBebestible(Bebestible eliminar){
+    public boolean eliminarBebestible(Bebestible eliminar){
         if(bebestibles.contains(eliminar)){
             return bebestibles.remove(eliminar);
         }

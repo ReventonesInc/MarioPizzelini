@@ -27,9 +27,9 @@ public class ListaIngrediente {
      * no se agrega.
      * <p>
      * @param nuevo Clase Ingrediente.
-     * @return Booleano.
+     * @return booleano.
      */
-    public Boolean agregarIngrediente(Ingrediente nuevo){
+    public boolean agregarIngrediente(Ingrediente nuevo){
         if(ingredientes.contains(nuevo)){
             return false;
         }
@@ -42,9 +42,9 @@ public class ListaIngrediente {
      * no se elimina.
      * <p>
      * @param eliminar Clase Ingrediente.
-     * @return Booleano.
+     * @return booleano.
      */
-    public Boolean eliminarIngrediente(Ingrediente eliminar){
+    public boolean eliminarIngrediente(Ingrediente eliminar){
         if(ingredientes.contains(eliminar)){
             return ingredientes.remove(eliminar);
         }

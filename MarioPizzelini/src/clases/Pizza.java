@@ -10,19 +10,34 @@ package clases;
  */
 public class Pizza extends Producto{
     private Ingrediente[] ingredientes;
-    private Ingrediente[] extras;
     
-    public Pizza(int cantIngredientes, int cantExtras, String nombre, int precio, String descripcion){
+    public Pizza(int cantIngredientes, String nombre, int precio, String descripcion){
         super(nombre, precio, descripcion);
         this.ingredientes = new Ingrediente[cantIngredientes];
-        this.extras = new Ingrediente[cantExtras];
+        super.setPrecio(calcularValor());
     }
     
     public Ingrediente[] getIngredientes(){
         return ingredientes;
     }
     
-    public Ingrediente[] getExtras(){
-        return extras;
+    public boolean agregarIngrediente(Ingrediente nuevo) {
+        int cantIngredientes = ingredientes.length;
+        for(int i = 0; i < cantIngredientes; i++) {
+            if(ingredientes[i] == null){
+                ingredientes[i] = nuevo;
+                return true;
+            } 
+        }
+        return false;
+    }
+    
+    @Override
+    public final int calcularValor() {
+        int valor = 0;
+        for(int i = 0; ingredientes != null && i < ingredientes.length; i++) {
+            valor += ingredientes[i].getPrecio();
+        }        
+        return valor;
     }
 }

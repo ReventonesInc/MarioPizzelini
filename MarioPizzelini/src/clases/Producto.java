@@ -31,7 +31,7 @@ public abstract class Producto {
     public int getPrecio() {
         return precio;
     }
-
+    
     public void setPrecio(int precio) {
         this.precio = precio;
     }
@@ -44,4 +44,5 @@ public abstract class Producto {
         this.descripcion = descripcion;
     }
     
+    public abstract int calcularValor();
 }

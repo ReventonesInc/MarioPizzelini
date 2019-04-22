@@ -31,26 +31,24 @@ public class ListaPedido {
      * @param idPedido identificación del pedido
      * @return class Pedido o null
      */
-    
-    /*
+        
     public Pedido buscarPedido(String idPedido){
         for(int i = 0; pedidos != null && i < pedidos.size(); i++){
-            if((pedidos.get(i)).getId().equals(idPedido)){
+            if((pedidos.get(i)).getIdPedido().equals(idPedido)){
                 return pedidos.get(i);
             }
         }
         return null;
     }
-    */
     
     /**
      * Retorna true si el pedido ingresado es agregado existosamente del ArrayList,
      * en el caso contrario retornará false
      * <p>
      * @param nuevo pedido para agregar al ArrayList
-     * @return Boolean
+     * @return boolean
      */
-    public Boolean agregarPedido(Pedido nuevo){
+    public boolean agregarPedido(Pedido nuevo){
         if(pedidos.contains(nuevo)){
             return false;
         }
@@ -62,7 +60,7 @@ public class ListaPedido {
      * retornará false.
      * <p>
      * @param eliminar identificación del pedido
-     * @return Boolean
+     * @return boolean
      */
     public boolean eliminarPedido(Pedido eliminar) {
         if(pedidos.contains(eliminar)) {
@@ -71,4 +69,17 @@ public class ListaPedido {
         return false;
     }
     
+    public void modificarPedido(Pedido modificar, Pedido modificado) {
+        pedidos.set(pedidos.indexOf(modificar), modificado);
+    }
+    
+    public int valorTotalPedidos() {    //Monto Recaudado en la sucursal
+        int total = 0;
+        if(!pedidos.isEmpty()) {
+            for(Pedido actual : pedidos) {
+                total += actual.getMontoPedido();
+            }
+        }
+        return total;
+    }
 }

@@ -6,7 +6,6 @@
 package clases;
 
 import listas.ListaPedido;
-import listas.ListaCliente;
 
 public class Sucursal {
     private String rut;
@@ -15,11 +14,11 @@ public class Sucursal {
     private Inventario bodega;
     
     //Constructor
-    public Sucursal(String rut, String direccion, ListaPedido pedidos, Inventario bodega) {
+    public Sucursal(String rut, String direccion) {
         this.rut = rut;
         this.direccion = direccion;
-        this.pedidos = pedidos;
-        this.bodega = bodega;
+        this.pedidos = new ListaPedido();
+        this.bodega = new Inventario();
     }
     
     /*Getters y setters correspondientes*/
@@ -51,11 +50,11 @@ public class Sucursal {
     
     /*--- Métodos para Ingredientes ---*/
     
-    public Boolean agregarIngrediente(Ingrediente nuevo){
+    public boolean agregarIngrediente(Ingrediente nuevo){
         return bodega.agregarIngrediente(nuevo);
     }
     
-    public Boolean eliminarIngrediente(Ingrediente eliminar){
+    public boolean eliminarIngrediente(Ingrediente eliminar){
         return bodega.eliminarIngrediente(eliminar);
     }
     
@@ -65,11 +64,11 @@ public class Sucursal {
     
     /*--- Métodos para Bebestibles ---*/
     
-    public Boolean agregarBebestible(Bebestible nuevo){
+    public boolean agregarBebestible(Bebestible nuevo){
         return bodega.agregarBebestible(nuevo);
     }
     
-    public Boolean eliminarBebestible(Bebestible eliminar){
+    public boolean eliminarBebestible(Bebestible eliminar){
         return bodega.eliminarBebestible(eliminar);
     }
     
@@ -77,13 +76,15 @@ public class Sucursal {
         bodega.modificarBebestible(modificar, modificado);
     }
     
-    /*--- Métodos para pedidos ---*/
+    /*--- Métodos para Pedidos ---*/
     
-    public Boolean agregarPedido(Pedido nuevo){
+    public boolean agregarPedido(Pedido nuevo){
         return pedidos.agregarPedido(nuevo);
     }
     
-    public Boolean eliminarPedido(Pedido eliminar){
+    public boolean eliminarPedido(Pedido eliminar){
         return pedidos.eliminarPedido(eliminar);
     }
+    
+    
 }

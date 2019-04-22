@@ -9,22 +9,25 @@ public class Pedido {
     private Cliente clienteReferenciado;        //cliente que ordenó el pedido
     private Pizza[] pizzasPedidas;            //Pizza que puede escoger el cliente
     private Bebestible[] bebestiblesPedidos;      //Producto que puede escoger el cliente
+    private int montoPedido;
     
     //A continuación constructores de pedido
     
     //Cuando el cliente pide: Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas){
+    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int montoPedido){
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
+        this.montoPedido = montoTotal();
     }
     
     //Cuando el cliente pide: Bebestible, Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
+    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles, int montoPedido){
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = new Bebestible[cantBebestibles];
+        this.montoPedido = montoTotal();
     }
     
     //Getters y setters correspondientes
@@ -59,6 +62,22 @@ public class Pedido {
 
     public void setBebestiblesPedidos(Bebestible[] bebestiblesPedidos) {
         this.bebestiblesPedidos = bebestiblesPedidos;
+    }
+
+    public int getMontoPedido() {
+        return montoPedido;
+    }
+
+    public void setMontoPedido(int montoPedido) {
+        this.montoPedido = montoPedido;
+    }    
+    
+    public final int montoTotal() {
+        int total = 0;
+        for (int i = 0; pizzasPedidas != null && i < pizzasPedidas.length; i++) {
+            total += pizzasPedidas[i].getPrecio();
+        }
+        return total;
     }
     
 }

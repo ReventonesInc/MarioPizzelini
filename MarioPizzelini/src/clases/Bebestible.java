@@ -20,6 +20,9 @@ public class Bebestible extends Producto {
     public void setIdBebestible(String idBebestible) {
         this.idBebestible = idBebestible;
     }
-    
-    
+
+    @Override
+    public int calcularValor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

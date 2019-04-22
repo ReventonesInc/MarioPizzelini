@@ -45,4 +45,9 @@ public class MarioPizzelini {
     public Boolean eliminarPedido(String rutSucursal, Pedido eliminar){
         return sucursales.eliminarPedido(rutSucursal, eliminar);
     }
-}
+    
+    public Cliente buscarClienteConMasPedidos(){
+        return clientes.clienteMasPedidos(sucursales);
+    }
+     
+ }

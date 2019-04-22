@@ -8,6 +8,7 @@ import clases.Bebestible;
 import clases.Ingrediente;
 import clases.Pedido;
 import clases.Sucursal;
+import clases.Cliente;
 import java.util.ArrayList;
 
 public class ListaSucursal {
@@ -157,5 +158,15 @@ public class ListaSucursal {
             return false;
         }
         return false;
+    }
+    
+    public int cantidadPedidosCliente(Cliente cliente){
+        int contador = 0;
+        
+        for(Sucursal actual :  sucursales){
+            contador += actual.cantidadPedidosCliente(cliente);
+        }
+        
+        return contador;
     }
 }

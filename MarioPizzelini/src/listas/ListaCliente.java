@@ -5,6 +5,7 @@
  */
 package listas;
 import clases.Cliente;
+import clases.Pedido;
 import java.util.*;
 
 /**
@@ -49,5 +50,17 @@ public class ListaCliente {
 
     public void modificarCliente(Cliente modificar, Cliente modificado) {
         clientes.set(clientes.indexOf(modificar), modificado);
+    }
+    
+    public Cliente clienteMasPedidos(ListaSucursal sucursales){
+        int contador = 0;
+        Cliente mayorPedidos = null;
+        for(Cliente actual : clientes){
+            if(contador < sucursales.cantidadPedidosCliente(actual)){
+                contador = sucursales.cantidadPedidosCliente(actual);
+                mayorPedidos = actual;
+            }
+        }
+        return mayorPedidos;
     }
 }

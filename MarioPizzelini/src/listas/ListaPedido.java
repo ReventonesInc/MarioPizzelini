@@ -5,6 +5,7 @@
 package listas;
 import clases.Pedido;
 import java.util.ArrayList;
+import clases.Cliente;
 
 public class ListaPedido {
     private ArrayList<Pedido> pedidos;    //ArrayList donde se guardarán los pedidos
@@ -82,4 +83,18 @@ public class ListaPedido {
         }
         return total;
     }
+    
+    public int cantidadPedidosCliente(Cliente clienteBuscado){
+        int contador = 0;
+        
+        for(Pedido actual : pedidos){
+            if(actual.getClienteReferenciado().equals(clienteBuscado)){
+                contador++;
+            }
+        }
+        
+        return contador;
+    }
+    
+    
 }

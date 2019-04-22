@@ -86,5 +86,7 @@ public class Sucursal {
         return pedidos.eliminarPedido(eliminar);
     }
     
-    
+    public int cantidadPedidosCliente(Cliente clienteBuscado){
+        return pedidos.cantidadPedidosCliente(clienteBuscado);
+    }
 }

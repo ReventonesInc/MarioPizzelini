@@ -197,7 +197,7 @@ public class ModificarIngredientes extends javax.swing.JFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         String id = jTextIDBuscar.getText();
-        Ingrediente buscado = empresa.buscarIngredienteID(id, rutEmpresa);
+        Ingrediente buscado = empresa.buscarIngredienteID(rutEmpresa, id); //Arreglado gracias al debugger : by C bastian
         int monto = 0;
         
         System.out.println(buscado+" "+id+" "+rutEmpresa);

@@ -5,18 +5,19 @@
  */
 package interfaz;
 
-/**
- *
- * @author XavierKrostya
- */
-public class ModificarIngredientes extends javax.swing.JFrame {
+import clases.MarioPizzelini;
 
-    /**
-     * Creates new form ModificarIngredientes
-     */
-    public ModificarIngredientes() {
+public class ModificarIngredientes extends javax.swing.JFrame {
+    private MarioPizzelini empresa;
+    private String rutEmpresa;
+    
+    //Constructor
+    public ModificarIngredientes(String rutEmpresa, MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.empresa = empresa;
+        this.rutEmpresa = rutEmpresa;
     }
 
     /**
@@ -36,15 +37,15 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         jLabelD = new javax.swing.JLabel();
         jTextIDBuscar = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jbBuscar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
-        jbSalir1 = new javax.swing.JButton();
         jLabelDMod = new javax.swing.JLabel();
         jLabelPrecio = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jTextID = new javax.swing.JTextField();
         jTextPrecio = new javax.swing.JTextField();
         jTextNombre = new javax.swing.JTextField();
-        jbAceptar = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -103,29 +104,29 @@ public class ModificarIngredientes extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 490, -1));
 
+        jbBuscar.setBackground(new java.awt.Color(101, 48, 0));
+        jbBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jbBuscar.setText("Buscar");
+        jbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, 30));
+
         jbSalir.setBackground(new java.awt.Color(101, 48, 0));
-        jbSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir.setText("Buscar");
+        jbSalir.setText("Salir");
         jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, 30));
-
-        jbSalir1.setBackground(new java.awt.Color(101, 48, 0));
-        jbSalir1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jbSalir1.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir1.setText("Salir");
-        jbSalir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalir1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 70, 30));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 70, 30));
 
         jLabelDMod.setBackground(new java.awt.Color(51, 51, 51));
         jLabelDMod.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -162,18 +163,23 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         });
         getContentPane().add(jTextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 130, -1));
 
-        jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
-        jbAceptar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAceptar.setText("Modificar");
-        jbAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        jbModificar.setBackground(new java.awt.Color(101, 48, 0));
+        jbModificar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jbModificar.setForeground(new java.awt.Color(255, 255, 255));
+        jbModificar.setText("Modificar");
+        jbModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
 
         jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
         jbCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jbCancelar.setText("Cancelar");
         jbCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondomod_opt_opt.jpg"))); // NOI18N
@@ -182,52 +188,23 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
-
-    private void jbSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbSalir1ActionPerformed
 
     private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNombreActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngredientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificarIngredientes().setVisible(true);
-            }
-        });
-    }
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        MenuIngredientes frame = new MenuIngredientes(rutEmpresa,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -245,9 +222,9 @@ public class ModificarIngredientes extends javax.swing.JFrame {
     private javax.swing.JTextField jTextIDBuscar;
     private javax.swing.JTextField jTextNombre;
     private javax.swing.JTextField jTextPrecio;
-    private javax.swing.JButton jbAceptar;
+    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbCancelar;
+    private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JButton jbSalir1;
     // End of variables declaration//GEN-END:variables
 }

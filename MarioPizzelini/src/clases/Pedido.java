@@ -14,7 +14,7 @@ public class Pedido {
     //A continuación constructores de pedido
     
     //Cuando el cliente pide: Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int montoPedido){
+    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas){
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
@@ -22,7 +22,7 @@ public class Pedido {
     }
     
     //Cuando el cliente pide: Bebestible, Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles, int montoPedido){
+    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];

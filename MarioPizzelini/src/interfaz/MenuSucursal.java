@@ -81,6 +81,11 @@ public class MenuSucursal extends javax.swing.JFrame {
         jbPedidos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbPedidos.setForeground(new java.awt.Color(255, 255, 255));
         jbPedidos.setText("Pedidos");
+        jbPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPedidosActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 130, -1));
 
         jbInventario.setBackground(new java.awt.Color(101, 48, 0));
@@ -142,6 +147,12 @@ public class MenuSucursal extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbInventarioActionPerformed
+
+    private void jbPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPedidosActionPerformed
+        MenuPedidos frame = new MenuPedidos(rutActual,empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbPedidosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondo;

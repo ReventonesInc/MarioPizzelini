@@ -26,11 +26,10 @@ public class ListaIngrediente {
     }
     
     /**
-     * Retorna un true, si el ingrediente ingresado por el parámetro
-     * es agregado a la lista exitosamente, en cambio, retornará false si
-     * no se agrega.
+     * Retorna true, si el ingrediente ingresado por parámetro es agregado a
+     * la lista exitosamente, en cambio, retornará false si no se agrega.
      * <p>
-     * @param nuevo Clase Ingrediente.
+     * @param nuevo Ingrediente.
      * @return booleano.
      */
     public boolean agregarIngrediente(Ingrediente nuevo){
@@ -41,11 +40,10 @@ public class ListaIngrediente {
     }
     
     /**
-     * Retorna un true, si el ingrediente ingresado por el parámetro
-     * es eliminado de la lista exitosamente, en cambio, retornará false si
-     * no se elimina.
+     * Retorna true, si el ingrediente ingresado por parámetro es eliminado de
+     * la lista exitosamente, en cambio, retornará false si no se elimina.
      * <p>
-     * @param id
+     * @param id String.
      * @return booleano.
      */
     public boolean eliminarIngrediente(String id){
@@ -56,6 +54,15 @@ public class ListaIngrediente {
         }
         return false;
     }
+    
+    /**
+     * Retorna un objeto Ingrediente si encuentra una coincidencia entre el
+     * id entregado por parametro y el id de un ingrediente, en caso de no
+     * encontrar coincidencias retorna null.
+     * <p>
+     * @param idIngrediente String.
+     * @return booleano.
+     */
     public Ingrediente buscarIngredienteID(String idIngrediente){
         for(Ingrediente actual : ingredientes){
             if(actual.getIdIngrediente().equals(idIngrediente)){
@@ -66,16 +73,19 @@ public class ListaIngrediente {
     }
 
     /**
-     * Permite modificar un ingrediente según las clases Ingrediente que
-     * se haya ingresado.
+     * Permite modificar un ingrediente por uno nuevo entregado por parametro
      * <p>
-     * @param modificar Clase Ingrediente.
-     * @param modificado Clase Ingediente.
+     * @param modificar Ingrediente.
+     * @param modificado Ingediente.
      */
     public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
         ingredientes.set(ingredientes.indexOf(modificar), modificado);
     }
     
+    /**
+     * Imprime por pantalla el ID y nombre de todos los ingredientes
+     * contenidos en el ArrayList
+     */
     public void mostrarIngredientes(){
         if(!ingredientes.isEmpty()){
             System.out.println("-----------------------------------------------");

@@ -21,6 +21,13 @@ public class Pizza extends Producto{
         return ingredientes;
     }
     
+    /**
+     * Retorna true, si el ingrediente ingresado por parámetro es agregado
+     * al vector exitosamente, sino, retornará false.
+     * <p>
+     * @param nuevo Ingrediente.
+     * @return booleano.
+     */
     public boolean agregarIngrediente(Ingrediente nuevo) {
         int cantIngredientes = ingredientes.length;
         for(int i = 0; i < cantIngredientes; i++) {
@@ -31,7 +38,12 @@ public class Pizza extends Producto{
         }
         return false;
     }
-    
+    /**
+     * Retorna el valor de la pizza, éste es calculado mediante el recorrido
+     * del vector de ingredientes y sumando el precio de cada uno de éstos.
+     * <p>
+     * @return int
+     */
     @Override
     public final int calcularValor() {
         int valor = 0;

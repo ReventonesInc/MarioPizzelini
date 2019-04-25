@@ -18,6 +18,7 @@ public class Pedido {
         this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
+        this.bebestiblesPedidos = null;
         this.montoPedido = montoTotal();
     }
     
@@ -70,11 +71,17 @@ public class Pedido {
 
     public void setMontoPedido(int montoPedido) {
         this.montoPedido = montoPedido;
-    }    
+    }
     
+    /**
+     * Retorna el valor del pedido, éste es calculado sumando los precios de
+     * los ingredientes y bebestibles al recorrer sus vectores correspondientes
+     * <p>
+     * @return int
+     */
     public final int montoTotal() {
         int total = 0;
-        for (int i = 0; pizzasPedidas != null && i < pizzasPedidas.length; i++) {
+        for (int i = 0; pizzasPedidas != null && i < pizzasPedidas.length; i++) {            
             total += pizzasPedidas[i].getPrecio();
         }
         return total;

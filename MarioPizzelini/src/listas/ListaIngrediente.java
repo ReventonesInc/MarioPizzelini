@@ -85,6 +85,7 @@ public class ListaIngrediente {
     /**
      * Imprime por pantalla el ID y nombre de todos los ingredientes
      * contenidos en el ArrayList
+     * <p>
      */
     public void mostrarIngredientes(){
         if(!ingredientes.isEmpty()){

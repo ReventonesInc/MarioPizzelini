@@ -10,24 +10,21 @@ import clases.Cliente;
 public class ListaPedido {
     private ArrayList<Pedido> pedidos;    //ArrayList donde se guardarán los pedidos
     
-    //A continuación se el constructor de ListaPedido
-    
+    //Constructor de ListaPedido    
     public ListaPedido() {
         this.pedidos = new ArrayList();
     }
     
-    //Getter y setters correspondientes
-    
+    //Getter y setters correspondientes    
     public ArrayList<Pedido> getPedidos() {
         return pedidos;
     }
     
-    //Métodos de ListaPedido
-    
+    //Métodos de ListaPedido    
     
     /**
-     * Retorna true si el pedido ingresado es agregado existosamente del ArrayList,
-     * en el caso contrario retornará false
+     * Retorna true si el pedido ingresado es agregado existosamente al
+     * ArrayList, en el caso contrario retornará false
      * <p>
      * @param nuevo pedido para agregar al ArrayList
      * @return boolean
@@ -40,8 +37,8 @@ public class ListaPedido {
     }
     
     /**
-     * Retorna true si se elimina exitosamente del ArrayList, en el caso contrario
-     * retornará false.
+     * Retorna true si se elimina exitosamente del ArrayList, en el caso
+     * contrario retornará false.
      * <p>
      * @param eliminar identificación del pedido
      * @return boolean
@@ -52,11 +49,23 @@ public class ListaPedido {
         }
         return false;
     }
-    
+    /**
+     * Modifica el pedido indicado por parámetro por el nuevo entregado por
+     * parámetro.
+     * <p>
+     * @param modificar
+     * @param modificado 
+     */
     public void modificarPedido(Pedido modificar, Pedido modificado) {
         pedidos.set(pedidos.indexOf(modificar), modificado);
     }
-    
+    /**
+     * Retorna el pedido encontrado, luego de buscarlo dado su id entregado
+     * por parámetro.
+     * <p>
+     * @param idPedido String.
+     * @return Pedido.
+     */
     public Pedido buscarPedido(String idPedido){
         if(!pedidos.isEmpty()){
             for(Pedido actual : pedidos){
@@ -67,7 +76,11 @@ public class ListaPedido {
         }
         return null;
     }
-    
+    /**
+     * Retorna el valor total de sumar todos los montos de los pedidos.
+     * <p>
+     * @return int.
+     */
     public int valorTotalPedidos() {    //Monto Recaudado en la sucursal
         int total = 0;
         if(!pedidos.isEmpty()) {
@@ -77,7 +90,12 @@ public class ListaPedido {
         }
         return total;
     }
-    
+    /**
+     * Retorna la cantidad de pediso de un cliente entregado por parámetro.
+     * <p>
+     * @param clienteBuscado Cliente.
+     * @return int.
+     */
     public int cantidadPedidosCliente(Cliente clienteBuscado){
         int contador = 0;
         
@@ -89,7 +107,11 @@ public class ListaPedido {
         
         return contador;
     }
-    
+    /**
+     * Elimina todos los pedidos de un cliente entregado por parámetro.
+     * <p>
+     * @param eliminar Cliente.
+     */
     public void eliminarPedidosCliente(Cliente eliminar){
         for(Pedido actual : pedidos){
             if(actual.getClienteReferenciado().equals(eliminar)){

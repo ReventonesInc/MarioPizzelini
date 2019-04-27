@@ -1,18 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase contiene un atributo que identificara el bebestible. Además,
+ * esta clase es herencia de la clase producto.
  */
 package clases;
 
 public class Bebestible extends Producto {
     private String idBebestible;
     
+    //Constructor(es)
     public Bebestible(String idBebestible, String nombre, int precio, String descripcion) {
         super(nombre, precio, descripcion);
         this.idBebestible = idBebestible;
     }
-
+    
+    //Getters y setters correspondientes
     public String getIdBebestible() {
         return idBebestible;
     }
@@ -23,6 +24,6 @@ public class Bebestible extends Producto {
 
     @Override
     public int calcularValor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Aun sin implementar");
     }
 }

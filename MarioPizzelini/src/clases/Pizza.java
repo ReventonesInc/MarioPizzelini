@@ -1,22 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase contiene un vector con los ingredientes que posee la pizza.
+ * Además esta clase es herencia de la clase producto.
  */
 package clases;
-/**
- *
- * @author XavierKrostya
- */
+
 public class Pizza extends Producto{
     private Ingrediente[] ingredientes;
     
+    //Constructor(es)
     public Pizza(int cantIngredientes, String nombre, int precio, String descripcion){
         super(nombre, precio, descripcion);
         this.ingredientes = new Ingrediente[cantIngredientes];
         super.setPrecio(calcularValor());
     }
-    
+
+    //Getters y setters correspondientes
     public Ingrediente[] getIngredientes(){
         return ingredientes;
     }

@@ -1,14 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase contiene los datos personales del cliente
  */
 package clases;
-import java.util.*;
-/**
- *
- * @author ceap2
- */
+
 public class Cliente {
     private String rut;
     private String nombre;
@@ -16,6 +10,7 @@ public class Cliente {
     private String telefono;
     //private String direccion;
 
+    //Constructor(es)
     public Cliente(String rut, String nombre, String apellido, String telefono) {
         this.rut = rut;
         this.nombre = nombre;
@@ -31,7 +26,8 @@ public class Cliente {
         this.telefono = telefono;
         this.direccion = direccion;
     }*/
-
+    
+    //Getters y setters correspondientes
     public String getRut() {
         return rut;
     }

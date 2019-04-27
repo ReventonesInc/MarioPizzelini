@@ -5,13 +5,13 @@
 package clases;
 
 public class Pedido {
-    private String idPedido;                          //id del pedido
-    private Cliente clienteReferenciado;        //cliente que ordenó el pedido
-    private Pizza[] pizzasPedidas;            //Pizza que puede escoger el cliente
-    private Bebestible[] bebestiblesPedidos;      //Producto que puede escoger el cliente
+    private String idPedido;
+    private Cliente clienteReferenciado;       //cliente que ordenó el pedido
+    private Pizza[] pizzasPedidas;             //pizzas escogidas por el cliente
+    private Bebestible[] bebestiblesPedidos;   //bebestibles escogidos por el cliente
     private int montoPedido;
     
-    //A continuación constructores de pedido
+    //Constructor(es)
     
     //Cuando el cliente pide: Pizza
     public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas){
@@ -32,7 +32,6 @@ public class Pedido {
     }
     
     //Getters y setters correspondientes
-
     public String getIdPedido() {
         return idPedido;
     }

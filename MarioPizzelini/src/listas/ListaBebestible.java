@@ -56,7 +56,12 @@ public class ListaBebestible {
         }
         return false;
     }
-    
+    /**
+     * Retorna el bebestible encontrado dado su id entregado por parámetro.
+     * <p>
+     * @param idBebestible String.
+     * @return Bebestible.
+     */
     public Bebestible buscarBebestibleID(String idBebestible){
         for(Bebestible actual : bebestibles){
             if(actual.getIdBebestible().equals(idBebestible)){
@@ -75,7 +80,10 @@ public class ListaBebestible {
     public void modificarBebestible(Bebestible modificar, Bebestible modificado){
         bebestibles.set(bebestibles.indexOf(modificar), modificado);
     }
-    
+    /**
+     * Muestra todos los bebestibles contenidos en la lista.
+     * <p>
+     */
     public void mostrarBebestibles(){
         if(!bebestibles.isEmpty()){
             System.out.println("-----------------------------------------------");

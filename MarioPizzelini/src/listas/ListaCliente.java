@@ -1,57 +1,71 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase que contendrá los metodos necesarios para manejar los clientes
  */
 package listas;
 import clases.Cliente;
-import clases.Pedido;
 import java.util.*;
 
-/**
- *
- * @author lusho
- */
 public class ListaCliente {
     private ArrayList<Cliente> clientes;
 
+    //Constructor(es)
     public ListaCliente() {
         this.clientes = new ArrayList<>();
     }
-
+    
+    //Getters y setters correspondientes
     public ArrayList<Cliente> getClientes() {
         return clientes;
     }
-    
+        
+    /**
+     * Retorna true, si no hay clientes en la lista de clientes, sino,
+     * retornara false.
+     * <p>
+     * @return booleano.
+     */
     public boolean estaVacio(){
         return clientes.isEmpty();
-    }
-    
+    }    
     /**
-    * Retorna un valor booleano. True si lo agrega, false si no lo agrega.
-    * <p>
-    * El argumento nuevoCliente debe ser tipo clase Cliente.
-    * @param  nuevo Cliente a agregar en el ArrayList
-    * @return      Valor booleano
-    */
+     * Retorna un valor booleano. True si lo agrega, false si no lo agrega.
+     * <p>
+     * @param  nuevo Cliente
+     * @return booleano.
+     */
     public boolean agregarCliente(Cliente nuevo) {
         if(clientes.contains(nuevo)) {
             return false;
         }        
         return clientes.add(nuevo);
     }
-    
+    /**
+     * Retorna un valor booleano. True si lo elimina, false si no lo elimina.
+     * <p>
+     * @param  eliminar Cliente
+     * @return booleano.
+     */
     public boolean eliminarCliente(Cliente eliminar) {
         if(clientes.contains(eliminar)) {
             return clientes.remove(eliminar);            
         }
         return false;
     }
-
+    /**
+     * Permite modificar un cliente por uno nuevo entregado por parametro.
+     * <p>
+     * @param modificar Cliente.
+     * @param modificado Ingrediente.
+     */
     public void modificarCliente(Cliente modificar, Cliente modificado) {
         clientes.set(clientes.indexOf(modificar), modificado);
     }
-    
+    /**
+     * Retorna el cliente con la mayor cantidad de pedidos en la empresa.
+     * <p>
+     * @param sucursales ListaSucursal.
+     * @return Cliente.
+     */
     public Cliente clienteMasPedidos(ListaSucursal sucursales){
         int contador = 0;
         Cliente mayorPedidos = null;
@@ -63,7 +77,13 @@ public class ListaCliente {
         }
         return mayorPedidos;
     }
-    
+    /**
+     * Retorna un valor booleano, true si encontro el cliente dado un rut
+     * entregado por parámetro, sino, retornará false.
+     * <p>
+     * @param rutCliente String.
+     * @return booleano.
+     */
     public boolean buscarClienteRut(String rutCliente){
         if(!clientes.isEmpty()){
             for(Cliente actual : clientes){
@@ -74,7 +94,13 @@ public class ListaCliente {
         }
         return false;
     }
-    
+    /**
+     * Retorna el cliente encontrado, luego de buscarlo en la lista dado
+     * su rut.
+     * <p>
+     * @param rutCliente String.
+     * @return booleano.
+     */
     public Cliente retornarClienteRut(String rutCliente){
         if(!clientes.isEmpty()){
             for(Cliente actual : clientes){

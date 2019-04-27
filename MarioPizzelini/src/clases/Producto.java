@@ -1,24 +1,22 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta clase abstracta producto se trabajará con herencia y contiene sus
+ * metodos respectivos
  */
 package clases;
-/**
- *
- * @author Luis Maturana
- */
+
 public abstract class Producto {
     private String nombre;
     private int precio;
     private String descripcion;
 
+    //Constructor(es)    
     public Producto(String nombre, int precio, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
     }
 
+    //Getters y setters correspondientes    
     public String getNombre() {
         return nombre;
     }

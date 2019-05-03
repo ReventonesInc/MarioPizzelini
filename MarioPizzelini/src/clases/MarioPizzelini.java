@@ -46,6 +46,7 @@ public class MarioPizzelini {
     * <p>
     * @param modificar String.
     * @param modificado Cliente.
+    * @return booleano.
     */
     public boolean modificarCliente(String modificar, Cliente modificado){
         if(clientes.buscarClienteRut(modificar)){

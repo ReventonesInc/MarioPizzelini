@@ -77,7 +77,7 @@ public class ListaBebestible {
      * @param modificar Clase Bebestible.
      * @param modificado Clase Bebestible.
      */
-    public void modificarBebestible(Bebestible modificar, Bebestible modificado){
+    public void modificarBebestible(Bebestible modificar, Bebestible modificado){//Cambiarlo
         bebestibles.set(bebestibles.indexOf(modificar), modificado);
     }
     /**

@@ -45,7 +45,7 @@ public class ListaCliente {
      * @param  eliminar Cliente
      * @return booleano.
      */
-    public boolean eliminarCliente(Cliente eliminar) {
+    public boolean eliminarCliente(Cliente eliminar) {//Cambiarlo
         if(clientes.contains(eliminar)) {
             return clientes.remove(eliminar);            
         }
@@ -57,7 +57,7 @@ public class ListaCliente {
      * @param modificar Cliente.
      * @param modificado Ingrediente.
      */
-    public void modificarCliente(Cliente modificar, Cliente modificado) {
+    public void modificarCliente(Cliente modificar, Cliente modificado) {//Cambiarlo
         clientes.set(clientes.indexOf(modificar), modificado);
     }
     /**

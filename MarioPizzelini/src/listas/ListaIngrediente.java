@@ -79,7 +79,10 @@ public class ListaIngrediente {
      * @param modificado Ingediente.
      */
     public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
-        ingredientes.set(ingredientes.indexOf(modificar), modificado);
+        modificar.setNombre(modificado.getNombre());
+        modificar.setIdIngrediente(modificado.getIdIngrediente());
+        modificar.setPrecio(modificado.getPrecio());
+        //ingredientes.set(ingredientes.indexOf(modificar), modificado);
     }
     
     /**

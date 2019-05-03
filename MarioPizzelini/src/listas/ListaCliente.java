@@ -58,7 +58,11 @@ public class ListaCliente {
      * @param modificado Ingrediente.
      */
     public void modificarCliente(Cliente modificar, Cliente modificado) {//Cambiarlo
-        clientes.set(clientes.indexOf(modificar), modificado);
+        modificar.setRut(modificado.getRut());
+        modificar.setNombre(modificado.getNombre());
+        modificar.setApellido(modificado.getApellido());
+        modificar.setTelefono(modificado.getTelefono());
+        //clientes.set(clientes.indexOf(modificar), modificado);
     }
     /**
      * Retorna el cliente con la mayor cantidad de pedidos en la empresa.

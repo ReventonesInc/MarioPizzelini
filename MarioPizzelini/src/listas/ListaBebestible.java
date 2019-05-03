@@ -78,7 +78,11 @@ public class ListaBebestible {
      * @param modificado Clase Bebestible.
      */
     public void modificarBebestible(Bebestible modificar, Bebestible modificado){//Cambiarlo
-        bebestibles.set(bebestibles.indexOf(modificar), modificado);
+        modificar.setNombre(modificado.getNombre());
+        modificar.setIdBebestible(modificado.getIdBebestible());
+        modificar.setPrecio(modificado.getPrecio());
+        modificar.setDescripcion(modificado.getDescripcion());
+        //bebestibles.set(bebestibles.indexOf(modificar), modificado);
     }
     /**
      * Muestra todos los bebestibles contenidos en la lista.

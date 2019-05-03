@@ -57,7 +57,9 @@ public class ListaPedido {
      * @param modificado 
      */
     public void modificarPedido(Pedido modificar, Pedido modificado) {
-        pedidos.set(pedidos.indexOf(modificar), modificado);
+        modificar.setIdPedido(modificado.getIdPedido());
+        modificar.setMontoPedido(modificado.getMontoPedido());
+        //pedidos.set(pedidos.indexOf(modificar), modificado);
     }
     /**
      * Retorna el pedido encontrado, luego de buscarlo dado su id entregado

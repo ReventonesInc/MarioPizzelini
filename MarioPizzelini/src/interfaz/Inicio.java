@@ -30,15 +30,18 @@ public class Inicio extends javax.swing.JFrame {
         jbIniciar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbIniciar.setBackground(new java.awt.Color(101, 50, 1));
+        jbIniciar.setBackground(new java.awt.Color(153, 0, 0));
         jbIniciar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbIniciar.setForeground(new java.awt.Color(255, 255, 255));
         jbIniciar.setText("Iniciar");
@@ -50,7 +53,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         getContentPane().add(jbIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 170, -1));
 
-        jbSalir.setBackground(new java.awt.Color(101, 48, 0));
+        jbSalir.setBackground(new java.awt.Color(153, 0, 0));
         jbSalir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(255, 255, 255));
         jbSalir.setText("Salir");
@@ -60,20 +63,32 @@ public class Inicio extends javax.swing.JFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 170, -1));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/coloresl_opt.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 360, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 340, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Versión 1.0");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 60, 10));
+        jPanel5.setBackground(new java.awt.Color(0, 153, 51));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 555, 10));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoP_opt.jpg"))); // NOI18N
+        jPanel4.setBackground(new java.awt.Color(0, 153, 51));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 374, 555, 10));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 51));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 0, 10, 380));
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 51));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 380));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Versión 2.0");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojoInicio.jpg"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabelFondo.setPreferredSize(new java.awt.Dimension(555, 384));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 490, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,9 +125,12 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JButton jbIniciar;
     private javax.swing.JButton jbSalir;
     // End of variables declaration//GEN-END:variables

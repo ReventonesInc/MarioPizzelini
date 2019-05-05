@@ -50,7 +50,7 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         jLabelTitulo.setText("AGREGAR SUCURSAL");
         getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jbSalir.setBackground(new java.awt.Color(101, 48, 0));
+        jbSalir.setBackground(new java.awt.Color(153, 0, 0));
         jbSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(255, 255, 255));
         jbSalir.setText("Salir");
@@ -102,7 +102,7 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         jTextDireccion.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 180, -1));
 
-        jbCancelar.setBackground(new java.awt.Color(101, 48, 0));
+        jbCancelar.setBackground(new java.awt.Color(153, 0, 0));
         jbCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jbCancelar.setText("Cancelar");
@@ -114,7 +114,7 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         });
         getContentPane().add(jbCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
-        jbAceptar.setBackground(new java.awt.Color(101, 48, 0));
+        jbAceptar.setBackground(new java.awt.Color(153, 0, 0));
         jbAceptar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jbAceptar.setForeground(new java.awt.Color(255, 255, 255));
         jbAceptar.setText("Agregar");
@@ -126,8 +126,8 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         });
         getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/fondoop_opt.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojo_opt.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,7 +156,7 @@ public class InicioAgregarSucursal extends javax.swing.JFrame {
         if(!(rutEmpresa.equals("") || direccion.equals(""))){
             if(empresa.agregarSucursal(new Sucursal(rutEmpresa,direccion))){
                 JOptionPane.showMessageDialog(null,"¡La sucursal fue registrada con exito!");
-                MenuSucursal frame = new MenuSucursal(rutEmpresa, empresa);
+                MenuPrincipal frame = new MenuPrincipal(rutEmpresa, empresa);
                 frame.setVisible(true);
                 this.dispose();
             }

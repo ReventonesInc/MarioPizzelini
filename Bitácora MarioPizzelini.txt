@@ -1,0 +1,30 @@
+Implementación de de interfaz será en listaPromocion y listaPizzaPredeterminada. (INTERFAZ)
+- Interfaz será llamada disponibilidad, si una pizza predeterminada está disponible, en promociones estará disponible. En cambio,
+si una pizza predeterminada no está disponible, en promociones no estará disponible.
+
+Modificación interfaz gráfica, donde se cambiará la interfaz para que tenga un fácil manejo para el empleado (VERSION 2.0).
+-Implementación de bibliotecas de animación.
+
+Se deberá implementar una base de datos en MySQL, donde se guardarán todos los datos del programa (DATABASE).
+
+Crear listaPromocion y listaPizzaPredeterminada (PARTE B)
+- Promocion:
+	-idPromocion
+	-NombrePromocion
+	-PizzaPredeterminada referenciada
+	-Bebestible referenciada
+
+- PizzaPredeterminada: extiende de (producto o pizza)
+	-ingredientes[]
+
+- Crear dos clases que extiendan a una excepción (excepción personalizada)
+	-Manejo de errores (try-catch)
+
+- Implementar 2 patrones de diseño.
+
+- CORREGIR ERRORES DE LA PARTE A
+
+
+
+
+	

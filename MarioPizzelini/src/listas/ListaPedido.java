@@ -6,6 +6,7 @@ package listas;
 import clases.Pedido;
 import java.util.ArrayList;
 import clases.Cliente;
+import clases.Pizza;
 
 public class ListaPedido {
     private ArrayList<Pedido> pedidos;    //ArrayList donde se guardarán los pedidos
@@ -118,6 +119,31 @@ public class ListaPedido {
         for(Pedido actual : pedidos){
             if(actual.getClienteReferenciado().equals(eliminar)){
                 pedidos.remove(actual);
+            }
+        }
+    }
+    
+    public boolean agregarPizza(String idPedido, Pizza nuevo){
+        for(Pedido actual : pedidos) {
+            if(actual.getIdPedido().equals(idPedido)){
+                actual.agregarPizza(nuevo);
+            }
+        }
+        return false;
+    }
+    
+    public void mostrarPedidoPorID(String idPedido){
+        for(Pedido actual : pedidos) {
+            if(actual.getIdPedido().equals(idPedido)){
+                System.out.println("ID: "+actual.getIdPedido()+" RUT: "+actual.getClienteReferenciado().getRut()+" MONTO: "+actual.getMontoPedido());
+            }
+        }
+    }
+    
+    public void actualizarMontoTotalDeUnPedido(String idPedido){
+        for(Pedido actual : pedidos) {
+            if(actual.getIdPedido().equals(idPedido)){
+                actual.ActualizarMontoTotal();
             }
         }
     }

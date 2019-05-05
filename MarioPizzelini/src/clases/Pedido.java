@@ -19,7 +19,7 @@ public class Pedido {
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = null;
-        this.montoPedido = montoTotal();
+        this.montoPedido = 0;
     }
     
     //Cuando el cliente pide: Bebestible, Pizza
@@ -28,7 +28,7 @@ public class Pedido {
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = new Bebestible[cantBebestibles];
-        this.montoPedido = montoTotal();
+        this.montoPedido = 0;
     }
     
     //Getters y setters correspondientes
@@ -78,12 +78,22 @@ public class Pedido {
      * <p>
      * @return int
      */
-    public final int montoTotal() {
+    public void ActualizarMontoTotal() {
         int total = 0;
         for (int i = 0; pizzasPedidas != null && i < pizzasPedidas.length; i++) {            
             total += pizzasPedidas[i].getPrecio();
         }
-        return total;
+        montoPedido = total;
+    }
+    
+    public boolean agregarPizza(Pizza nuevo) {
+        for(int i = 0; i < pizzasPedidas.length ; i++) {
+            if(pizzasPedidas[i] == null){
+                pizzasPedidas[i] = nuevo;
+                return true;
+            }
+        }
+        return false;
     }
     
 }

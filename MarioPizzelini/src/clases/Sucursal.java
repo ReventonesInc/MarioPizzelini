@@ -217,4 +217,15 @@ public class Sucursal {
         pedidos.eliminarPedidosCliente(eliminar);
     }
 
+    public boolean agregarPizza(String idPedido, Pizza nuevo){
+        return pedidos.agregarPizza(idPedido, nuevo);
+    }
+    
+    public void mostrarPedidoPorID(String idPedido){
+        pedidos.mostrarPedidoPorID(idPedido);
+    }
+    
+    public void actualizarMontoTotalDeUnPedido(String idPedido){
+        pedidos.actualizarMontoTotalDeUnPedido(idPedido);
+    }
 }

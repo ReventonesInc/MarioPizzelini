@@ -9,6 +9,7 @@ import clases.Ingrediente;
 import clases.Pedido;
 import clases.Sucursal;
 import clases.Cliente;
+import clases.Pizza;
 import java.util.ArrayList;
 
 public class ListaSucursal {
@@ -418,6 +419,31 @@ public class ListaSucursal {
     public void eliminarTodosPedidosCliente(Cliente eliminar){
         for(Sucursal actual : sucursales){
             actual.eliminarTodosLosPedidosCliente(eliminar);
+        }
+    }
+    
+    public boolean agregarPizza(String rutSucursal, String idPedido, Pizza nuevo){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                return actual.agregarPizza(idPedido, nuevo);
+            }
+        }
+        return false;
+    }
+    
+    public void mostrarPedidoPorID(String rutSucursal, String idPedido){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                actual.mostrarPedidoPorID(idPedido);
+            }
+        }
+    }
+    
+    public void actualizarMontoTotalDeUnPedido(String rutSucursal, String idPedido){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                actual.actualizarMontoTotalDeUnPedido(idPedido);
+            }
         }
     }
 }

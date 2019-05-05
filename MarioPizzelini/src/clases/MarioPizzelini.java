@@ -153,5 +153,17 @@ public class MarioPizzelini {
     
     public boolean eliminarPedido(String rutSucursal, String idPedidoEliminar){
         return sucursales.eliminarPedido(rutSucursal, idPedidoEliminar);
-    }     
+    }
+    
+    public boolean agregarPizza(String rutSucursal, String idPedido, Pizza nuevo){
+        return sucursales.agregarPizza(rutSucursal, idPedido, nuevo);
+    }
+    
+    public void mostrarPedidoPorID(String rutSucursal, String idPedido){
+        sucursales.mostrarPedidoPorID(rutSucursal, idPedido);
+    }
+    
+    public void actualizarMontoTotalDeUnPedido(String rutSucursal, String idPedido){
+        sucursales.actualizarMontoTotalDeUnPedido(rutSucursal, idPedido);
+    }
 }

@@ -22,9 +22,13 @@ Crear listaPromocion y listaPizzaPredeterminada (PARTE B)
 
 - Implementar 2 patrones de diseño.
 
+- Diseño de MarioPizzelini
+	Lista promociones contendrá pedidos o una clase promoción (?)
+	Existirá un listaPizza (?)
+
 - CORREGIR ERRORES DE LA PARTE A
 
-
+	AgregarPizza en Pedido
 
 
 	

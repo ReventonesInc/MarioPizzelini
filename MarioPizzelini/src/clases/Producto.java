@@ -41,5 +41,9 @@ public abstract class Producto {
         this.descripcion = descripcion;
     }
     
-    public abstract int calcularValor();
+    public void mostrarDatos(){
+        System.out.println("Nombre: "+getNombre());
+        System.out.println("Rut: "+getPrecio());
+        System.out.println("Descripción: "+getDescripcion());
+    }
 }

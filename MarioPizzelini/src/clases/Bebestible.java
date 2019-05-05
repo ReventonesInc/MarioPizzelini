@@ -23,7 +23,10 @@ public class Bebestible extends Producto {
     }
 
     @Override
-    public int calcularValor() {
-        throw new UnsupportedOperationException("Aun sin implementar");
+    public void mostrarDatos(){
+        System.out.println("Id del Bebestible: "+getIdBebestible());
+        System.out.println("Nombre: "+getNombre());
+        System.out.println("Rut: "+getPrecio());
+        System.out.println("Descripción: "+getDescripcion());
     }
 }

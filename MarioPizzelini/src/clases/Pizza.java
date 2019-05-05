@@ -11,7 +11,7 @@ public class Pizza extends Producto{
     public Pizza(int cantIngredientes, String nombre, int precio, String descripcion){
         super(nombre, precio, descripcion);
         this.ingredientes = new Ingrediente[cantIngredientes];
-        super.setPrecio(calcularValor());
+        super.setPrecio(0);
     }
 
     //Getters y setters correspondientes
@@ -43,11 +43,17 @@ public class Pizza extends Producto{
      * @return int
      */
     @Override
-    public final int calcularValor() {
+    public void mostrarDatos(){
+        System.out.println("Nombre: "+getNombre());
+        System.out.println("Rut: "+getPrecio());
+        System.out.println("Descripción: "+getDescripcion());
+    }
+    
+    public void calcularValor() {
         int valor = 0;
         for(int i = 0; ingredientes != null && i < ingredientes.length; i++) {
             valor += ingredientes[i].getPrecio();
         }        
-        return valor;
+        super.setPrecio(valor);
     }
 }

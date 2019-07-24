@@ -7,12 +7,16 @@ import clases.Pedido;
 import java.util.ArrayList;
 import clases.Cliente;
 import clases.Pizza;
+import java.util.HashMap;
+import java.util.Set;
 
 public class ListaPedido {
-    private ArrayList<Pedido> pedidos;    //ArrayList donde se guardarán los pedidos
+    //private HashMap<Integer,Pedido> listaPedidos; //Diccionario donde se guardarán los pedidos;
+    private ArrayList<Pedido> pedidos;
     
     //Constructor de ListaPedido    
     public ListaPedido() {
+        //this.listaPedidos = new HashMap<>();
         this.pedidos = new ArrayList();
     }
     
@@ -21,6 +25,65 @@ public class ListaPedido {
         return pedidos;
     }
     
+    /*
+    public HashMap<Integer, Pedido> getListaPedidos() {
+        return listaPedidos;
+    }
+    */
+    /*
+    //Métodos de ListaPedido
+    
+    public int generarIndice(){
+        int indice = listaPedidos.size();
+        return indice;
+    }
+    
+    public Pedido buscarPedido(int keyBuscado){
+        Set<Integer> totalKeys = listaPedidos.keySet();
+        for(Integer key : totalKeys){
+            if(key == keyBuscado){
+                return listaPedidos.get(key);
+            }
+        }
+        return null;
+    }
+    
+    public int buscarIndice(Pedido buscar){
+        Set<Integer> totalKeys = listaPedidos.keySet();
+        for(Integer key : totalKeys){
+            if(listaPedidos.get(key) == buscar){
+                return key;
+            }
+        }
+        return 0;
+    }
+    
+    public boolean agregarPedido(Pedido nuevo){
+        if(!listaPedidos.containsValue(nuevo)){
+            int nuevaKey = generarIndice();
+            listaPedidos.put(nuevaKey, nuevo);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean eliminarPedido(Pedido eliminar){
+        if(listaPedidos.containsValue(eliminar)){
+            int key = buscarIndice(eliminar);
+            return listaPedidos.remove(key,eliminar);
+        }
+        return false;
+    }
+    
+    public boolean eliminarPedido(int key){
+        if(listaPedidos.containsKey(key)){
+            Pedido eliminar = buscarPedido(key);
+            return listaPedidos.remove(key,eliminar);
+        }
+        return false;
+    }
+    
+    */
     //Métodos de ListaPedido    
     
     /**

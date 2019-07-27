@@ -13,7 +13,7 @@ public class Pedido {
     //Constructor(es)
     
     //Cuando el cliente pide: Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas){
+    public Pedido(Cliente clienteReferenciado, int cantPizzas){
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = null;

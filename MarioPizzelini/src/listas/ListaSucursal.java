@@ -374,11 +374,11 @@ public class ListaSucursal {
      * @param idPedido String.
      * @return booleano.
      */
-    public boolean eliminarPedido(String rut, String idPedido){
+    public boolean eliminarPedido(String rut, int keyPedido){
         if(!sucursales.isEmpty()){
             Sucursal sucursalPedido = buscarSucursalRut(rut);
             if(sucursalPedido != null){
-                return sucursalPedido.eliminarPedido(idPedido);
+                return sucursalPedido.eliminarPedido(keyPedido);
             }
             return false;
         }
@@ -413,35 +413,35 @@ public class ListaSucursal {
     /**
      * Eliminar todos los pedidos que tengan como referencia un cliente
      * entregado por parámetro.
-     * @param eliminar 
+     * @param rutCliente String. 
      */
-    public void eliminarTodosPedidosCliente(Cliente eliminar){
+    public void eliminarTodosPedidosCliente(String rutCliente){
         for(Sucursal actual : sucursales){
-            actual.eliminarTodosLosPedidosCliente(eliminar);
+            actual.eliminarTodosLosPedidosCliente(rutCliente);
         }
     }
     
-    public boolean agregarPizza(String rutSucursal, String idPedido, Pizza nuevo){
+    public boolean agregarPizza(String rutSucursal, int keyPedido, Pizza nuevo){
         for(Sucursal actual : sucursales){
             if(actual.getRut().equals(rutSucursal)){
-                return actual.agregarPizza(idPedido, nuevo);
+                return actual.agregarPizza(keyPedido, nuevo);
             }
         }
         return false;
     }
     
-    public void mostrarPedidoPorID(String rutSucursal, String idPedido){
+    public void mostrarPedidoPorID(String rutSucursal, int keyPedido){
         for(Sucursal actual : sucursales){
             if(actual.getRut().equals(rutSucursal)){
-                actual.mostrarPedidoPorID(idPedido);
+                actual.mostrarPedidoPorID(keyPedido);
             }
         }
     }
     
-    public void actualizarMontoTotalDeUnPedido(String rutSucursal, String idPedido){
+    public void actualizarMontoTotalDeUnPedido(String rutSucursal, int keyPedido){
         for(Sucursal actual : sucursales){
             if(actual.getRut().equals(rutSucursal)){
-                actual.actualizarMontoTotalDeUnPedido(idPedido);
+                actual.actualizarMontoTotalDeUnPedido(keyPedido);
             }
         }
     }

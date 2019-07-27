@@ -5,7 +5,6 @@
 package clases;
 
 public class Pedido {
-    private String idPedido;
     private Cliente clienteReferenciado;       //cliente que ordenó el pedido
     private Pizza[] pizzasPedidas;             //pizzas escogidas por el cliente
     private Bebestible[] bebestiblesPedidos;   //bebestibles escogidos por el cliente
@@ -15,7 +14,6 @@ public class Pedido {
     
     //Cuando el cliente pide: Pizza
     public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas){
-        this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = null;
@@ -23,8 +21,7 @@ public class Pedido {
     }
     
     //Cuando el cliente pide: Bebestible, Pizza
-    public Pedido(String idPedido, Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
-        this.idPedido = idPedido;
+    public Pedido(Cliente clienteReferenciado, int cantPizzas, int cantBebestibles){
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = new Bebestible[cantBebestibles];
@@ -32,14 +29,6 @@ public class Pedido {
     }
     
     //Getters y setters correspondientes
-    public String getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(String idPedido) {
-        this.idPedido = idPedido;
-    }
-
     public Cliente getClienteReferenciado() {
         return clienteReferenciado;
     }
@@ -85,7 +74,13 @@ public class Pedido {
         }
         montoPedido = total;
     }
-    
+    /**
+     * Retorna un valor booleano, correspiente a el valor de verdad si la pizza
+     * fue agregada o no.
+     * <p>
+     * @param nuevo Pizza.
+     * @return booleano.
+     */
     public boolean agregarPizza(Pizza nuevo) {
         for(int i = 0; i < pizzasPedidas.length ; i++) {
             if(pizzasPedidas[i] == null){

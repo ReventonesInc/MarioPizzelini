@@ -11,12 +11,12 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class ListaPedido {
-    //private HashMap<Integer,Pedido> listaPedidos; //Diccionario donde se guardarán los pedidos;
+    private HashMap<Integer,Pedido> listaPedidos; //Diccionario donde se guardarán los pedidos;
     private ArrayList<Pedido> pedidos;
     
     //Constructor de ListaPedido    
     public ListaPedido() {
-        //this.listaPedidos = new HashMap<>();
+        this.listaPedidos = new HashMap<>();
         this.pedidos = new ArrayList();
     }
     
@@ -25,13 +25,12 @@ public class ListaPedido {
         return pedidos;
     }
     
-    /*
     public HashMap<Integer, Pedido> getListaPedidos() {
         return listaPedidos;
     }
-    */
+    
     //Métodos de ListaPedido
-    /*
+    
     public int generarIndice(){
         int indice = listaPedidos.size();
         return indice;
@@ -44,7 +43,7 @@ public class ListaPedido {
                 return listaPedidos.get(key);
             }
         }
-        return nwwull;
+        return null;
     }
     
     public int buscarIndice(Pedido buscar){
@@ -90,9 +89,84 @@ public class ListaPedido {
         return false;
     }
     
-    */
+    public int valorTotalPedidos(){
+        int total = 0;
+        if(!listaPedidos.isEmpty()){
+            Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                total += listaPedidos.get(key).getMontoPedido();
+            }
+        }
+        return 0;
+    }
+    
+    public int cantidadPedidosCliente(Cliente clienteBuscado){
+        int contador = 0;
+        if(!listaPedidos.isEmpty()){
+            Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(listaPedidos.get(key).getClienteReferenciado().equals(clienteBuscado)){
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+    
+    public boolean eliminarPedidosCliente(Cliente eliminar){
+        if(!listaPedidos.isEmpty()){
+           Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(listaPedidos.get(key).getClienteReferenciado().equals(eliminar)){
+                    return listaPedidos.remove(key, listaPedidos.get(key));
+                }
+            } 
+        }
+        return false;
+    }
+    
+    public boolean agregarPizza(String idPedido, Pizza nuevo){
+        if(!listaPedidos.isEmpty()){
+           Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
+                    return listaPedidos.get(key).agregarPizza(nuevo);
+                }
+            } 
+        }
+        return false;
+    }
+    
+    public void actualizarMontoTotalDeUnPedido(String idPedido){
+        if(!listaPedidos.isEmpty()){
+           Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
+                    listaPedidos.get(key).ActualizarMontoTotal();
+                }
+            } 
+        }
+    }
+    
+    public void mostrarPedidoPorID(String idPedido){
+        if(!listaPedidos.isEmpty()){
+           Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
+                    System.out.println("ID: "+listaPedidos.get(key).getIdPedido()+" RUT: "+listaPedidos.get(key).getClienteReferenciado().getRut()+" MONTO: "+listaPedidos.get(key).getMontoPedido());
+                }
+            } 
+        }
+        else{
+            System.out.println("No hay pedidos registrados!");
+        }
+    }
+    
+    
+    //CORRESPONDE EN EL ARRAYLIST <------------------------------ ATENCIÓN
     //Métodos de ListaPedido    
     
+    /*
     /**
      * Retorna true si el pedido ingresado es agregado existosamente al
      * ArrayList, en el caso contrario retornará false
@@ -100,13 +174,16 @@ public class ListaPedido {
      * @param nuevo pedido para agregar al ArrayList
      * @return boolean
      */
+    /*
     public boolean agregarPedido(Pedido nuevo){
         if(pedidos.contains(nuevo)){
             return false;
         }
         return pedidos.add(nuevo);
     }
+    */
     
+    /*
     /**
      * Retorna true si se elimina exitosamente del ArrayList, en el caso
      * contrario retornará false.
@@ -114,12 +191,16 @@ public class ListaPedido {
      * @param eliminar identificación del pedido
      * @return boolean
      */
+    /*
     public boolean eliminarPedido(Pedido eliminar) {
         if(pedidos.contains(eliminar)) {
             return pedidos.remove(eliminar);            
         }
         return false;
     }
+    */
+    
+    /*
     /**
      * Modifica el pedido indicado por parámetro por el nuevo entregado por
      * parámetro.
@@ -127,11 +208,15 @@ public class ListaPedido {
      * @param modificar
      * @param modificado 
      */
+    /*
     public void modificarPedido(Pedido modificar, Pedido modificado) {
         modificar.setIdPedido(modificado.getIdPedido());
         modificar.setMontoPedido(modificado.getMontoPedido());
         //pedidos.set(pedidos.indexOf(modificar), modificado);
     }
+    */
+    
+    /*
     /**
      * Retorna el pedido encontrado, luego de buscarlo dado su id entregado
      * por parámetro.
@@ -139,6 +224,7 @@ public class ListaPedido {
      * @param idPedido String.
      * @return Pedido.
      */
+    /*
     public Pedido buscarPedido(String idPedido){
         if(!pedidos.isEmpty()){
             for(Pedido actual : pedidos){
@@ -149,11 +235,15 @@ public class ListaPedido {
         }
         return null;
     }
+    */
+    
+    /*
     /**
      * Retorna el valor total de sumar todos los montos de los pedidos.
      * <p>
      * @return int.
      */
+    /*
     public int valorTotalPedidos() {    //Monto Recaudado en la sucursal
         int total = 0;
         if(!pedidos.isEmpty()) {
@@ -163,12 +253,16 @@ public class ListaPedido {
         }
         return total;
     }
+    */
+    
+    /*
     /**
      * Retorna la cantidad de pediso de un cliente entregado por parámetro.
      * <p>
      * @param clienteBuscado Cliente.
      * @return int.
      */
+    /*
     public int cantidadPedidosCliente(Cliente clienteBuscado){
         int contador = 0;
         
@@ -180,11 +274,15 @@ public class ListaPedido {
         
         return contador;
     }
+    */
+    
+    /*
     /**
      * Elimina todos los pedidos de un cliente entregado por parámetro.
      * <p>
      * @param eliminar Cliente.
      */
+    /*
     public void eliminarPedidosCliente(Cliente eliminar){
         for(Pedido actual : pedidos){
             if(actual.getClienteReferenciado().equals(eliminar)){
@@ -192,7 +290,9 @@ public class ListaPedido {
             }
         }
     }
+    */
     
+    /*
     public boolean agregarPizza(String idPedido, Pizza nuevo){
         for(Pedido actual : pedidos) {
             if(actual.getIdPedido().equals(idPedido)){
@@ -201,7 +301,9 @@ public class ListaPedido {
         }
         return false;
     }
+    */
     
+    /*
     public void mostrarPedidoPorID(String idPedido){
         for(Pedido actual : pedidos) {
             if(actual.getIdPedido().equals(idPedido)){
@@ -209,7 +311,9 @@ public class ListaPedido {
             }
         }
     }
+    */
     
+    /*
     public void actualizarMontoTotalDeUnPedido(String idPedido){
         for(Pedido actual : pedidos) {
             if(actual.getIdPedido().equals(idPedido)){
@@ -217,4 +321,5 @@ public class ListaPedido {
             }
         }
     }
+    */
 }

@@ -30,9 +30,8 @@ public class ListaPedido {
         return listaPedidos;
     }
     */
-    /*
     //Métodos de ListaPedido
-    
+    /*
     public int generarIndice(){
         int indice = listaPedidos.size();
         return indice;
@@ -45,7 +44,7 @@ public class ListaPedido {
                 return listaPedidos.get(key);
             }
         }
-        return null;
+        return nwwull;
     }
     
     public int buscarIndice(Pedido buscar){
@@ -79,6 +78,14 @@ public class ListaPedido {
         if(listaPedidos.containsKey(key)){
             Pedido eliminar = buscarPedido(key);
             return listaPedidos.remove(key,eliminar);
+        }
+        return false;
+    }
+    
+    public boolean modificarPedido(Pedido modificar, Pedido modificado){
+        if(listaPedidos.containsValue(modificar)){
+            int key = buscarIndice(modificar);
+            return listaPedidos.replace(key, modificar, modificado);
         }
         return false;
     }

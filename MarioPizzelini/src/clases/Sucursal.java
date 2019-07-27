@@ -179,14 +179,11 @@ public class Sucursal {
      * coincide con uno de los pedidos en la lista pedidos. Sino, retornará
      * false.
      * <p>
-     * @param idPedido String.
+     * @param key int,
      * @return booleano.
      */
-    public boolean eliminarPedido(String idPedido){
-        if(pedidos.buscarPedido(idPedido)!=null){
-            return pedidos.eliminarPedido(pedidos.buscarPedido(idPedido));
-        }
-        return false;
+    public boolean eliminarPedido(int key){
+        return pedidos.eliminarPedido(key);
     }
     /**
      * Retorna la cantidad de pedidos realizados por un cliente. El cliente
@@ -212,20 +209,21 @@ public class Sucursal {
     /**
      * Elimina todos los pedidos de un cliente entregado por parámetro.
      * <p>
+     * @param rutCliente String.
      */
-    public void eliminarTodosLosPedidosCliente(Cliente eliminar){
-        pedidos.eliminarPedidosCliente(eliminar);
+    public void eliminarTodosLosPedidosCliente(String rutCliente){
+        pedidos.eliminarPedidosCliente(rutCliente);
     }
 
-    public boolean agregarPizza(String idPedido, Pizza nuevo){
-        return pedidos.agregarPizza(idPedido, nuevo);
+    public boolean agregarPizza(int keyPedido, Pizza nuevo){
+        return pedidos.agregarPizza(keyPedido, nuevo);
     }
     
-    public void mostrarPedidoPorID(String idPedido){
-        pedidos.mostrarPedidoPorID(idPedido);
+    public void mostrarPedidoPorID(int keyPedido){
+        pedidos.mostrarPedidoPorID(keyPedido);
     }
     
-    public void actualizarMontoTotalDeUnPedido(String idPedido){
-        pedidos.actualizarMontoTotalDeUnPedido(idPedido);
+    public void actualizarMontoTotalDeUnPedido(int keyPedido){
+        pedidos.actualizarMontoTotalDeUnPedido(keyPedido);
     }
 }

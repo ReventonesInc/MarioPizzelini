@@ -91,4 +91,23 @@ public class Pedido {
         return false;
     }
     
+    /**
+     * Retorna un valor booleano, corresponde a el valor de verdad si el bebestible
+     * fue agregado o no.
+     * <p>
+     * @param nuevo Bebestible
+     * @return booleano
+     */
+    public boolean agregarBebestible(Bebestible nuevo){
+        if(nuevo.getCantidad() > 0){
+            for(int i = 0; i < bebestiblesPedidos.length; i++){
+                if(bebestiblesPedidos[i] == null){
+                    bebestiblesPedidos[i] = nuevo;
+                    bebestiblesPedidos[i].setCantidad(bebestiblesPedidos[i].getCantidad() - 1);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

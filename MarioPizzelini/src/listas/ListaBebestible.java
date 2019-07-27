@@ -77,12 +77,17 @@ public class ListaBebestible {
      * @param modificar Clase Bebestible.
      * @param modificado Clase Bebestible.
      */
-    public void modificarBebestible(Bebestible modificar, Bebestible modificado){//Cambiarlo
-        modificar.setNombre(modificado.getNombre());
-        modificar.setIdBebestible(modificado.getIdBebestible());
-        modificar.setPrecio(modificado.getPrecio());
-        modificar.setDescripcion(modificado.getDescripcion());
-        //bebestibles.set(bebestibles.indexOf(modificar), modificado);
+    public void modificarBebestible(String idBebestible, Bebestible modificado){
+        for(Bebestible actual : bebestibles){
+            if(actual.getIdBebestible().equals(idBebestible)){
+                actual.setIdBebestible(modificado.getIdBebestible());
+                actual.setNombre(modificado.getNombre());
+                actual.setPrecio(modificado.getPrecio());
+                actual.setCantidad(modificado.getCantidad());
+                actual.setDescripcion(modificado.getDescripcion());
+                actual.setDisponibilidad(modificado.getDisponibilidad());
+            }
+        }
     }
     /**
      * Muestra todos los bebestibles contenidos en la lista.

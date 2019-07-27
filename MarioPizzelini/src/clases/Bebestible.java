@@ -6,12 +6,21 @@ package clases;
 
 public class Bebestible extends Producto implements Disponible {
     private String idBebestible;
+    private int cantidad;
     private boolean disponibilidad;
     
     //Constructor(es)
+    public Bebestible(String idBebestible, String nombre, int precio, String descripcion, int cantidad) {
+        super(nombre, precio, descripcion);
+        this.idBebestible = idBebestible;
+        this.cantidad = cantidad;
+        this.disponibilidad = true;
+    }
+    
     public Bebestible(String idBebestible, String nombre, int precio, String descripcion) {
         super(nombre, precio, descripcion);
         this.idBebestible = idBebestible;
+        this.cantidad = 1;
         this.disponibilidad = true;
     }
     
@@ -24,7 +33,15 @@ public class Bebestible extends Producto implements Disponible {
         this.idBebestible = idBebestible;
     }
 
-    public boolean isDisponibilidad() {
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 

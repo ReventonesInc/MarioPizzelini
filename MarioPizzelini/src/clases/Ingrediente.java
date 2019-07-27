@@ -8,13 +8,23 @@ public class Ingrediente implements Disponible{
     private String idIngrediente;
     private String nombre;
     private int precio;
+    private int cantidad;
     private boolean disponibilidad;
     
     //Constructor(es)
+    public Ingrediente(String idIngrediente, String nombre, int precio, int cantidad) {
+        this.idIngrediente = idIngrediente;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.disponibilidad = true;
+    }
+    
     public Ingrediente(String idIngrediente, String nombre, int precio) {
         this.idIngrediente = idIngrediente;
         this.nombre = nombre;
         this.precio = precio;
+        this.cantidad = 1;
         this.disponibilidad = true;
     }
     
@@ -43,7 +53,15 @@ public class Ingrediente implements Disponible{
         this.precio = precio;
     }
 
-    public boolean isDisponibilidad() {
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 

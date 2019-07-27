@@ -75,7 +75,7 @@ public class Inventario {
      */
     public void modificarIngrediente(String idIngrediente, Ingrediente modificado){
         Ingrediente modificar = ingredientes.buscarIngredienteID(idIngrediente);
-        ingredientes.modificarIngrediente(modificar, modificado);
+        ingredientes.modificarIngrediente(modificar.getIdIngrediente(), modificado);
     }    
     /**
      * Muestra los ingredientes contenidos en la lista.
@@ -134,7 +134,7 @@ public class Inventario {
      */
     public void modificarBebestible(String idBebestible, Bebestible modificado){
         Bebestible modificar = bebestibles.buscarBebestibleID(idBebestible);
-        bebestibles.modificarBebestible(modificar, modificado);
+        bebestibles.modificarBebestible(modificar.getIdBebestible(), modificado);
     }
     /**
      * Muestra los bebestibles contenidos en la lista.

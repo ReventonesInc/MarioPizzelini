@@ -75,14 +75,19 @@ public class ListaIngrediente {
     /**
      * Permite modificar un ingrediente por uno nuevo entregado por parametro
      * <p>
-     * @param modificar Ingrediente.
+     * @param idIngrediente String.
      * @param modificado Ingediente.
      */
-    public void modificarIngrediente(Ingrediente modificar, Ingrediente modificado){
-        modificar.setNombre(modificado.getNombre());
-        modificar.setIdIngrediente(modificado.getIdIngrediente());
-        modificar.setPrecio(modificado.getPrecio());
-        //ingredientes.set(ingredientes.indexOf(modificar), modificado);
+    public void modificarIngrediente(String idIngrediente, Ingrediente modificado){
+        for(Ingrediente actual : ingredientes){
+            if(actual.getIdIngrediente().equals(idIngrediente)){
+                actual.setIdIngrediente(modificado.getIdIngrediente());
+                actual.setNombre(modificado.getNombre());
+                actual.setPrecio(modificado.getPrecio());
+                actual.setCantidad(modificado.getCantidad());
+                actual.setDisponibilidad(modificado.getDisponibilidad());
+            }
+        }
     }
     
     /**

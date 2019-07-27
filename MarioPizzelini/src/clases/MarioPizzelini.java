@@ -36,21 +36,21 @@ public class MarioPizzelini {
     */
     public boolean eliminarCliente(String rutCliente){
         if(clientes.buscarClienteRut(rutCliente)){
-            sucursales.eliminarTodosPedidosCliente(clientes.retornarClienteRut(rutCliente));
-            return clientes.eliminarCliente(clientes.retornarClienteRut(rutCliente));
+            sucursales.eliminarTodosPedidosCliente(rutCliente);
+            return clientes.eliminarCliente(rutCliente);
         }
         return false;
     }
     /**
     * Permite modificar un cliente por uno nuevo entregado por parametro.
     * <p>
-    * @param modificar String.
+    * @param rutCliente String.
     * @param modificado Cliente.
     * @return booleano.
     */
-    public boolean modificarCliente(String modificar, Cliente modificado){
-        if(clientes.buscarClienteRut(modificar)){
-            clientes.modificarCliente(clientes.retornarClienteRut(modificar), modificado);
+    public boolean modificarCliente(String rutCliente, Cliente modificado){
+        if(clientes.buscarClienteRut(rutCliente)){
+            clientes.modificarCliente(rutCliente, modificado);
             return true;
         }
         return false;
@@ -151,19 +151,19 @@ public class MarioPizzelini {
         return sucursales.agregarPedido(rutSucursal,pedidoNuevo);
     }
     
-    public boolean eliminarPedido(String rutSucursal, String idPedidoEliminar){
-        return sucursales.eliminarPedido(rutSucursal, idPedidoEliminar);
+    public boolean eliminarPedido(String rutSucursal, int keyPedido){
+        return sucursales.eliminarPedido(rutSucursal, keyPedido);
     }
     
-    public boolean agregarPizza(String rutSucursal, String idPedido, Pizza nuevo){
-        return sucursales.agregarPizza(rutSucursal, idPedido, nuevo);
+    public boolean agregarPizza(String rutSucursal, int keyPedido, Pizza nuevo){
+        return sucursales.agregarPizza(rutSucursal, keyPedido, nuevo);
     }
     
-    public void mostrarPedidoPorID(String rutSucursal, String idPedido){
-        sucursales.mostrarPedidoPorID(rutSucursal, idPedido);
+    public void mostrarPedidoPorID(String rutSucursal, int keyPedido){
+        sucursales.mostrarPedidoPorID(rutSucursal, keyPedido);
     }
     
-    public void actualizarMontoTotalDeUnPedido(String rutSucursal, String idPedido){
-        sucursales.actualizarMontoTotalDeUnPedido(rutSucursal, idPedido);
+    public void actualizarMontoTotalDeUnPedido(String rutSucursal, int keyPedido){
+        sucursales.actualizarMontoTotalDeUnPedido(rutSucursal, keyPedido);
     }
 }

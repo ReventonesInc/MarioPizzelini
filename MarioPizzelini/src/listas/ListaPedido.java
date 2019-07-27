@@ -12,19 +12,15 @@ import java.util.Set;
 
 public class ListaPedido {
     private HashMap<Integer,Pedido> listaPedidos; //Diccionario donde se guardarán los pedidos;
-    private ArrayList<Pedido> pedidos;
+    //private ArrayList<Pedido> pedidos;
     
     //Constructor de ListaPedido    
     public ListaPedido() {
         this.listaPedidos = new HashMap<>();
-        this.pedidos = new ArrayList();
+        //this.pedidos = new ArrayList();
     }
     
     //Getter y setters correspondientes    
-    public ArrayList<Pedido> getPedidos() {
-        return pedidos;
-    }
-    
     public HashMap<Integer, Pedido> getListaPedidos() {
         return listaPedidos;
     }
@@ -45,17 +41,7 @@ public class ListaPedido {
         }
         return null;
     }
-    
-    public int buscarIndice(Pedido buscar){
-        Set<Integer> totalKeys = listaPedidos.keySet();
-        for(Integer key : totalKeys){
-            if(listaPedidos.get(key) == buscar){
-                return key;
-            }
-        }
-        return 0;
-    }
-    
+
     public boolean agregarPedido(Pedido nuevo){
         if(!listaPedidos.containsValue(nuevo)){
             int nuevaKey = generarIndice();
@@ -65,18 +51,10 @@ public class ListaPedido {
         return false;
     }
     
-    public boolean eliminarPedido(Pedido eliminar){
-        if(listaPedidos.containsValue(eliminar)){
-            int key = buscarIndice(eliminar);
-            return listaPedidos.remove(key,eliminar);
-        }
-        return false;
-    }
-    
-    public boolean eliminarPedido(int key){
-        if(listaPedidos.containsKey(key)){
-            Pedido eliminar = buscarPedido(key);
-            return listaPedidos.remove(key,eliminar);
+    public boolean eliminarPedido(int keyPedido){
+        if(listaPedidos.containsKey(keyPedido)){
+            Pedido eliminar = buscarPedido(keyPedido);
+            return listaPedidos.remove(keyPedido,eliminar);
         }
         return false;
     }
@@ -111,11 +89,11 @@ public class ListaPedido {
         return contador;
     }
     
-    public boolean eliminarPedidosCliente(Cliente eliminar){
+    public boolean eliminarPedidosCliente(String rut){
         if(!listaPedidos.isEmpty()){
            Set<Integer> totalKeys = listaPedidos.keySet();
             for(Integer key : totalKeys){
-                if(listaPedidos.get(key).getClienteReferenciado().equals(eliminar)){
+                if(listaPedidos.get(key).getClienteReferenciado().getRut().equals(rut)){
                     return listaPedidos.remove(key, listaPedidos.get(key));
                 }
             } 

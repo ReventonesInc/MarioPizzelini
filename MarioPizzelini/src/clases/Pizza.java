@@ -14,6 +14,11 @@ public class Pizza extends Producto{
         super.setPrecio(0);
     }
 
+    public Pizza() {
+        super(null,0,null);  
+        this.ingredientes = null;
+        super.setPrecio(0);
+    }
     //Getters y setters correspondientes
     public Ingrediente[] getIngredientes(){
         return ingredientes;

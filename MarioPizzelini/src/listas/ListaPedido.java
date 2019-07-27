@@ -81,12 +81,11 @@ public class ListaPedido {
         return false;
     }
     
-    public boolean modificarPedido(Pedido modificar, Pedido modificado){
+    public void modificarPedido(Pedido modificar, Pedido modificado){
         if(listaPedidos.containsValue(modificar)){
             int key = buscarIndice(modificar);
-            return listaPedidos.replace(key, modificar, modificado);
+            listaPedidos.get(key).setMontoPedido(modificado.getMontoPedido());
         }
-        return false;
     }
     
     public int valorTotalPedidos(){

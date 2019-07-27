@@ -81,7 +81,7 @@ public class ListaPedido {
         return false;
     }
     
-    public void modificarPedido(int keyPedido, Pedido modificado){
+    public void modificarMontoPedido(int keyPedido, Pedido modificado){
         if(listaPedidos.containsKey(keyPedido)){
             listaPedidos.get(keyPedido).setMontoPedido(modificado.getMontoPedido());
         }

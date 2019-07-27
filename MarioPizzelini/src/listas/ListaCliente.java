@@ -42,28 +42,37 @@ public class ListaCliente {
     /**
      * Retorna un valor booleano. True si lo elimina, false si no lo elimina.
      * <p>
-     * @param  eliminar Cliente
+     * @param rutCliente String.
      * @return booleano.
      */
-    public boolean eliminarCliente(Cliente eliminar) {//Cambiarlo
-        if(clientes.contains(eliminar)) {
-            return clientes.remove(eliminar);            
+    public boolean eliminarCliente(String rutCliente) {//Cambiarlo --> Cambiado
+        Cliente eliminado = retornarClienteRut(rutCliente);
+        if(eliminado != null) {
+            return clientes.remove(eliminado);
         }
         return false;
     }
     /**
      * Permite modificar un cliente por uno nuevo entregado por parametro.
      * <p>
-     * @param modificar Cliente.
-     * @param modificado Ingrediente.
+     * @param rutCliente String.
+     * @param modificado Cliente.
      */
-    public void modificarCliente(Cliente modificar, Cliente modificado) {//Cambiarlo
+    public void modificarCliente(String rutCliente, Cliente modificado) {
+        Cliente modificar = retornarClienteRut(rutCliente);
+        modificar.setRut(modificado.getRut());
+        modificar.setNombre(modificado.getNombre());
+        modificar.setApellido(modificado.getApellido());
+        modificar.setTelefono(modificado.getTelefono());
+    }
+    /*public void modificarCliente(Cliente modificar, Cliente modificado) {//Cambiarlo
         modificar.setRut(modificado.getRut());
         modificar.setNombre(modificado.getNombre());
         modificar.setApellido(modificado.getApellido());
         modificar.setTelefono(modificado.getTelefono());
         //clientes.set(clientes.indexOf(modificar), modificado);
-    }
+    }*/
+    
     /**
      * Retorna el cliente con la mayor cantidad de pedidos en la empresa.
      * <p>

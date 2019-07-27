@@ -15,7 +15,7 @@ public class MainTest {
         Cliente clienteUno = new Cliente("19.154.617-2","Luis","Maturana","123456789");
         MP.agregarCliente(clienteUno);
         
-        Ingrediente ingredienteUno = null;
+        Ingrediente ingredienteUno = new Ingrediente("1","Salsa",500,10);
         Ingrediente ingredienteDos = new Ingrediente("2", "Queso", 500, 10);
         Ingrediente ingredienteTres = new Ingrediente("3", "Jamón", 700, 10);
         Ingrediente ingredienteCuatro = new Ingrediente("4", "Pepinillos", 900);
@@ -33,30 +33,46 @@ public class MainTest {
         System.out.println("La cantidad de pizza es: "+cantidadPizzas);        
         Pizza auxPizzas[] = new Pizza[cantidadPizzas];
         
-        for(int i = 0; i<cantidadPizzas; i++) {
-            //auxPizzas[i] = new Pizza(0,null,0,null);   
-            auxPizzas[i] = new Pizza();                        
-        };
+        /*for(int i = 0; i<cantidadPizzas; i++) {
+            auxPizzas[i] = new Pizza(2,null,0,null);   
+            //auxPizzas[i] = new Pizza();                        
+        };*/
         
-        Ingrediente[] ingredientesAux = sucursalUno.getBodega().getIngredientes().getIngredientes().toArray();
+        MP.mostrarIngredientes(sucursalUno.getRut());
         
-                
-        for(int i = 0; i<cantidadPizzas; i++) {
-            int cantidadIngredientes = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos ingredientes desea en su pizza numero "+cantidadPizzas+" ?"));
+        //System.out.println("NOMBRE: "+sucursalUno.getBodega().getIngredientes().getIngredientes().get(0).getNombre());
+        
+        String[] nombresIngredientes = new String[4];
+        for(int i = 0; i < 4; i++) {
+            nombresIngredientes[i] = sucursalUno.getBodega().getIngredientes().getIngredientes().get(i).getIdIngrediente();
+        }
+        
+        for(int i = 0; i < cantidadPizzas; i++) {
+            int cantidadIngredientes = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos ingredientes desea en su pizza numero "+ (i+1) +" ?"));
             System.out.println("Usted eligio "+cantidadIngredientes+" Ingredientes, por favor seleccionelos");
-            Object opcion;
-            opcion = JOptionPane.
-            opcion = JOptionPane.showInputDialog(null,"Selecciona un ingrediente", "Elegir",JOptionPane.QUESTION_MESSAGE,null,(sucursalUno.getBodega().getIngredientes().getIngredientes()).toArray(), sucursalUno.getBodega().getIngredientes().getIngredientes().get(0).getNombre());
-        };
+            auxPizzas[i] = new Pizza(cantidadIngredientes, null, 0, null);
+            
+            for(int j = 0; j<cantidadIngredientes; j++) {
+                Object opcion = JOptionPane.showInputDialog(null,"Selecciona un ingrediente", "Elegir",JOptionPane.QUESTION_MESSAGE,null,nombresIngredientes,nombresIngredientes[0]);                
+                String ide = opcion.toString();
+                //System.out.println(ide);
+                Ingrediente buscar = MP.buscarIngredienteID(sucursalUno.getRut(), ide);
+                System.out.println(auxPizzas[i].agregarIngrediente(buscar));
+            }
+            auxPizzas[i].calcularValor();
+            //System.out.println(auxPizzas[i].getPrecio());
+        }
         
+        //int cantidadBebestibles = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de bebestibles a pedir:"));
+        //System.out.println("La cantidad de bebestibles es: "+cantidadBebestibles); 
+        //Bebestible auxBebestibles[] = new Bebestible[cantidadBebestibles];
         
-        
-        /*int cantidadBebestibles = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de bebestibles a pedir:"));
-        System.out.println("La cantidad de bebestibles es: "+cantidadBebestibles); 
-        Bebestible auxBebestibles[] = new Bebestible[cantidadBebestibles];
-        */
-        
-        
+        MP.agregarPedido(sucursalUno.getRut(), new Pedido(clienteUno,cantidadPizzas)); // key es 1
+        for(int i = 0; i < cantidadPizzas; i++){
+            MP.agregarPizza(sucursalUno.getRut(), 0, auxPizzas[i]);
+        }
+        MP.actualizarMontoTotalDeUnPedido(sucursalUno.getRut(), 0);
+        MP.mostrarPedidoPorID(sucursalUno.getRut(), 0);
         
         
     }

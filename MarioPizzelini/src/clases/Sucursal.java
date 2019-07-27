@@ -209,20 +209,21 @@ public class Sucursal {
     /**
      * Elimina todos los pedidos de un cliente entregado por parámetro.
      * <p>
+     * @param rutCliente String.
      */
-    public void eliminarTodosLosPedidosCliente(Cliente eliminar){
-        pedidos.eliminarPedidosCliente(eliminar);
+    public void eliminarTodosLosPedidosCliente(String rutCliente){
+        pedidos.eliminarPedidosCliente(rutCliente);
     }
 
-    public boolean agregarPizza(String idPedido, Pizza nuevo){
-        return pedidos.agregarPizza(idPedido, nuevo);
+    public boolean agregarPizza(int keyPedido, Pizza nuevo){
+        return pedidos.agregarPizza(keyPedido, nuevo);
     }
     
-    public void mostrarPedidoPorID(String idPedido){
-        pedidos.mostrarPedidoPorID(idPedido);
+    public void mostrarPedidoPorID(int keyPedido){
+        pedidos.mostrarPedidoPorID(keyPedido);
     }
     
-    public void actualizarMontoTotalDeUnPedido(String idPedido){
-        pedidos.actualizarMontoTotalDeUnPedido(idPedido);
+    public void actualizarMontoTotalDeUnPedido(int keyPedido){
+        pedidos.actualizarMontoTotalDeUnPedido(keyPedido);
     }
 }

@@ -3,6 +3,7 @@
  * En general se guardarán los pedidos de la pizzería.
  */
 package listas;
+import clases.Bebestible;
 import clases.Pedido;
 import java.util.ArrayList;
 import clases.Cliente;
@@ -136,6 +137,18 @@ public class ListaPedido {
         else{
             System.out.println("No hay pedidos registrados!");
         }
+    }
+    
+    public boolean agregarBebestible(int keyPedido, Bebestible nuevo){
+        if(!listaPedidos.isEmpty()){
+           Set<Integer> totalKeys = listaPedidos.keySet();
+            for(Integer key : totalKeys){
+                if(key.equals(keyPedido)){
+                    return listaPedidos.get(key).agregarBebestible(nuevo);
+                }
+            } 
+        }
+        return false;
     }
     
     

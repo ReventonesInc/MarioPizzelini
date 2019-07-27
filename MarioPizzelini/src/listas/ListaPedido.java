@@ -95,7 +95,7 @@ public class ListaPedido {
                 total += listaPedidos.get(key).getMontoPedido();
             }
         }
-        return 0;
+        return total;
     }
     
     public int cantidadPedidosCliente(Cliente clienteBuscado){

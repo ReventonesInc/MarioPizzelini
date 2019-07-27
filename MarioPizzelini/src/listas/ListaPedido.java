@@ -125,11 +125,11 @@ public class ListaPedido {
         return false;
     }
     
-    public boolean agregarPizza(String idPedido, Pizza nuevo){
+    public boolean agregarPizza(int keyPedido, Pizza nuevo){
         if(!listaPedidos.isEmpty()){
            Set<Integer> totalKeys = listaPedidos.keySet();
             for(Integer key : totalKeys){
-                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
+                if(key.equals(keyPedido)){
                     return listaPedidos.get(key).agregarPizza(nuevo);
                 }
             } 
@@ -137,23 +137,23 @@ public class ListaPedido {
         return false;
     }
     
-    public void actualizarMontoTotalDeUnPedido(String idPedido){
+    public void actualizarMontoTotalDeUnPedido(int keyPedido){
         if(!listaPedidos.isEmpty()){
            Set<Integer> totalKeys = listaPedidos.keySet();
             for(Integer key : totalKeys){
-                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
+                if(key.equals(keyPedido)){
                     listaPedidos.get(key).ActualizarMontoTotal();
                 }
             } 
         }
     }
     
-    public void mostrarPedidoPorID(String idPedido){
+    public void mostrarPedidoPorID(int keyPedido){
         if(!listaPedidos.isEmpty()){
            Set<Integer> totalKeys = listaPedidos.keySet();
             for(Integer key : totalKeys){
-                if(listaPedidos.get(key).getIdPedido().equals(idPedido)){
-                    System.out.println("ID: "+listaPedidos.get(key).getIdPedido()+" RUT: "+listaPedidos.get(key).getClienteReferenciado().getRut()+" MONTO: "+listaPedidos.get(key).getMontoPedido());
+                if(key.equals(keyPedido)){
+                    System.out.println("ID: "+keyPedido+" RUT: "+listaPedidos.get(key).getClienteReferenciado().getRut()+" MONTO: "+listaPedidos.get(key).getMontoPedido());
                 }
             } 
         }

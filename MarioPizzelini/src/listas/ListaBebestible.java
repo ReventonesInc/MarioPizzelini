@@ -74,8 +74,8 @@ public class ListaBebestible {
      * Permite modificar un Bebestible según las clases Bebestible que
      * se haya ingresado.
      * <p>
-     * @param modificar Clase Bebestible.
-     * @param modificado Clase Bebestible.
+     * @param idBebestible String.
+     * @param modificado Bebestible.
      */
     public void modificarBebestible(String idBebestible, Bebestible modificado){
         for(Bebestible actual : bebestibles){

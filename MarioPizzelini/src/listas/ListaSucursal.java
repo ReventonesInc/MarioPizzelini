@@ -390,8 +390,7 @@ public class ListaSucursal {
      * @return int.
      */
     public int cantidadPedidosCliente(Cliente cliente){
-        int contador = 0;
-        
+        int contador = 0;        
         for(Sucursal actual :  sucursales){
             contador += actual.cantidadPedidosCliente(cliente);
         }

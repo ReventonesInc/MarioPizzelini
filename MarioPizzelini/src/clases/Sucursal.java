@@ -179,14 +179,11 @@ public class Sucursal {
      * coincide con uno de los pedidos en la lista pedidos. Sino, retornará
      * false.
      * <p>
-     * @param idPedido String.
+     * @param key int,
      * @return booleano.
      */
-    public boolean eliminarPedido(String idPedido){
-        if(pedidos.buscarPedido(idPedido)!=null){
-            return pedidos.eliminarPedido(pedidos.buscarPedido(idPedido));
-        }
-        return false;
+    public boolean eliminarPedido(int key){
+        return pedidos.eliminarPedido(key);
     }
     /**
      * Retorna la cantidad de pedidos realizados por un cliente. El cliente

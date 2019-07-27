@@ -43,13 +43,14 @@ public class ListaIngrediente {
      * Retorna true, si el ingrediente ingresado por parámetro es eliminado de
      * la lista exitosamente, en cambio, retornará false si no se elimina.
      * <p>
-     * @param id String.
+     * @param idIngrediente String.
      * @return booleano.
      */
-    public boolean eliminarIngrediente(String id){
-        for(int i = 0; ingredientes != null && i < ingredientes.size(); i++){
-            if((ingredientes.get(i)).getIdIngrediente().equals(id)){
-                return ingredientes.remove(ingredientes.get(i));
+    public boolean eliminarIngrediente(String idIngrediente){
+        
+        for(Ingrediente actual : ingredientes) {
+            if(actual.getIdIngrediente().equals(idIngrediente)) {
+                return ingredientes.remove(actual);
             }
         }
         return false;

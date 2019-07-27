@@ -53,13 +53,18 @@ public class ListaIngrediente {
      * @return booleano.
      */
     public boolean eliminarIngrediente(String idIngrediente){
-        
-        for(Ingrediente actual : ingredientes) {
-            if(actual.getIdIngrediente().equals(idIngrediente)) {
-                return ingredientes.remove(actual);
+        try{
+            for(Ingrediente actual : ingredientes) {
+                if(actual.getIdIngrediente().equals(idIngrediente)) {
+                    return ingredientes.remove(actual);
+                }
             }
+            return false;
         }
-        return false;
+        catch(NullPointerException e){
+            System.out.println("Ocurrió un error: "+e.getMessage());
+            return false;
+        }
     }
     
     /**

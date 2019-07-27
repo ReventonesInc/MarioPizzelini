@@ -33,10 +33,16 @@ public class ListaIngrediente {
      * @return booleano.
      */
     public boolean agregarIngrediente(Ingrediente nuevo){
-        if(ingredientes.contains(nuevo)){
+        try{
+            if(ingredientes.contains(nuevo)){
+                return false;
+            }
+            return ingredientes.add(nuevo);
+        }
+        catch(NullPointerException e){
+            System.out.println("Ocurrió un error: "+e.getMessage());
             return false;
         }
-        return ingredientes.add(nuevo);
     }
     
     /**

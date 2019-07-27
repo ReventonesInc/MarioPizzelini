@@ -81,10 +81,9 @@ public class ListaPedido {
         return false;
     }
     
-    public void modificarPedido(Pedido modificar, Pedido modificado){
-        if(listaPedidos.containsValue(modificar)){
-            int key = buscarIndice(modificar);
-            listaPedidos.get(key).setMontoPedido(modificado.getMontoPedido());
+    public void modificarPedido(int keyPedido, Pedido modificado){
+        if(listaPedidos.containsKey(keyPedido)){
+            listaPedidos.get(keyPedido).setMontoPedido(modificado.getMontoPedido());
         }
     }
     

@@ -3,16 +3,22 @@
  * una sucursal, en la cual fue seleccionada anteriormente.
  */
 package interfazGrafica;
+import clases.MarioPizzelini;
 
 public class MenuPrincipalSucursal extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa;
+    private String rutSucursal;
+    
     /**
      * Constructor de MenuPrincipalSucursal
      */
-    public MenuPrincipalSucursal() {
+    public MenuPrincipalSucursal(MarioPizzelini empresa, String rutSucursal) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rutSucursal = rutSucursal;
     }
 
     @SuppressWarnings("unchecked")
@@ -280,42 +286,10 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
      * @param evt 
      */
     private void jbCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarSesionActionPerformed
-        //volver a selección sucursal
+        SeleccionSucursal frame = new SeleccionSucursal(empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbCerrarSesionActionPerformed
-
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalSucursal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuPrincipalSucursal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;

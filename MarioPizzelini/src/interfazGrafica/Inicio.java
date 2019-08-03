@@ -3,16 +3,20 @@
  * de contener el main y los datos iniciales.
  */
 package interfazGrafica;
+import clases.MarioPizzelini;
 
 public class Inicio extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa; //Clase principal del programa
+    
     /**
      * Constructor de InicioMenu
      */
-    public Inicio() {
+    public Inicio(MarioPizzelini empresa) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
     }
 
     @SuppressWarnings("unchecked")
@@ -88,7 +92,16 @@ public class Inicio extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
-        
+        if(empresa.estaVacioSucursales()){
+            SeleccionAgregarSucursal frame = new SeleccionAgregarSucursal(empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
+        else{
+            SeleccionSucursal nuevo = new SeleccionSucursal(empresa);
+            nuevo.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_BtnInicioActionPerformed
     
     /**
@@ -105,10 +118,11 @@ public class Inicio extends javax.swing.JFrame {
      * @param args 
      */
     public static void main(String args[]) {
-        
+         MarioPizzelini empresa = new MarioPizzelini();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                Inicio frame = new Inicio(empresa);
+		frame.setVisible(true);
             }
         });
     }

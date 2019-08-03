@@ -1,6 +1,6 @@
 /*
- * Interfaz gráfica que permite manejar todas las funciones
- * correspondientes para ingredientes del inventario.
+ * Interfaz gráfica para desplegar el menu ingrediente, donde tendrá la
+ * lista de todos los ingredientes registrados en el invatiro de la sucursal.
  */
 package interfazGrafica;
 
@@ -19,128 +19,194 @@ public class MenuIngrediente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbVolver = new javax.swing.JButton();
-        jbAgregar = new javax.swing.JButton();
-        jbEliminar = new javax.swing.JButton();
-        jbModificar = new javax.swing.JButton();
-        jbMostrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        BtnVolver = new javax.swing.JButton();
+        BtnAgregar = new javax.swing.JButton();
+        BtnEliminar = new javax.swing.JButton();
+        BtnModificar = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        Fondo3 = new javax.swing.JPanel();
+        Fondo2 = new javax.swing.JPanel();
+        Fondo1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaIngredientes = new javax.swing.JTextArea();
         jLabelTitulo = new javax.swing.JLabel();
-        jLabelFondo = new javax.swing.JLabel();
+        jLabelText1 = new javax.swing.JLabel();
+        jLabelText2 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbVolver.setBackground(new java.awt.Color(153, 0, 0));
-        jbVolver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jbVolver.setForeground(new java.awt.Color(255, 255, 255));
-        jbVolver.setText("Volver");
-        jbVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbVolver.addActionListener(new java.awt.event.ActionListener() {
+        BtnVolver.setBackground(new java.awt.Color(153, 0, 0));
+        BtnVolver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        BtnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVolver.setText("Volver");
+        BtnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbVolverActionPerformed(evt);
+                BtnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 80, 30));
+        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 80, 30));
 
-        jbAgregar.setBackground(new java.awt.Color(153, 0, 0));
-        jbAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jbAgregar.setText("Agregar");
-        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+        BtnAgregar.setBackground(new java.awt.Color(153, 0, 0));
+        BtnAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAgregarActionPerformed(evt);
+                BtnAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 260, -1));
+        getContentPane().add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 260, -1));
 
-        jbEliminar.setBackground(new java.awt.Color(153, 0, 0));
-        jbEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jbEliminar.setText("Eliminar");
-        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+        BtnEliminar.setBackground(new java.awt.Color(153, 0, 0));
+        BtnEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEliminar.setText("Eliminar");
+        BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEliminarActionPerformed(evt);
+                BtnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, -1));
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 260, -1));
 
-        jbModificar.setBackground(new java.awt.Color(153, 0, 0));
-        jbModificar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbModificar.setForeground(new java.awt.Color(255, 255, 255));
-        jbModificar.setText("Modificar");
-        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+        BtnModificar.setBackground(new java.awt.Color(153, 0, 0));
+        BtnModificar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbModificarActionPerformed(evt);
+                BtnModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 260, -1));
+        getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 260, -1));
 
-        jbMostrar.setBackground(new java.awt.Color(153, 0, 0));
-        jbMostrar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jbMostrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbMostrar.setText("Mostrar Ingredientes");
-        jbMostrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbMostrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, -1));
+        jPanel6.setBackground(new java.awt.Color(0, 153, 51));
+        jPanel6.setForeground(new java.awt.Color(0, 153, 51));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/icon_ingredients_opt.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 480));
+
+        Fondo3.setBackground(new java.awt.Color(0, 153, 51));
+        Fondo3.setForeground(new java.awt.Color(0, 153, 51));
+
+        javax.swing.GroupLayout Fondo3Layout = new javax.swing.GroupLayout(Fondo3);
+        Fondo3.setLayout(Fondo3Layout);
+        Fondo3Layout.setHorizontalGroup(
+            Fondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        Fondo3Layout.setVerticalGroup(
+            Fondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Fondo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 700, 10));
+
+        Fondo2.setBackground(new java.awt.Color(0, 153, 51));
+        Fondo2.setForeground(new java.awt.Color(0, 153, 51));
+
+        javax.swing.GroupLayout Fondo2Layout = new javax.swing.GroupLayout(Fondo2);
+        Fondo2.setLayout(Fondo2Layout);
+        Fondo2Layout.setHorizontalGroup(
+            Fondo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        Fondo2Layout.setVerticalGroup(
+            Fondo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 10));
+
+        Fondo1.setBackground(new java.awt.Color(0, 153, 51));
+        Fondo1.setForeground(new java.awt.Color(0, 153, 51));
+
+        javax.swing.GroupLayout Fondo1Layout = new javax.swing.GroupLayout(Fondo1);
+        Fondo1.setLayout(Fondo1Layout);
+        Fondo1Layout.setHorizontalGroup(
+            Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        Fondo1Layout.setVerticalGroup(
+            Fondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 10, 490));
+
+        jTextAreaIngredientes.setBackground(new java.awt.Color(51, 51, 51));
+        jTextAreaIngredientes.setColumns(20);
+        jTextAreaIngredientes.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaIngredientes.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaIngredientes);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 600, 240));
+
+        jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 35)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("INVENTARIO INGREDIENTES");
-        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jLabelTitulo.setText("INGREDIENTES REGISTRADOS:");
+        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojo_opt.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 400));
+        jLabelText1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelText1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelText1.setText("la lista de ingredientes.");
+        getContentPane().add(jLabelText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 280, -1));
+
+        jLabelText2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelText2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelText2.setText("Presione un botón para modificar");
+        getContentPane().add(jLabelText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 280, -1));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojo.jpg"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
-     * Acción para volver al menú del inventario.
+     * Acción para agregar un ingrediente al inventario.
      * @param evt 
      */
-    private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
-        //volver al menu inventario
-    }//GEN-LAST:event_jbVolverActionPerformed
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        //ventana para agregar
+    }//GEN-LAST:event_BtnAgregarActionPerformed
     
     /**
-     * Acción para agregar un ingrediente.
+     * Acción para eliminar un ingrediente del inventario.
      * @param evt 
      */
-    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
-        //ingresar a la ventana para agregar un ingrediente
-    }//GEN-LAST:event_jbAgregarActionPerformed
+    private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
+        //ventana para eliminar
+    }//GEN-LAST:event_BtnEliminarActionPerformed
     
     /**
-     * Acción para eliminar un ingrediente.
+     * Acción para modificar un ingrediente del inventario.
      * @param evt 
      */
-    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        //ingresar a la ventana para eliminar un ingrediente
-    }//GEN-LAST:event_jbEliminarActionPerformed
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        //ventana para modificar
+    }//GEN-LAST:event_BtnModificarActionPerformed
     
     /**
-     * Acción para modificar un ingrediente
+     * Acción para volver al menu del inventario.
      * @param evt 
      */
-    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        //ingresar a la ventana para modificar un ingrediente
-    }//GEN-LAST:event_jbModificarActionPerformed
-    
-    /**
-     * Acción para mostrar todos los ingredientes.
-     * @param evt 
-     */
-    private void jbMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarActionPerformed
-        //mostrar ingredientes en tabla
-    }//GEN-LAST:event_jbMostrarActionPerformed
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+        //volver a menu inventario
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -175,13 +241,19 @@ public class MenuIngrediente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnEliminar;
+    private javax.swing.JButton BtnModificar;
+    private javax.swing.JButton BtnVolver;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JPanel Fondo1;
+    private javax.swing.JPanel Fondo2;
+    private javax.swing.JPanel Fondo3;
+    private javax.swing.JLabel jLabelText1;
+    private javax.swing.JLabel jLabelText2;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JButton jbAgregar;
-    private javax.swing.JButton jbEliminar;
-    private javax.swing.JButton jbModificar;
-    private javax.swing.JButton jbMostrar;
-    private javax.swing.JButton jbVolver;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaIngredientes;
     // End of variables declaration//GEN-END:variables
 }

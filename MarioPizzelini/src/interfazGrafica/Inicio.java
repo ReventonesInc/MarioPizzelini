@@ -4,12 +4,12 @@
  */
 package interfazGrafica;
 
-public class InicioMenu extends javax.swing.JFrame {
+public class Inicio extends javax.swing.JFrame {
 
     /**
      * Constructor de InicioMenu
      */
-    public InicioMenu() {
+    public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -108,7 +108,7 @@ public class InicioMenu extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioMenu().setVisible(true);
+                new Inicio().setVisible(true);
             }
         });
     }

@@ -77,6 +77,7 @@ public class ListaSucursal {
         if(sucursales.contains(nuevo)){
             return false;
         }
+
         return sucursales.add(nuevo);
     }
     /**

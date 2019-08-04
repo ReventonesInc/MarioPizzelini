@@ -50,7 +50,7 @@ public class ListaCliente {
         if(clientes.contains(nuevo)) {
             return false;
         }
-        Conexiones.Conexion.Consulta("INSERT INTO id6lWQPWdK.Cliente (idCliente, rutCliente, nombreCliente, apellidoCliente, telefonoCliente) VALUES ("+clientes.size()+1+","+nuevo.getRut()+","+nuevo.getNombre()+","+nuevo.getApellido()+","+nuevo.getTelefono()+")");
+        //Conexiones.Conexion.Consulta("INSERT INTO id6lWQPWdK.Cliente (idCliente, rutCliente, nombreCliente, apellidoCliente, telefonoCliente) VALUES ("+clientes.size()+1+","+nuevo.getRut()+","+nuevo.getNombre()+","+nuevo.getApellido()+","+nuevo.getTelefono()+")");
         return clientes.add(nuevo);
     }
     /**

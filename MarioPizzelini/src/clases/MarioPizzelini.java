@@ -166,4 +166,8 @@ public class MarioPizzelini {
     public void actualizarMontoTotalDeUnPedido(String rutSucursal, int keyPedido){
         sucursales.actualizarMontoTotalDeUnPedido(rutSucursal, keyPedido);
     }
+    
+    public int montoRecaudadoSucursal(String rutSucursal){
+        return sucursales.montoRecaudadoSucursal(rutSucursal);
+    }
 }

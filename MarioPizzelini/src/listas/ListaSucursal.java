@@ -10,6 +10,7 @@ import clases.Pedido;
 import clases.Sucursal;
 import clases.Cliente;
 import clases.Pizza;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ListaSucursal {
@@ -18,6 +19,8 @@ public class ListaSucursal {
     //Constructor
     public ListaSucursal() {
         sucursales = new ArrayList<>();
+        ResultSet resultadoConsulta;
+        //resultadoConsulta = Conexiones.Conexion.Consulta("");
     }
     
     /*Getters y setters correspondientes*/
@@ -444,5 +447,14 @@ public class ListaSucursal {
                 actual.actualizarMontoTotalDeUnPedido(keyPedido);
             }
         }
+    }
+    
+    public int montoRecaudadoSucursal (String rutSucursal){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                return actual.valorTotalPedidosSucursal();
+            }
+        }
+        return -1;
     }
 }

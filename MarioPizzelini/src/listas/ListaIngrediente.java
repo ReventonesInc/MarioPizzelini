@@ -10,7 +10,7 @@ public class ListaIngrediente {
     private ArrayList<Ingrediente> ingredientes;  //Lista de ingredientes
     
     //Constructor
-    public ListaIngrediente() {
+    public ListaIngrediente(int idSucursal) {
         ingredientes = new ArrayList<>();
     }
     

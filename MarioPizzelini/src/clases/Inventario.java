@@ -13,8 +13,8 @@ public class Inventario {
     
     //Constructor(es)
     public Inventario(int idSucursal) {
-        this.ingredientes = new ListaIngrediente();
-        this.bebestibles = new ListaBebestible();
+        this.ingredientes = new ListaIngrediente(idSucursal);
+        this.bebestibles = new ListaBebestible(idSucursal);
     }
     
     //Getters y setters correspondientes

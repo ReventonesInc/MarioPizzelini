@@ -10,7 +10,7 @@ public class ListaBebestible {
     private ArrayList<Bebestible> bebestibles;  //Lista de bebestibles
     
     //Constructor
-    public ListaBebestible() {
+    public ListaBebestible(int idBebestible) {
         bebestibles = new ArrayList<>();
     }
     

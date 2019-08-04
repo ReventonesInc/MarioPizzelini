@@ -30,6 +30,10 @@ public class Cliente {
     }*/
     
     //Getters y setters correspondientes
+    public int getId(){
+        return idCliente;
+    }
+    
     public String getRut() {
         return rut;
     }

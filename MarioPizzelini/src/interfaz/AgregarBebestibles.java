@@ -181,7 +181,7 @@ public class AgregarBebestibles extends javax.swing.JFrame {
         if(!(id.equals("") || precio.equals("") || nombre.equals("") || descripcion.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                if(empresa.agregarBebestible(rutEmpresa, new Bebestible(id,nombre,monto,descripcion))){
+                if(empresa.agregarBebestible(rutEmpresa, new Bebestible(Integer.parseInt(id),nombre,monto,descripcion))){
                     JOptionPane.showMessageDialog(null,"¡El Bebestible fue registrado con exito!");
                     MenuBebestibles frame = new MenuBebestibles(rutEmpresa, empresa);
                     frame.setVisible(true);

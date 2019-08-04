@@ -246,7 +246,7 @@ public class ModificarBebestibles extends javax.swing.JFrame {
         if(!(id.equals("") || precio.equals("") || nombre.equals("") || descripcion.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                if(empresa.modificarBebestible(rutEmpresa, jTextIDBuscar.getText(), new Bebestible(id,nombre,monto,descripcion))){
+                if(empresa.modificarBebestible(rutEmpresa, jTextIDBuscar.getText(), new Bebestible(Integer.parseInt(id),nombre,monto,descripcion))){
                     JOptionPane.showMessageDialog(null,"¡El bebestible fue modificado con exito!");
                     MenuBebestibles frame = new MenuBebestibles(rutEmpresa, empresa);
                     frame.setVisible(true);

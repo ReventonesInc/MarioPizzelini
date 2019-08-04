@@ -171,4 +171,8 @@ public class MarioPizzelini {
         return sucursales.montoRecaudadoSucursal(rutSucursal);
         
     }
+    
+    public void testMostrarClientes(){
+        clientes.testMostrarClientes();
+    }
 }

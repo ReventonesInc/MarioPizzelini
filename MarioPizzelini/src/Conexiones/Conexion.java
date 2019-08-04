@@ -25,7 +25,7 @@ public class Conexion {
         try{
             Class.forName(urlDatabase);
         }catch(ClassNotFoundException e){
-            System.out.println("Ocurrió un error brigido, te echaste el programa."+e.getMessage());
+            System.out.println("El servidor no está funcionando de alguna manera :"+e.getMessage());
         }
         
         try{

@@ -234,7 +234,7 @@ public class ModificarIngredientes extends javax.swing.JFrame {
         if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                if(empresa.modificarIngrediente(rutEmpresa, jTextIDBuscar.getText(), new Ingrediente(id,nombre,monto))){
+                if(empresa.modificarIngrediente(rutEmpresa, jTextIDBuscar.getText(), new Ingrediente(Integer.parseInt(id),nombre,monto))){
                     JOptionPane.showMessageDialog(null,"¡El ingrediente fue modificado con exito!");
                     MenuIngredientes frame = new MenuIngredientes(rutEmpresa, empresa);
                     frame.setVisible(true);

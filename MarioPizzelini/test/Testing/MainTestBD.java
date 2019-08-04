@@ -1,8 +1,9 @@
-package clases;
+package Testing;
+import clases.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class MainTest {
+public class MainTestBD {
 
     public static void main(String args[]){
         MarioPizzelini MP = new MarioPizzelini();

@@ -16,9 +16,9 @@ import java.util.Set;
 public class MainTestMap {
     public static void main(String arg[]){
         HashMap<Integer,Cliente> diccionario = new HashMap<>();
-        Cliente clienten1 = new Cliente("20.181.368-9","Javier","Ortiz","988136613");
-        Cliente clienten2 = new Cliente("12.223.499-1","Paula","Andrea","987437389");
-        Cliente clienten3 = new Cliente("12.345.678-9","Pepito","Rodiguez","912345678");
+        Cliente clienten1 = new Cliente(1,"20.181.368-9","Javier","Ortiz","988136613");
+        Cliente clienten2 = new Cliente(2,"12.223.499-1","Paula","Andrea","987437389");
+        Cliente clienten3 = new Cliente(3,"12.345.678-9","Pepito","Rodiguez","912345678");
         
         diccionario.put(1,clienten1);
         diccionario.put(2, clienten2);

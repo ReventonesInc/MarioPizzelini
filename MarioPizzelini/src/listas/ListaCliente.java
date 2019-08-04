@@ -137,4 +137,15 @@ public class ListaCliente {
         }
         return null;
     }
+    
+    public void testMostrarClientes(){
+        if(!clientes.isEmpty()){
+            for(Cliente actual : clientes){
+                System.out.println(actual.getId()+"     "+actual.getNombre()+" "+actual.getApellido()+" "+actual.getRut()+" "+actual.getTelefono());
+            }
+        }
+        else{
+            System.out.println("NO HAY CLIENTES");
+        }
+    }
 }

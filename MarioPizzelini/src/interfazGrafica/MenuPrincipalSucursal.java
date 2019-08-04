@@ -19,6 +19,8 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
         this.setResizable(false);
         this.empresa = empresa;
         this.rutSucursal = rutSucursal;
+        jLabelRUT.setText(rutSucursal);
+        //jLabelMONTOS.setText(empresa); AGREGAR MONTO DE LA SUCURSAL SELECCIONADA
     }
 
     @SuppressWarnings("unchecked")

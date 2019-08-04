@@ -4,7 +4,10 @@
  */
 package interfazGrafica;
 
+import clases.Cliente;
 import clases.MarioPizzelini;
+import clases.Sucursal;
+import javax.swing.JOptionPane;
 
 public class SeleccionSucursal extends javax.swing.JFrame {
     
@@ -17,6 +20,9 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.empresa = empresa;
+        ingresarMontoGeneral();
+        ingresarSucursal();
+        ingresarCliente();
     }
 
     @SuppressWarnings("unchecked")
@@ -276,12 +282,67 @@ public class SeleccionSucursal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     /**
+     * Monto total de la empresa
+     */
+    private void ingresarMontoGeneral(){
+        int montoTotal = empresa.recaudacionTotal();
+        jLabelMONTOEMPRESA.setText(Integer.toString(montoTotal));
+    }
+    
+    /**
+     * Ingresar datos de la sucursal
+     */
+    private void ingresarSucursal(){
+        Sucursal sucursalMasRecaudada = empresa.sucursalConMayorRecaudacion();
+        int montoTotalSucursal = sucursalMasRecaudada.valorTotalPedidosSucursal();
+        
+        if(sucursalMasRecaudada == null){
+            jLabelDIRECCION.setText("Ninguna");
+            jLabelMONTOSUCURSAL.setText("0");
+        }
+        else{
+            jLabelDIRECCION.setText(sucursalMasRecaudada.getDireccion());
+            jLabelMONTOSUCURSAL.setText(Integer.toString(montoTotalSucursal));
+        }
+    }
+    
+    /**
+     * Cliente con más pedidos en la sucursal
+     */
+    private void ingresarCliente(){
+        Cliente clienteConMasPedidos = empresa.buscarClienteConMasPedidos();
+        
+        if(clienteConMasPedidos == null){
+            jLabelNOMBRECLIENTE.setText("Ninguno");
+            jLabelRUTCLIENTE.setText("");
+        }
+        else{
+            jLabelNOMBRECLIENTE.setText(clienteConMasPedidos.getNombre());
+            jLabelRUTCLIENTE.setText(clienteConMasPedidos.getRut());
+        }
+    }
+    
+    /**
      * Acción para ingresar a una sucursal, según el RUT seleccionado
      * anteriormente.
      * @param evt 
      */
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-       
+       String rut = jTextRut.getText();
+        
+        if(!rut.equals("")){
+            if(empresa.buscarSucursalPorRut(rut) != null){
+                MenuPrincipalSucursal frame = new MenuPrincipalSucursal(empresa,rut);
+                frame.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "¡RUT no encontrado!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "¡RUT no valido!");
+        }
     }//GEN-LAST:event_BtnIngresarActionPerformed
     
     /**
@@ -289,8 +350,9 @@ public class SeleccionSucursal extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
-
-        
+        Inicio frame = new Inicio(empresa);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnVolverActionPerformed
 
     private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed

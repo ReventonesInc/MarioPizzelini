@@ -12,16 +12,16 @@ public class Ingrediente implements Disponible{
     private boolean disponibilidad;
     
     //Constructor(es)
-    public Ingrediente(String idIngrediente, String nombre, int precio, int cantidad) {
-        this.idIngrediente = idIngrediente;
+    public Ingrediente(int idIngrediente, String nombre, int precio, int cantidad) {
+        this.idIngrediente = Integer.toString(idIngrediente);
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
         this.disponibilidad = true;
     }
     
-    public Ingrediente(String idIngrediente, String nombre, int precio) {
-        this.idIngrediente = idIngrediente;
+    public Ingrediente(int idIngrediente, String nombre, int precio) {
+        this.idIngrediente = Integer.toString(idIngrediente);
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = 1;

@@ -5,6 +5,7 @@
 package clases;
 
 public class Pedido {
+    private int idPedido;
     private Cliente clienteReferenciado;       //cliente que ordenó el pedido
     private Pizza[] pizzasPedidas;             //pizzas escogidas por el cliente
     private Bebestible[] bebestiblesPedidos;   //bebestibles escogidos por el cliente
@@ -13,7 +14,8 @@ public class Pedido {
     //Constructor(es)
     
     //Cuando el cliente pide: Pizza
-    public Pedido(Cliente clienteReferenciado, int cantPizzas){
+    public Pedido(int idPedido, Cliente clienteReferenciado, int cantPizzas){
+        this.idPedido = idPedido;
         this.clienteReferenciado = clienteReferenciado;
         this.pizzasPedidas = new Pizza[cantPizzas];
         this.bebestiblesPedidos = null;

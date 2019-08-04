@@ -3,7 +3,11 @@
  */
 package listas;
 import clases.Cliente;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListaCliente {
     private ArrayList<Cliente> clientes;
@@ -11,6 +15,15 @@ public class ListaCliente {
     //Constructor(es)
     public ListaCliente() {
         this.clientes = new ArrayList<>();
+        
+        ResultSet respuesta = Conexiones.Conexion.Consulta("SELECT * FROM Cliente");
+        try {
+            while(respuesta.next()){
+                clientes.add(new Cliente(respuesta.getInt(1),respuesta.getString(2),respuesta.getString(3),respuesta.getString(4),respuesta.getString(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //Getters y setters correspondientes

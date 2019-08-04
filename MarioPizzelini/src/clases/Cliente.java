@@ -4,6 +4,7 @@
 package clases;
 
 public class Cliente {
+    private int idCliente;
     private String rut;
     private String nombre;
     private String apellido;
@@ -11,7 +12,8 @@ public class Cliente {
     //private String direccion;
 
     //Constructor(es)
-    public Cliente(String rut, String nombre, String apellido, String telefono) {
+    public Cliente(int idCliente, String rut, String nombre, String apellido, String telefono) {
+        this.idCliente = idCliente;
         this.rut = rut;
         this.nombre = nombre;
         this.apellido = apellido;

@@ -12,20 +12,21 @@ public class MainTest {
         Sucursal sucursalUno = new Sucursal("20.181.368-9", "Riquelme 444");
         MP.agregarSucursal(sucursalUno);
         
-        Cliente clienteUno = new Cliente("19.154.617-2","Luis","Maturana","123456789");
+        Cliente clienteUno = new Cliente(1,"19.154.617-2","Luis","Maturana","123456789");
         MP.agregarCliente(clienteUno);
         
-        Ingrediente ingredienteUno = new Ingrediente("1","Salsa",500,10);
-        Ingrediente ingredienteDos = new Ingrediente("2", "Queso", 500, 10);
-        Ingrediente ingredienteTres = new Ingrediente("3", "Jamón", 700, 10);
-        Ingrediente ingredienteCuatro = new Ingrediente("4", "Pepinillos", 900);
+        Ingrediente ingredienteUno = new Ingrediente(1,"Salsa",500,10);
+        Ingrediente ingredienteDos = new Ingrediente(2, "Queso", 500, 10);
+        Ingrediente ingredienteTres = new Ingrediente(3, "Jamón", 700, 10);
+        Ingrediente ingredienteCuatro = new Ingrediente(4, "Pepinillos", 900);
+        
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteUno);
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteDos);
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteTres);
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteCuatro);
         
-        Bebestible bebestibleUno = new Bebestible("1", "CocaCola", 1000, "Bebida gaseosa cocacola");
-        Bebestible bebestibleDos = new Bebestible("2", "Pepsi", 1000, "Bebida gaseosa pepsi", 5);
+        Bebestible bebestibleUno = new Bebestible( 1, "CocaCola", 1000, "Bebida gaseosa cocacola");
+        Bebestible bebestibleDos = new Bebestible(2, "Pepsi", 1000, "Bebida gaseosa pepsi", 5);
         MP.agregarBebestible(sucursalUno.getRut(), bebestibleUno);
         MP.agregarBebestible(sucursalUno.getRut(), bebestibleDos);
         
@@ -67,14 +68,12 @@ public class MainTest {
         //System.out.println("La cantidad de bebestibles es: "+cantidadBebestibles); 
         //Bebestible auxBebestibles[] = new Bebestible[cantidadBebestibles];
         
-        MP.agregarPedido(sucursalUno.getRut(), new Pedido(clienteUno,cantidadPizzas)); // key es 1
+        MP.agregarPedido(sucursalUno.getRut(), new Pedido(1, clienteUno,cantidadPizzas)); // key es 1
         for(int i = 0; i < cantidadPizzas; i++){
             MP.agregarPizza(sucursalUno.getRut(), 0, auxPizzas[i]);
         }
         MP.actualizarMontoTotalDeUnPedido(sucursalUno.getRut(), 0);
         MP.mostrarPedidoPorID(sucursalUno.getRut(), 0);
-        
-        
     }
 }
         

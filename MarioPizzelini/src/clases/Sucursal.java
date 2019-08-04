@@ -7,6 +7,7 @@ package clases;
 import listas.ListaPedido;
 
 public class Sucursal {
+    private int idSucursal;
     private String rut;
     private String direccion;
     private ListaPedido pedidos;

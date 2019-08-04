@@ -10,16 +10,16 @@ public class Bebestible extends Producto implements Disponible {
     private boolean disponibilidad;
     
     //Constructor(es)
-    public Bebestible(String idBebestible, String nombre, int precio, String descripcion, int cantidad) {
+    public Bebestible(int idBebestible, String nombre, int precio, String descripcion, int cantidad) {
         super(nombre, precio, descripcion);
-        this.idBebestible = idBebestible;
+        this.idBebestible = Integer.toString(idBebestible);
         this.cantidad = cantidad;
         this.disponibilidad = true;
     }
     
-    public Bebestible(String idBebestible, String nombre, int precio, String descripcion) {
+    public Bebestible(int idBebestible, String nombre, int precio, String descripcion) {
         super(nombre, precio, descripcion);
-        this.idBebestible = idBebestible;
+        this.idBebestible = Integer.toString(idBebestible);
         this.cantidad = 1;
         this.disponibilidad = true;
     }

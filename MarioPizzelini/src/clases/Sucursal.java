@@ -22,6 +22,9 @@ public class Sucursal {
     }
     
     //Getters y setters correspondientes
+    public int getIdSucursal(){
+        return idSucursal;
+    }
     public String getRut() {
         return rut;
     }

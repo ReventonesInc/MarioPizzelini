@@ -31,6 +31,9 @@ public class Pedido {
     }
     
     //Getters y setters correspondientes
+    public int getIdPedido(){
+        return idPedido;
+    }
     public Cliente getClienteReferenciado() {
         return clienteReferenciado;
     }

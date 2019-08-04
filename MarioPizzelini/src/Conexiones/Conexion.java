@@ -20,12 +20,12 @@ public class Conexion {
     
     public static Connection getConexion(){
         status = Boolean.FALSE;
-        String urlDatabase = "https://remotemysql.com";
+        String urlDatabase = "jdbc:mysql://remotemysql.com:3306/id6lWQPWdK";
         
         try{
-            Class.forName(urlDatabase);
+            Class.forName("urlDatabase"); 
         }catch(ClassNotFoundException e){
-            System.out.println("El servidor no está funcionando de alguna manera :"+e.getMessage());
+            System.out.println("El servidor no está funcionando de alguna manera : "+e.getMessage());
         }
         
         try{
@@ -34,7 +34,7 @@ public class Conexion {
             
             status = Boolean.TRUE;
         }catch(SQLException e){
-            System.out.println("Ocurrió un error en el login de la base de datos "+e.getMessage());
+            System.out.println("Ocurrió un error en el login de la base de datos --> "+e.getMessage());
         }
         
         return contacto;

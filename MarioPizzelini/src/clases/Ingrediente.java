@@ -9,23 +9,23 @@ public class Ingrediente implements Disponible{
     private String nombre;
     private int precio;
     private int cantidad;
-    private boolean disponibilidad;
+    private Boolean disponibilidad;
     
     //Constructor(es)
-    public Ingrediente(int idIngrediente, String nombre, int precio, int cantidad) {
+    public Ingrediente(int idIngrediente, String nombre, int precio, int cantidad, Boolean disponibilidad) {
         this.idIngrediente = Integer.toString(idIngrediente);
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
-        this.disponibilidad = true;
+        this.disponibilidad = disponibilidad;
     }
     
-    public Ingrediente(int idIngrediente, String nombre, int precio) {
+    public Ingrediente(int idIngrediente, String nombre, int precio, Boolean disponibilidad) {
         this.idIngrediente = Integer.toString(idIngrediente);
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = 1;
-        this.disponibilidad = true;
+        this.disponibilidad = disponibilidad;
     }
     
     //Getters y setters correspondientes

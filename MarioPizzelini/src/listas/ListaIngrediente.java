@@ -4,7 +4,11 @@
  */
 package listas;
 import clases.Ingrediente;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListaIngrediente {
     private ArrayList<Ingrediente> ingredientes;  //Lista de ingredientes
@@ -12,6 +16,15 @@ public class ListaIngrediente {
     //Constructor
     public ListaIngrediente(int idSucursal) {
         ingredientes = new ArrayList<>();
+        ResultSet respuesta = Conexiones.Conexion.Consulta("SELECT * FROM Ingrediente INNER JOIN IngredienteAlmacenado"+
+                " ON Ingrediente.idIngrediente = IngredienteAlmacenado.idIngrediente AND IngredienteAlmacenado.idSucursal = "+idSucursal);
+        try {
+            while(respuesta.next()){
+                ingredientes.add(new Ingrediente(respuesta.getInt(1),respuesta.getString(2),respuesta.getInt(3),respuesta.getBoolean(6)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaIngrediente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*Getters y setters correspondientes*/

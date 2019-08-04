@@ -12,8 +12,8 @@ public class MarioPizzelini {
 
     //Constructor(es)
     public MarioPizzelini() {
-        this.sucursales = new ListaSucursal();
         this.clientes = new ListaCliente();
+        this.sucursales = new ListaSucursal();
     }
     
         /*--- Métodos para Cliente ---*/

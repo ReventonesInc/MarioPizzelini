@@ -4,14 +4,27 @@
  */
 package listas;
 import clases.Bebestible;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListaBebestible {
     private ArrayList<Bebestible> bebestibles;  //Lista de bebestibles
     
     //Constructor
-    public ListaBebestible(int idBebestible) {
+    public ListaBebestible(int idSucursal) {
         bebestibles = new ArrayList<>();
+        ResultSet respuesta = Conexiones.Conexion.Consulta("SELECT * FROM Bebestible INNER JOIN BebestibleAlmacenado"+
+                " ON Bebestible.idBebestible = BebestibleAlmacenado.idBebestible AND BebestibleAlmacenado.idSucursal = "+idSucursal);
+        try {
+            while(respuesta.next()){
+                bebestibles.add(new Bebestible(respuesta.getInt(1),respuesta.getString(2),respuesta.getInt(3),respuesta.getString(6),respuesta.getInt(7),respuesta.getBoolean(8)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaIngrediente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*Getters y setters correspondientes*/

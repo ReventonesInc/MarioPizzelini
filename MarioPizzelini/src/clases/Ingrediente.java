@@ -27,6 +27,10 @@ public class Ingrediente implements Disponible{
         this.cantidad = 1;
         this.disponibilidad = disponibilidad;
     }
+
+    Ingrediente(int i, String pepinillos, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //Getters y setters correspondientes
     public String getIdIngrediente() {

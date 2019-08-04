@@ -4,15 +4,24 @@
  */
 package interfazGrafica;
 
-public class ModificarIngrediente extends javax.swing.JFrame {
+import clases.Ingrediente;
+import clases.MarioPizzelini;
+import javax.swing.JOptionPane;
 
+public class ModificarIngrediente extends javax.swing.JFrame {
+    
+    private MarioPizzelini empresa;
+    private String rut;
+    
     /**
      * Constructor de ModificarIngrediente
      */
-    public ModificarIngrediente() {
+    public ModificarIngrediente(MarioPizzelini empresa, String rut) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rut = rut;
     }
 
     @SuppressWarnings("unchecked")
@@ -36,8 +45,10 @@ public class ModificarIngrediente extends javax.swing.JFrame {
         jTextNombre = new javax.swing.JTextField();
         BtnCancelar = new javax.swing.JButton();
         BtnModificar = new javax.swing.JButton();
-        jLabelCantidad = new javax.swing.JLabel();
+        jLabelDisponibilidad = new javax.swing.JLabel();
         jTextCantidad = new javax.swing.JTextField();
+        jLabelCantidad1 = new javax.swing.JLabel();
+        jComboBoxDisponibilidad = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,11 +178,11 @@ public class ModificarIngrediente extends javax.swing.JFrame {
         });
         getContentPane().add(BtnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 130, -1));
 
-        jLabelCantidad.setBackground(new java.awt.Color(51, 51, 51));
-        jLabelCantidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCantidad.setText("CANTIDAD:");
-        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        jLabelDisponibilidad.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelDisponibilidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDisponibilidad.setText("Disponibilidad:");
+        getContentPane().add(jLabelDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
 
         jTextCantidad.setBackground(new java.awt.Color(51, 51, 51));
         jTextCantidad.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,6 +192,18 @@ public class ModificarIngrediente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 120, -1));
+
+        jLabelCantidad1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelCantidad1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelCantidad1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCantidad1.setText("CANTIDAD:");
+        getContentPane().add(jLabelCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, 20));
+
+        jComboBoxDisponibilidad.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBoxDisponibilidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jComboBoxDisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBoxDisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "False", "True" }));
+        getContentPane().add(jComboBoxDisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojoMOD.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -193,7 +216,26 @@ public class ModificarIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-        //buscar ingrediente a modificar
+        String id = jTextIDBuscar.getText();
+        Ingrediente buscado = empresa.buscarIngredienteID(rut, id); //Arreglado gracias al debugger : by C bastian
+        int monto = 0;
+        int cantidad = 0;
+        boolean disponibilidad;
+        
+        if(buscado != null){
+            jTextID.setText(id);
+            jTextNombre.setText(buscado.getNombre());
+            monto = buscado.getPrecio();
+            jTextPrecio.setText(String.valueOf(monto));
+            cantidad = buscado.getCantidad();
+            jTextCantidad.setText(String.valueOf(cantidad));
+            disponibilidad = buscado.getDisponibilidad();
+            int miEntero = disponibilidad ? 1 : 0;
+            jComboBoxDisponibilidad.setSelectedIndex(miEntero);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡La ID no existe!");
+        }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
@@ -205,7 +247,9 @@ public class ModificarIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        //regresar al menu ingrediente
+        MenuIngrediente frame = new MenuIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnCancelarActionPerformed
     
     /**
@@ -213,56 +257,64 @@ public class ModificarIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        //Modificar el ingrediente
+        String id = jTextID.getText();
+        String precio = jTextPrecio.getText();
+        String nombre = jTextNombre.getText();
+        String cantidad = jTextCantidad.getText();
+        int disponibilidad = jComboBoxDisponibilidad.getSelectedIndex();
+        int monto = 0;
+        int cantidadReal = 0;
+        boolean bool = true;
+        
+        if(!(id.equals("") || precio.equals("") || nombre.equals("") || cantidad.equals(""))){
+            if(validarNumero(precio)){
+                monto = Integer.parseInt(precio);
+                cantidadReal = Integer.parseInt(cantidad);
+                if(disponibilidad == 0){
+                    bool = false;
+                }
+                if(empresa.modificarIngrediente(rut, jTextIDBuscar.getText(), new Ingrediente(Integer.parseInt(id),nombre,monto,cantidadReal,bool))){
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente fue modificado con exito!");
+                    MenuIngrediente frame = new MenuIngrediente(empresa,rut);
+                    frame.setVisible(true);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente no fue modificado!");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"¡El precio ingresado no es valido!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
     }//GEN-LAST:event_BtnModificarActionPerformed
-
+    
+    public boolean validarNumero(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException excepcion) {
+            return false;
+        }
+    }
+    
     private void jTextCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCantidadActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModificarIngrediente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnModificar;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JLabel jLabelCantidad;
+    private javax.swing.JComboBox<String> jComboBoxDisponibilidad;
+    private javax.swing.JLabel jLabelCantidad1;
     private javax.swing.JLabel jLabelD;
     private javax.swing.JLabel jLabelDMod;
+    private javax.swing.JLabel jLabelDisponibilidad;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelTexto1;

@@ -19,6 +19,7 @@ public class MenuIngrediente extends javax.swing.JFrame {
         this.setResizable(false);
         this.empresa = empresa;
         this.rut = rut;
+        empresa.mostrarIngredientes(rut);
     }
 
     @SuppressWarnings("unchecked")
@@ -197,7 +198,9 @@ public class MenuIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        //ventana para eliminar
+        EliminarIngrediente frame = new EliminarIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEliminarActionPerformed
     
     /**
@@ -205,7 +208,9 @@ public class MenuIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        //ventana para modificar
+        ModificarIngrediente frame = new ModificarIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnModificarActionPerformed
     
     /**
@@ -213,7 +218,9 @@ public class MenuIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
-        //volver a menu inventario
+        MenuInventario frame = new MenuInventario(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

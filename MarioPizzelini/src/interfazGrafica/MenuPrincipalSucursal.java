@@ -42,8 +42,8 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnPedidos = new javax.swing.JButton();
+        BtnInventario = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -182,17 +182,27 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/coloresl_opt.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Pedidos");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 340, -1));
+        BtnPedidos.setBackground(new java.awt.Color(153, 0, 0));
+        BtnPedidos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnPedidos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnPedidos.setText("Pedidos");
+        BtnPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPedidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 340, -1));
 
-        jButton2.setBackground(new java.awt.Color(153, 0, 0));
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Inventario");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 340, -1));
+        BtnInventario.setBackground(new java.awt.Color(153, 0, 0));
+        BtnInventario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnInventario.setForeground(new java.awt.Color(255, 255, 255));
+        BtnInventario.setText("Inventario");
+        BtnInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnInventarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 340, -1));
 
         jbSalir.setBackground(new java.awt.Color(153, 0, 0));
         jbSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -295,10 +305,20 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbCerrarSesionActionPerformed
 
+    private void BtnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPedidosActionPerformed
+
+    }//GEN-LAST:event_BtnPedidosActionPerformed
+
+    private void BtnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInventarioActionPerformed
+        MenuInventario frame = new MenuInventario(empresa,rutSucursal);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnInventarioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnInventario;
+    private javax.swing.JButton BtnPedidos;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

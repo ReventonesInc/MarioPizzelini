@@ -3,16 +3,22 @@
  * lista de todos los bebestibles registrados en el inventario de la sucursal.
  */
 package interfazGrafica;
+import clases.MarioPizzelini;
 
 public class MenuBebestible extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa;
+    private String rut;
+    
     /**
      * Constructor de MenuBebestible
      */
-    public MenuBebestible() {
+    public MenuBebestible(MarioPizzelini empresa, String rut) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rut = rut;
     }
 
     @SuppressWarnings("unchecked")
@@ -177,7 +183,9 @@ public class MenuBebestible extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
-        //volver a menu inventario
+        MenuInventario frame = new MenuInventario(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnVolverActionPerformed
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
@@ -185,47 +193,16 @@ public class MenuBebestible extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-        //ventana para eliminar
+        EliminarBebestible frame = new EliminarBebestible(empresa, rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        //ventana para agregar
+        AgregarBebestible frame = new AgregarBebestible(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnAgregarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuBebestible.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuBebestible.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuBebestible.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuBebestible.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuBebestible().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;

@@ -2,6 +2,7 @@
  * Interfaz gráfica para agregar una sucursal a la empresa.
  */
 package interfazGrafica;
+import clases.Cliente;
 import clases.MarioPizzelini;
 import javax.swing.JOptionPane;
 

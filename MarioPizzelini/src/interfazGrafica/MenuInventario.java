@@ -109,7 +109,9 @@ public class MenuInventario extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnBebestiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBebestiblesActionPerformed
-        //ir a menu bebestibles
+        MenuBebestible frame = new MenuBebestible(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnBebestiblesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

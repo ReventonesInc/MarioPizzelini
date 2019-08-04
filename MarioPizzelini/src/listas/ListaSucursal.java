@@ -8,9 +8,13 @@ import clases.Bebestible;
 import clases.Ingrediente;
 import clases.Pedido;
 import clases.Sucursal;
-import clases.Cliente;
 import clases.Pizza;
+import clases.Cliente;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListaSucursal {
     private ArrayList<Sucursal> sucursales;
@@ -18,11 +22,20 @@ public class ListaSucursal {
     //Constructor
     public ListaSucursal() {
         sucursales = new ArrayList<>();
+        ResultSet respuesta = Conexiones.Conexion.Consulta("SELECT * FROM Sucursal");
+        try {
+            while(respuesta.next()){
+                sucursales.add(new Sucursal(respuesta.getInt(1),respuesta.getString(2),respuesta.getString(3)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaSucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*Getters y setters correspondientes*/
     public ArrayList<Sucursal> getSucursales() {
         return sucursales;
+        
     }
     
         /*--- Métodos para Sucursal ---*/

@@ -12,7 +12,7 @@ public class Inventario {
     private ListaBebestible bebestibles;  //Lista de bebestibles
     
     //Constructor(es)
-    public Inventario() {
+    public Inventario(int idSucursal) {
         this.ingredientes = new ListaIngrediente();
         this.bebestibles = new ListaBebestible();
     }

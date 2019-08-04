@@ -18,8 +18,8 @@ public class Sucursal {
         this.idSucursal = idSucursal;
         this.rut = rut;
         this.direccion = direccion;
-        this.pedidos = new ListaPedido();
-        this.bodega = new Inventario();
+        this.pedidos = new ListaPedido(idSucursal);
+        this.bodega = new Inventario(idSucursal);
     }
     //Getters y setters correspondientes
     public int getIdSucursal(){

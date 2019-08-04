@@ -17,7 +17,7 @@ public class ListaPedido {
     //private ArrayList<Pedido> pedidos;
     
     //Constructor de ListaPedido    
-    public ListaPedido() {
+    public ListaPedido(int idSucursal) {
         this.listaPedidos = new HashMap<>();
         //this.pedidos = new ArrayList();
     }

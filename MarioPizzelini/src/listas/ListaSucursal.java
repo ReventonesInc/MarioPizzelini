@@ -454,4 +454,8 @@ public class ListaSucursal {
         }
         return -1;
     }
+    
+    public int tamano(){
+        return sucursales.size();
+    }
 }

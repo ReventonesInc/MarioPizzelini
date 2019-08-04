@@ -74,8 +74,17 @@ public class MarioPizzelini {
         return sucursales.buscarSucursalRut(rut);
     }
     
-    public boolean agregarSucursal(Sucursal nuevaSucursal){
-        return sucursales.agregarSucursal(nuevaSucursal);
+    public boolean agregarSucursal(String rutEmpresa, String direccion){
+        if(sucursales.estaVacio()){
+            return sucursales.agregarSucursal(new Sucursal(1,rutEmpresa,direccion));
+        }
+        else{
+            return sucursales.agregarSucursal(new Sucursal(sucursales.tamano()+1,rutEmpresa,direccion));
+        }
+    }
+    
+    public boolean agregarSucursal(Sucursal nuevo){
+        return sucursales.agregarSucursal(nuevo);
     }
     
     public boolean eliminarSucursal(String rutEliminar){
@@ -175,4 +184,5 @@ public class MarioPizzelini {
     public void testMostrarClientes(){
         clientes.testMostrarClientes();
     }
+    
 }

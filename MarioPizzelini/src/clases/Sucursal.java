@@ -14,13 +14,13 @@ public class Sucursal {
     private Inventario bodega;
     
     //Constructor(es)
-    public Sucursal(String rut, String direccion) {
+    public Sucursal(int idSucursal, String rut, String direccion) {
+        this.idSucursal = idSucursal;
         this.rut = rut;
         this.direccion = direccion;
         this.pedidos = new ListaPedido();
         this.bodega = new Inventario();
     }
-    
     //Getters y setters correspondientes
     public int getIdSucursal(){
         return idSucursal;

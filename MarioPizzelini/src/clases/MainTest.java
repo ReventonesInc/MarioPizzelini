@@ -9,10 +9,10 @@ public class MainTest {
         //Scanner teclado = new Scanner(System.in);
         //int cantidadPizza = teclado.nextInt();
         
-        Sucursal sucursalUno = new Sucursal("20.181.368-9", "Riquelme 444");
+        Sucursal sucursalUno = new Sucursal(1,"20.181.368-9", "Riquelme 444");
         MP.agregarSucursal(sucursalUno);
         
-        Cliente clienteUno = new Cliente(1,"19.154.617-2","Luis","Maturana","123456789");
+        Cliente clienteUno = new Cliente(3,"19.154.617-2","Luis","Maturana","123456789");
         MP.agregarCliente(clienteUno);
         
         Ingrediente ingredienteUno = new Ingrediente(1,"Salsa",500,10);

@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class ListaPedido {
+    private int idSucursal;
     private HashMap<Integer,Pedido> listaPedidos; //Diccionario donde se guardarán los pedidos;
     //private ArrayList<Pedido> pedidos;
     

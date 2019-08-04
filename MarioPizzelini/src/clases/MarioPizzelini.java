@@ -169,5 +169,6 @@ public class MarioPizzelini {
     
     public int montoRecaudadoSucursal(String rutSucursal){
         return sucursales.montoRecaudadoSucursal(rutSucursal);
+        
     }
 }

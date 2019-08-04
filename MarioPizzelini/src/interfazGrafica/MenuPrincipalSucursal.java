@@ -9,6 +9,7 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
     
     private MarioPizzelini empresa;
     private String rutSucursal;
+    private String montoSucursal;
     
     /**
      * Constructor de MenuPrincipalSucursal
@@ -20,7 +21,8 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
         this.empresa = empresa;
         this.rutSucursal = rutSucursal;
         jLabelRUT.setText(rutSucursal);
-        //jLabelMONTOS.setText(empresa); AGREGAR MONTO DE LA SUCURSAL SELECCIONADA
+        montoSucursal = String.valueOf(empresa.montoRecaudadoSucursal(rutSucursal));
+        jLabelMONTOS.setText(montoSucursal);
     }
 
     @SuppressWarnings("unchecked")

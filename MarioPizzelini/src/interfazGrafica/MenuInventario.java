@@ -3,16 +3,22 @@
  * anteriormente seleccionada.
  */
 package interfazGrafica;
+import clases.MarioPizzelini;
 
 public class MenuInventario extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa;
+    private String rut;
+    
     /**
      * Constructor de MenuInventario
      */
-    public MenuInventario() {
+    public MenuInventario(MarioPizzelini empresa, String rut) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rut = rut;
     }
 
     @SuppressWarnings("unchecked")
@@ -83,7 +89,9 @@ public class MenuInventario extends javax.swing.JFrame {
      * @param evt 
      */
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
-        //volver menu sucursal
+        MenuPrincipalSucursal frame = new MenuPrincipalSucursal(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
     
     /**
@@ -91,7 +99,9 @@ public class MenuInventario extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngredientesActionPerformed
-        //ir a menu ingredientes
+        MenuIngrediente frame = new MenuIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnIngredientesActionPerformed
     
     /**
@@ -101,40 +111,6 @@ public class MenuInventario extends javax.swing.JFrame {
     private void BtnBebestiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBebestiblesActionPerformed
         //ir a menu bebestibles
     }//GEN-LAST:event_BtnBebestiblesActionPerformed
-
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuInventario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBebestibles;

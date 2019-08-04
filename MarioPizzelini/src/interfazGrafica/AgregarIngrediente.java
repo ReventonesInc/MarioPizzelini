@@ -3,16 +3,24 @@
  * al inventario.
  */
 package interfazGrafica;
+import clases.Ingrediente;
+import clases.MarioPizzelini;
+import interfaz.MenuIngredientes;
+import javax.swing.JOptionPane;
 
 public class AgregarIngrediente extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa;
+    private String rut;
     /**
      * Constructor de AgregarIngrediente
      */
-    public AgregarIngrediente() {
+    public AgregarIngrediente(MarioPizzelini empresa, String rut) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rut = rut;
     }
 
     @SuppressWarnings("unchecked")
@@ -148,7 +156,9 @@ public class AgregarIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        //Volver a menu ingredientes
+        MenuIngrediente frame = new MenuIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnCancelarActionPerformed
     
     /**
@@ -156,9 +166,43 @@ public class AgregarIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAceptarActionPerformed
-        //Agregar ingredientes
+        String id = jTextID.getText();
+        String precio = jTextPrecio.getText();
+        String nombre = jTextNombre.getText();
+        int monto = 0;
+        boolean disponibilidad = true;
+        
+        if(!(id.equals("") || precio.equals("") || nombre.equals(""))){
+            if(validarNumero(precio)){
+                monto = Integer.parseInt(precio);
+                if(empresa.agregarIngrediente(rut, new Ingrediente(Integer.parseInt(id),nombre,monto,disponibilidad))){
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente fue registrado con exito!");
+                    MenuIngrediente frame = new MenuIngrediente(empresa,rut);
+                    frame.setVisible(true);
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"¡El ingrediente no fue registrado!");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"¡El precio ingresado no es valido!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"¡Datos no validos!");
+        }
     }//GEN-LAST:event_BtnAceptarActionPerformed
 
+    public boolean validarNumero(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException excepcion) {
+            return false;
+        }
+    }
+    
     private void jTextCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCantidadActionPerformed
@@ -166,39 +210,6 @@ public class AgregarIngrediente extends javax.swing.JFrame {
     private void jTextIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIDActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgregarIngrediente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAceptar;

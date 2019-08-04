@@ -15,10 +15,10 @@ public class MainTest {
         Cliente clienteUno = new Cliente(3,"19.154.617-2","Luis","Maturana","123456789");
         MP.agregarCliente(clienteUno);
         
-        Ingrediente ingredienteUno = new Ingrediente(1,"Salsa",500,10);
-        Ingrediente ingredienteDos = new Ingrediente(2, "Queso", 500, 10);
-        Ingrediente ingredienteTres = new Ingrediente(3, "Jamón", 700, 10);
-        Ingrediente ingredienteCuatro = new Ingrediente(4, "Pepinillos", 900);
+        Ingrediente ingredienteUno = new Ingrediente(1,"Salsa",500,10,true);
+        Ingrediente ingredienteDos = new Ingrediente(2, "Queso", 500, true);
+        Ingrediente ingredienteTres = new Ingrediente(3, "Jamón", 700, true);
+        Ingrediente ingredienteCuatro = new Ingrediente(4, "Pepinillos",700, true);
         
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteUno);
         MP.agregarIngrediente(sucursalUno.getRut(), ingredienteDos);

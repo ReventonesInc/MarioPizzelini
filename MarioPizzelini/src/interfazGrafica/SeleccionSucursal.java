@@ -51,6 +51,8 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jLabelText1 = new javax.swing.JLabel();
         jLabelText2 = new javax.swing.JLabel();
         jTextRut = new javax.swing.JTextField();
+        BtnEliminar = new javax.swing.JButton();
+        BtnAgregar = new javax.swing.JButton();
         BtnIngresar = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
@@ -167,7 +169,7 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jTextAreaSucursales.setRows(5);
         jScrollPane1.setViewportView(jTextAreaSucursales);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 580, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 460, 280));
 
         jLabelTitulo.setFont(new java.awt.Font("Dialog", 1, 35)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,6 +191,28 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         jTextRut.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 190, -1));
 
+        BtnEliminar.setBackground(new java.awt.Color(153, 0, 0));
+        BtnEliminar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEliminar.setText("Eliminar");
+        BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 120, -1));
+
+        BtnAgregar.setBackground(new java.awt.Color(153, 0, 0));
+        BtnAgregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAgregar.setText("Agregar");
+        BtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAgregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 120, -1));
+
         BtnIngresar.setBackground(new java.awt.Color(153, 0, 0));
         BtnIngresar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         BtnIngresar.setForeground(new java.awt.Color(255, 255, 255));
@@ -198,7 +222,7 @@ public class SeleccionSucursal extends javax.swing.JFrame {
                 BtnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 120, 30));
+        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 120, 30));
 
         BtnVolver.setBackground(new java.awt.Color(153, 0, 0));
         BtnVolver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -209,7 +233,7 @@ public class SeleccionSucursal extends javax.swing.JFrame {
                 BtnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 120, 30));
+        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 120, 30));
 
         Fondo1.setBackground(new java.awt.Color(0, 153, 51));
         Fondo1.setForeground(new java.awt.Color(0, 153, 51));
@@ -366,8 +390,35 @@ public class SeleccionSucursal extends javax.swing.JFrame {
             Animacion.Animacion.mover_derecha(-200, 0, 2, 2, jMenuDesplegable);
         }
     }//GEN-LAST:event_jbMenuActionPerformed
+    
+    /**
+     * Para agregar una sucursal
+     * @param evt 
+     */
+    private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        AgregarSucursal frame = new AgregarSucursal(empresa);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnAgregarActionPerformed
+    
+    /**
+     * Para eliminar una sucursal
+     * @param evt 
+     */
+    private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
+        if(empresa.estaVacioSucursales()){
+            JOptionPane.showMessageDialog(null, "¡No hay sucursales por eliminar!");
+        }
+        else{
+            EliminarSucursal frame = new EliminarSucursal(empresa);
+            frame.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_BtnEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAgregar;
+    private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnIngresar;
     private javax.swing.JButton BtnVolver;
     private javax.swing.JLabel Fondo;

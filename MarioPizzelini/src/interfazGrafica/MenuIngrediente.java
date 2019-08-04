@@ -3,16 +3,22 @@
  * lista de todos los ingredientes registrados en el invatiro de la sucursal.
  */
 package interfazGrafica;
+import clases.MarioPizzelini;
 
 public class MenuIngrediente extends javax.swing.JFrame {
-
+    
+    private MarioPizzelini empresa;
+    private String rut;
+    
     /**
      * Constructor de MenuIngrediente
      */
-    public MenuIngrediente() {
+    public MenuIngrediente(MarioPizzelini empresa, String rut) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.empresa = empresa;
+        this.rut = rut;
     }
 
     @SuppressWarnings("unchecked")
@@ -181,7 +187,9 @@ public class MenuIngrediente extends javax.swing.JFrame {
      * @param evt 
      */
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        //ventana para agregar
+        AgregarIngrediente frame = new AgregarIngrediente(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnAgregarActionPerformed
     
     /**
@@ -207,38 +215,6 @@ public class MenuIngrediente extends javax.swing.JFrame {
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
         //volver a menu inventario
     }//GEN-LAST:event_BtnVolverActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuIngrediente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;

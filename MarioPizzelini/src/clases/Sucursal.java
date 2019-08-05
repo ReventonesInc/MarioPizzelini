@@ -235,4 +235,8 @@ public class Sucursal {
     public ArrayList<Ingrediente> mostrarListaIngrediente(){
         return bodega.mostrarListaIngrediente();
     }
+    
+    public Pedido buscarPedido(int keyBuscado){
+        return pedidos.buscarPedido(keyBuscado);
+    }
 }

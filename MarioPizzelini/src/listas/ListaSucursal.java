@@ -481,4 +481,13 @@ public class ListaSucursal {
         }
         return null;
     }
+    
+    public Pedido buscarPedido(String rutSucursal, int key){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                return actual.buscarPedido(key);
+            }
+        }
+        return null;
+    }
 }

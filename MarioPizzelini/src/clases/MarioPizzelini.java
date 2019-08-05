@@ -189,4 +189,12 @@ public class MarioPizzelini {
     public ArrayList<Ingrediente> mostrarListaIngrediente(String rutSucursal){
         return sucursales.mostrarListaIngrediente(rutSucursal);
     }
+    
+    public Pedido buscarPedido(String rutSucursal, int key){
+        return sucursales.buscarPedido(rutSucursal, key);
+    }
+    
+    public boolean buscarCliente(String rutCliente){
+        return clientes.buscarClienteRut(rutCliente);
+    }
 }

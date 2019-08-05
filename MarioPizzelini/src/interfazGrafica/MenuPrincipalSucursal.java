@@ -306,7 +306,9 @@ public class MenuPrincipalSucursal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCerrarSesionActionPerformed
 
     private void BtnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPedidosActionPerformed
-
+        MenuPedido frame = new MenuPedido(empresa,rutSucursal);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnPedidosActionPerformed
 
     private void BtnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInventarioActionPerformed

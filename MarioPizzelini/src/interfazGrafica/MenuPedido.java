@@ -195,7 +195,9 @@ public class MenuPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-        
+        AgregarPedido frame = new AgregarPedido(empresa, rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed

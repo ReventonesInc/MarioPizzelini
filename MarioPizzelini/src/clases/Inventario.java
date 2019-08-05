@@ -4,6 +4,7 @@
  */
 package clases;
 
+import java.util.ArrayList;
 import listas.ListaBebestible;
 import listas.ListaIngrediente;
 
@@ -142,5 +143,9 @@ public class Inventario {
      */
     public void mostrarBebestibles(){
         bebestibles.mostrarBebestibles();
+    }
+    
+    public ArrayList<Ingrediente> mostrarListaIngrediente(){
+        return ingredientes.getIngredientes();
     }
 }

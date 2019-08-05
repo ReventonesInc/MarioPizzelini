@@ -41,7 +41,6 @@ public class MenuIngrediente extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jLabelText1 = new javax.swing.JLabel();
         jLabelText2 = new javax.swing.JLabel();
-        juwu = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,7 +178,6 @@ public class MenuIngrediente extends javax.swing.JFrame {
         jLabelText2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelText2.setText("Presione un botón para modificar");
         getContentPane().add(jLabelText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 280, -1));
-        getContentPane().add(juwu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 190, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojo.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -242,6 +240,5 @@ public class MenuIngrediente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaIngredientes;
-    private javax.swing.JTextField juwu;
     // End of variables declaration//GEN-END:variables
 }

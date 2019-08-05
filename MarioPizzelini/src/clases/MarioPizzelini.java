@@ -197,4 +197,8 @@ public class MarioPizzelini {
     public boolean buscarCliente(String rutCliente){
         return clientes.buscarClienteRut(rutCliente);
     }
+    
+    public Cliente retornarClienteRut(String rutCliente){
+        return clientes.retornarClienteRut(rutCliente);
+    }
 }

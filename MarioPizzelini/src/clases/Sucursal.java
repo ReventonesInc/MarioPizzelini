@@ -239,8 +239,4 @@ public class Sucursal {
     public Pedido buscarPedido(int keyBuscado){
         return pedidos.buscarPedido(keyBuscado);
     }
-    
-    public String buscarIngredienteNombre(String nombre){
-        return bodega.buscarIngredienteNombre(nombre);
-    }
 }

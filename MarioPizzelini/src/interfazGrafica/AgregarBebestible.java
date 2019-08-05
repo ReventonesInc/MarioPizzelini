@@ -43,6 +43,8 @@ public class AgregarBebestible extends javax.swing.JFrame {
         jTextArea = new javax.swing.JTextArea();
         jbCancelar = new javax.swing.JButton();
         jbAceptar = new javax.swing.JButton();
+        jLabelCantidad = new javax.swing.JLabel();
+        jTextCantidad = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,6 +139,21 @@ public class AgregarBebestible extends javax.swing.JFrame {
         });
         getContentPane().add(jbAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
+        jLabelCantidad.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelCantidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabelCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCantidad.setText("CANTIDAD:");
+        getContentPane().add(jLabelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 100, -1));
+
+        jTextCantidad.setBackground(new java.awt.Color(51, 51, 51));
+        jTextCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        jTextCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCantidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 100, -1));
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/imagenes/FondoRojo_opt.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 400));
 
@@ -162,12 +179,15 @@ public class AgregarBebestible extends javax.swing.JFrame {
         String precio = jTextPrecio.getText();
         String nombre = jTextNombre.getText();
         String descripcion = jTextArea.getText();
+        String cantidad = jTextCantidad.getText();
+        int cantidadReal = 0;
         int monto = 0;
 
-        if(!(id.equals("") || precio.equals("") || nombre.equals("") || descripcion.equals(""))){
+        if(!(id.equals("") || precio.equals("") || nombre.equals("") || descripcion.equals("") || cantidad.equals(""))){
             if(validarNumero(precio)){
                 monto = Integer.parseInt(precio);
-                if(empresa.agregarBebestible(rut, new Bebestible(Integer.parseInt(id),nombre,monto,descripcion))){
+                cantidadReal = Integer.parseInt(cantidad);
+                if(empresa.agregarBebestible(rut, new Bebestible(Integer.parseInt(id),nombre,monto,descripcion,cantidadReal,true))){
                     JOptionPane.showMessageDialog(null,"¡El Bebestible fue registrado con exito!");
                     MenuBebestible frame = new MenuBebestible(empresa,rut);
                     frame.setVisible(true);
@@ -186,6 +206,10 @@ public class AgregarBebestible extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbAceptarActionPerformed
 
+    private void jTextCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCantidadActionPerformed
+
     public boolean validarNumero(String cadena){
         try {
             Integer.parseInt(cadena);
@@ -197,6 +221,7 @@ public class AgregarBebestible extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelD;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNombre1;
@@ -206,6 +231,7 @@ public class AgregarBebestible extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea;
+    private javax.swing.JTextField jTextCantidad;
     private javax.swing.JTextField jTextID;
     private javax.swing.JTextField jTextNombre;
     private javax.swing.JTextField jTextPrecio;

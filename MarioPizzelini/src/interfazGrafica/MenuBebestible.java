@@ -19,6 +19,7 @@ public class MenuBebestible extends javax.swing.JFrame {
         this.setResizable(false);
         this.empresa = empresa;
         this.rut = rut;
+        empresa.mostrarBebestibles(rut);
     }
 
     @SuppressWarnings("unchecked")
@@ -189,7 +190,9 @@ public class MenuBebestible extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnVolverActionPerformed
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        //ventana para modificar
+        ModificarBebestible frame = new ModificarBebestible(empresa,rut);
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnModificarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed

@@ -10,7 +10,7 @@ public class Bebestible extends Producto implements Disponible {
     private boolean disponibilidad;
     
     //Constructor(es)
-    public Bebestible(int idBebestible, String nombre, int precio, String descripcion, int cantidad, Boolean disponibilidad) {
+    public Bebestible(int idBebestible, String nombre, int precio, String descripcion, int cantidad, boolean disponibilidad) {
         super(nombre, precio, descripcion);
         this.idBebestible = Integer.toString(idBebestible);
         this.cantidad = cantidad;

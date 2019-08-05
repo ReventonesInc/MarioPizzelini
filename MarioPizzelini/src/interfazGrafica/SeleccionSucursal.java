@@ -23,6 +23,7 @@ public class SeleccionSucursal extends javax.swing.JFrame {
         ingresarMontoGeneral();
         ingresarSucursal();
         ingresarCliente();
+        empresa.mostrarSucursales();
     }
 
     @SuppressWarnings("unchecked")

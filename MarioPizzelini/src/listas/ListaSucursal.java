@@ -472,4 +472,13 @@ public class ListaSucursal {
     public int tamano(){
         return sucursales.size();
     }
+    
+    public ArrayList<Ingrediente> mostrarListaIngrediente(String rutSucursal){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                return actual.mostrarListaIngrediente();
+            }
+        }
+        return null;
+    }
 }

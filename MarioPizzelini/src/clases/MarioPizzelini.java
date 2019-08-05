@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package clases;
+import java.util.ArrayList;
 import listas.*;
 
 public class MarioPizzelini {
@@ -185,4 +186,7 @@ public class MarioPizzelini {
         clientes.testMostrarClientes();
     }
     
+    public ArrayList<Ingrediente> mostrarListaIngrediente(String rutSucursal){
+        return sucursales.mostrarListaIngrediente(rutSucursal);
+    }
 }

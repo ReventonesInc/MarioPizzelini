@@ -4,6 +4,7 @@
  */
 package clases;
 
+import java.util.ArrayList;
 import listas.ListaPedido;
 
 public class Sucursal {
@@ -229,5 +230,9 @@ public class Sucursal {
     
     public void actualizarMontoTotalDeUnPedido(int keyPedido){
         pedidos.actualizarMontoTotalDeUnPedido(keyPedido);
+    }
+    
+    public ArrayList<Ingrediente> mostrarListaIngrediente(){
+        return bodega.mostrarListaIngrediente();
     }
 }

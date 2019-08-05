@@ -128,4 +128,13 @@ public class ListaIngrediente {
             }
         }
     }
+    
+    public String buscarIngredienteNombre(String nombre){
+        for(Ingrediente actual : ingredientes){
+            if(actual.getNombre().equals(nombre)){
+                return actual.getIdIngrediente();
+            }
+        }
+        return null;
+    }
 }

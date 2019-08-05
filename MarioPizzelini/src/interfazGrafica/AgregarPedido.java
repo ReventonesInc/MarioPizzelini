@@ -298,11 +298,10 @@ public class AgregarPedido extends javax.swing.JFrame {
                             System.out.println("Usted eligio "+cantidadIngredientes+" Ingredientes, por favor seleccionelos");
                             auxPizzas[i] = new Pizza(cantidadIngredientes, null, 0, null);
             
-                            for(int j = 0; j<cantidadIngredientes; j++) {
+                            for(int j = 0; j < cantidadIngredientes; j++) {
                                 Object opcion = JOptionPane.showInputDialog(null,"Selecciona un ingrediente", "Elegir",JOptionPane.QUESTION_MESSAGE,null,nombreIngredientes,nombreIngredientes[0]);                
                                 String ide = opcion.toString();
-                                //System.out.println(ide);
-                                Ingrediente buscar = empresa.buscarIngredienteID(rut, ide);
+                                Ingrediente buscar = empresa.buscarIngredienteID(rut, empresa.retornarIdIngrediente(rut, ide));
                                 auxPizzas[i].agregarIngrediente(buscar);
                             }
                             auxPizzas[i].calcularValor();

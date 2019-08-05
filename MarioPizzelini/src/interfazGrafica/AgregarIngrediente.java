@@ -5,7 +5,6 @@
 package interfazGrafica;
 import clases.Ingrediente;
 import clases.MarioPizzelini;
-import interfaz.MenuIngredientes;
 import javax.swing.JOptionPane;
 
 public class AgregarIngrediente extends javax.swing.JFrame {

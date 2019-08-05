@@ -152,7 +152,6 @@ public class ListaPedido {
         return false;
     }
     
-    
     //CORRESPONDE EN EL ARRAYLIST <------------------------------ ATENCIÓN
     //Métodos de ListaPedido    
     

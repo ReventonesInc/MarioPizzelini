@@ -148,4 +148,8 @@ public class Inventario {
     public ArrayList<Ingrediente> mostrarListaIngrediente(){
         return ingredientes.getIngredientes();
     }
+    
+    public String buscarIngredienteNombre(String nombre){
+        return ingredientes.buscarIngredienteNombre(nombre);
+    }
 }

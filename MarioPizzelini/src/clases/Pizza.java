@@ -32,7 +32,7 @@ public class Pizza extends Producto{
      * @return booleano.
      */
     public boolean agregarIngrediente(Ingrediente nuevo) {
-        if(nuevo.getCantidad() > 0){
+        if(nuevo.getCantidad() >= 0){
             int cantIngredientes = ingredientes.length;
             for(int i = 0; i < cantIngredientes; i++) {
                 if(ingredientes[i] == null){

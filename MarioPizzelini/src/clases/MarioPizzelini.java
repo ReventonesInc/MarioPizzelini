@@ -201,4 +201,8 @@ public class MarioPizzelini {
     public Cliente retornarClienteRut(String rutCliente){
         return clientes.retornarClienteRut(rutCliente);
     }
+    
+    public String retornarIdIngrediente(String rut, String nombre){
+        return sucursales.buscarIngredienteNombre(rut, nombre);
+    }
 }

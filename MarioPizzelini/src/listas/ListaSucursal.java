@@ -490,4 +490,13 @@ public class ListaSucursal {
         }
         return null;
     }
+    
+    public String buscarIngredienteNombre(String rutSucursal, String nombre){
+        for(Sucursal actual : sucursales){
+            if(actual.getRut().equals(rutSucursal)){
+                return actual.buscarIngredienteNombre(nombre);
+            }
+        }
+        return null;
+    }
 }
